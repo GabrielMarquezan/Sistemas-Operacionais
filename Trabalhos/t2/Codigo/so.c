@@ -13,6 +13,7 @@
 #include "irq.h"
 #include "memoria.h"
 #include "programa.h"
+#include "processos.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -31,8 +32,10 @@ struct so_t {
   es_t *es;
   console_t *console;
   bool erro_interno;
-
-  int regA, regX, regPC, regERRO; // cópia do estado da CPU
+  processos_t* processoCorrente;
+  processos_t** processosCPU;
+  int indiceProc;
+  int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
 };
 
@@ -55,7 +58,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
 {
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
-
+  self->processoCorrente=NULL;
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -126,10 +129,13 @@ static void so_salva_estado_da_cpu(so_t *self)
   //   CPU na memória, nos endereços CPU_END_PC etc. O registrador X foi salvo
   //   pelo tratador de interrupção (ver trata_irq.asm) no endereço 59
   // se não houver processo corrente, não faz nada
-  if (mem_le(self->mem, CPU_END_A, &self->regA) != ERR_OK
-      || mem_le(self->mem, CPU_END_PC, &self->regPC) != ERR_OK
-      || mem_le(self->mem, CPU_END_erro, &self->regERRO) != ERR_OK
-      || mem_le(self->mem, 59, &self->regX)) {
+  if (self->processoCorrente == NULL){
+    return;
+  }
+  if (mem_le(self->mem, CPU_END_A, &self->processoCorrente->regA) != ERR_OK
+      || mem_le(self->mem, CPU_END_PC, &self->processoCorrente->regPC) != ERR_OK
+      || mem_le(self->mem, CPU_END_erro, &self->processoCorrente->regERRO) != ERR_OK
+      || mem_le(self->mem, 59, &self->processoCorrente->regX) != ERR_OK) {
     console_printf("SO: erro na leitura dos registradores");
     self->erro_interno = true;
   }
@@ -152,6 +158,10 @@ static void so_escalona(so_t *self)
   // t2: na primeira versão, escolhe um processo pronto caso o processo
   //   corrente não possa continuar executando, senão deixa o mesmo processo.
   //   depois, implementa um escalonador melhor
+  if (self->processoCorrente == NULL || self->processoCorrente->estadoCorrente == BLOQUEADO ){
+    //procurar um não-bloqueado
+    //se não achar, null
+  }
 }
 
 static int so_despacha(so_t *self)
@@ -161,10 +171,11 @@ static int so_despacha(so_t *self)
   //   senão retorna 1
   // o valor retornado será o valor de retorno de CHAMAC, e será colocado no 
   //   registrador A para o tratador de interrupção (ver trata_irq.asm).
-  if (mem_escreve(self->mem, CPU_END_A, self->regA) != ERR_OK
-      || mem_escreve(self->mem, CPU_END_PC, self->regPC) != ERR_OK
-      || mem_escreve(self->mem, CPU_END_erro, self->regERRO) != ERR_OK
-      || mem_escreve(self->mem, 59, self->regX)) {
+  if (self->processoCorrente == NULL) return 1;
+  if (mem_escreve(self->mem, CPU_END_A, self->processoCorrente->regA) != ERR_OK
+      || mem_escreve(self->mem, CPU_END_PC, self->processoCorrente->regPC) != ERR_OK
+      || mem_escreve(self->mem, CPU_END_erro, self->processoCorrente->regERRO) != ERR_OK
+      || mem_escreve(self->mem, 59, self->processoCorrente->regX) != ERR_OK) {
     console_printf("SO: erro na escrita dos registradores");
     self->erro_interno = true;
   }
@@ -247,7 +258,7 @@ static void so_trata_reset(so_t *self)
   }
 
   // altera o PC para o endereço de carga
-  self->regPC = ender; // deveria ser no processo
+  self->processoCorrente->regPC = ender; // deveria ser no processo
 }
 
 // interrupção gerada quando a CPU identifica um erro
@@ -260,7 +271,7 @@ static void so_trata_irq_err_cpu(so_t *self)
   // t2: com suporte a processos, deveria pegar o valor do registrador erro
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
-  err_t err = self->regERRO;
+  err_t err = self->processoCorrente->regERRO";
   console_printf("SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
   self->erro_interno = true;
 }
