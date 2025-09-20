@@ -15,7 +15,6 @@ struct processos_t {
     int pIniMemoria;
     int prioridade;
     //memória
-    
 };
 
 enum estadoProcesso {

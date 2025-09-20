@@ -249,6 +249,8 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
+  processos_t* init = cria_processo();
+
   // coloca o programa init na memória
   ender = so_carrega_programa(self, "init.maq");
   if (ender != 100) {
