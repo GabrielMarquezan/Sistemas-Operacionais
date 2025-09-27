@@ -32,8 +32,8 @@ struct so_t {
   es_t *es;
   console_t *console;
   bool erro_interno;
-  processos_t* processoCorrente;
-  processos_t** processosCPU;
+  processo_t* processoCorrente;
+  processo_t** processosCPU;
   int indiceProc;
   int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
@@ -273,7 +273,8 @@ static void so_trata_irq_err_cpu(so_t *self)
   // t2: com suporte a processos, deveria pegar o valor do registrador erro
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
-  err_t err = self->processoCorrente->regERRO";
+  err_t err = self->processoCorrente->regERRO;
+  so_trata_erro(self, err);
   console_printf("SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
   self->erro_interno = true;
 }
@@ -431,19 +432,19 @@ static void so_chamada_cria_proc(so_t *self)
   // em X está o endereço onde está o nome do arquivo
   int ender_proc;
   // t2: deveria ler o X do descritor do processo criador
-  ender_proc = self->regX;
+  ender_proc = self->processoCorrente->regX;
   char nome[100];
   if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
     int ender_carga = so_carrega_programa(self, nome);
     if (ender_carga > 0) {
       // t2: deveria escrever no PC do descritor do processo criado
-      self->regPC = ender_carga;
+      self->processoCriado->regPC = ender_carga;
       return;
     } // else?
   }
   // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
   //   do processo que pediu a criação
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 // implementação da chamada se sistema SO_MATA_PROC
@@ -453,7 +454,7 @@ static void so_chamada_mata_proc(so_t *self)
   // t2: deveria matar um processo
   // ainda sem suporte a processos, retorna erro -1
   console_printf("SO: SO_MATA_PROC não implementada");
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 // implementação da chamada se sistema SO_ESPERA_PROC
@@ -463,7 +464,7 @@ static void so_chamada_espera_proc(so_t *self)
   // t2: deveria bloquear o processo se for o caso (e desbloquear na morte do esperado)
   // ainda sem suporte a processos, retorna erro -1
   console_printf("SO: SO_ESPERA_PROC não implementada");
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 

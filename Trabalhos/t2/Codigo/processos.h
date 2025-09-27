@@ -5,8 +5,8 @@
 
 typedef enum estadoProcesso estado_p;
 
-typedef struct processos_t processos_t;
-struct processos_t {
+typedef struct processo_t processo_t;
+struct processo_t {
     int pid; //número do processo
     int parentPID; //id do processo pai
     // estado da CPU
@@ -14,6 +14,7 @@ struct processos_t {
     estado_p estadoCorrente;
     int pIniMemoria;
     int prioridade;
+    int quantum;
     //memória
 };
 
