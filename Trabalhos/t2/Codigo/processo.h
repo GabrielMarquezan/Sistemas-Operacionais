@@ -2,6 +2,7 @@
 #define PROCESSOS_H
 
 #define MAX_PROC 100
+#define QUANTUM 20
 
 typedef enum estadoProcesso estado_p;
 
@@ -24,5 +25,6 @@ enum estadoProcesso {
     EXECUTANDO
 };
 
+processo_t* cria_processo(processo_t* processoPai, int pid);
 
 #endif

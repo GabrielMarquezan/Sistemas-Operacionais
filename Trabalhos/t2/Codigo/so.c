@@ -13,7 +13,8 @@
 #include "irq.h"
 #include "memoria.h"
 #include "programa.h"
-#include "processos.h"
+#include "processo.h"
+#include "lista_processos.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -33,7 +34,7 @@ struct so_t {
   console_t *console;
   bool erro_interno;
   processo_t* processoCorrente;
-  processo_t** processosCPU;
+  lista_t* processosCPU; // isso aqui TEM que ser uma lista
   int indiceProc;
   int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
@@ -59,6 +60,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
   self->processoCorrente=NULL;
+  self->processosCPU = lista_cria();
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -159,6 +161,13 @@ static void so_escalona(so_t *self)
   //   corrente não possa continuar executando, senão deixa o mesmo processo.
   //   depois, implementa um escalonador melhor
   if (self->processoCorrente == NULL || self->processoCorrente->estadoCorrente == BLOQUEADO ){
+    lista_t* lista = self->processosCPU;
+    if (lista_vazia(lista)) {
+      self->processoCorrente = NULL;
+      //self->erro_interno = true;
+    } else {
+      self->processoCorrente = busca_proc_pronto(lista);
+    }
     //procurar um não-bloqueado
     //se não achar, null
   }
@@ -249,7 +258,7 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
-  processos_t* init = cria_processo();
+  processo_t* init = cria_processo(NULL, 1);
 
   // coloca o programa init na memória
   ender = so_carrega_programa(self, "init.maq");
@@ -261,6 +270,7 @@ static void so_trata_reset(so_t *self)
 
   // altera o PC para o endereço de carga
   self->processoCorrente->regPC = ender; // deveria ser no processo
+  self->processosCPU = insere(self->processosCPU, init);
 }
 
 // interrupção gerada quando a CPU identifica um erro
@@ -274,9 +284,16 @@ static void so_trata_irq_err_cpu(so_t *self)
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
   err_t err = self->processoCorrente->regERRO;
-  so_trata_erro(self, err);
-  console_printf("SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
-  self->erro_interno = true;
+  // se o processo tenta acessar um discpositivo ocupado, o processo bloqueia
+  if (err == ERR_OCUP) {
+    self->processoCorrente->estadoCorrente = BLOQUEADO;
+    return;
+  }
+  if (err == ERR_INSTR_INV || err == ERR_END_INV ||
+      err == ERR_INSTR_PRIV || err == ERR_OP_INV ||
+      err == ERR_DISP_INV) {
+        so_mata_processo(self);
+  }
 }
 
 // interrupção gerada quando o timer expira
@@ -293,6 +310,7 @@ static void so_trata_irq_relogio(so_t *self)
   // t2: deveria tratar a interrupção
   //   por exemplo, decrementa o quantum do processo corrente, quando se tem
   //   um escalonador com quantum
+
   console_printf("SO: interrupção do relógio (não tratada)");
 }
 
@@ -319,7 +337,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
 {
   // a identificação da chamada está no registrador A
   // t2: com processos, o reg A deve estar no descritor do processo corrente
-  int id_chamada = self->regA;
+  int id_chamada = self->processoCorrente->regA;
   console_printf("SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
     case SO_LE:
@@ -339,7 +357,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
       break;
     default:
       console_printf("SO: chamada de sistema desconhecida (%d)", id_chamada);
-      // t2: deveria matar o processo
+      so_mata_processo(self);
       self->erro_interno = true;
   }
 }
@@ -382,7 +400,7 @@ static void so_chamada_le(so_t *self)
   // t2: se houvesse processo, deveria escrever no reg A do processo
   // t2: o acesso só deve ser feito nesse momento se for possível; se não, o processo
   //   é bloqueado, e o acesso só deve ser feito mais tarde (e o processo desbloqueado)
-  self->regA = dado;
+  self->processoCorrente->regA = dado;
 }
 
 // implementação da chamada se sistema SO_ESCR

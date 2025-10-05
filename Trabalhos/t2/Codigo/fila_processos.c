@@ -65,10 +65,11 @@ void bubble_up(fila_prioridade* heap, int atual){
 
 bool inserir(fila_prioridade* heap, processo_t* proc){
     int posicao = heap->qtd_elementos + 1;
-    if (posicao > heap->capacidade) return 1; //erro ao inserir
+    if (posicao > heap->capacidade) return false; //erro ao inserir
     heap->arr[posicao] = proc;
     heap->qtd_elementos++;
     bubble_up(heap, posicao);
+    return true;
 }
 
 //remove o processo com maior prioridade

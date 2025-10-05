@@ -8,7 +8,7 @@
 
 typedef struct so_t so_t;
 
-#include "processos.h"
+#include "processo.h"
 #include "memoria.h"
 #include "cpu.h"
 #include "es.h"
