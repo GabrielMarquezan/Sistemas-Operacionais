@@ -13,6 +13,8 @@
 #include "irq.h"
 #include "memoria.h"
 #include "programa.h"
+#include "processo.h"
+#include "lista_processos.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -31,8 +33,10 @@ struct so_t {
   es_t *es;
   console_t *console;
   bool erro_interno;
-
-  int regA, regX, regPC, regERRO; // cópia do estado da CPU
+  processo_t* processoCorrente;
+  lista_t* processosCPU; // isso aqui TEM que ser uma lista
+  int indiceProc;
+  int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
 };
 
@@ -55,7 +59,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
 {
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
-
+  self->processoCorrente=NULL;
+  self->processosCPU = lista_cria();
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -126,10 +131,13 @@ static void so_salva_estado_da_cpu(so_t *self)
   //   CPU na memória, nos endereços CPU_END_PC etc. O registrador X foi salvo
   //   pelo tratador de interrupção (ver trata_irq.asm) no endereço 59
   // se não houver processo corrente, não faz nada
-  if (mem_le(self->mem, CPU_END_A, &self->regA) != ERR_OK
-      || mem_le(self->mem, CPU_END_PC, &self->regPC) != ERR_OK
-      || mem_le(self->mem, CPU_END_erro, &self->regERRO) != ERR_OK
-      || mem_le(self->mem, 59, &self->regX)) {
+  if (self->processoCorrente == NULL){
+    return;
+  }
+  if (mem_le(self->mem, CPU_END_A, &self->processoCorrente->regA) != ERR_OK
+      || mem_le(self->mem, CPU_END_PC, &self->processoCorrente->regPC) != ERR_OK
+      || mem_le(self->mem, CPU_END_erro, &self->processoCorrente->regERRO) != ERR_OK
+      || mem_le(self->mem, 59, &self->processoCorrente->regX) != ERR_OK) {
     console_printf("SO: erro na leitura dos registradores");
     self->erro_interno = true;
   }
@@ -152,6 +160,17 @@ static void so_escalona(so_t *self)
   // t2: na primeira versão, escolhe um processo pronto caso o processo
   //   corrente não possa continuar executando, senão deixa o mesmo processo.
   //   depois, implementa um escalonador melhor
+  if (self->processoCorrente == NULL || self->processoCorrente->estadoCorrente == BLOQUEADO ){
+    lista_t* lista = self->processosCPU;
+    if (lista_vazia(lista)) {
+      self->processoCorrente = NULL;
+      //self->erro_interno = true;
+    } else {
+      self->processoCorrente = busca_proc_pronto(lista);
+    }
+    //procurar um não-bloqueado
+    //se não achar, null
+  }
 }
 
 static int so_despacha(so_t *self)
@@ -161,10 +180,11 @@ static int so_despacha(so_t *self)
   //   senão retorna 1
   // o valor retornado será o valor de retorno de CHAMAC, e será colocado no 
   //   registrador A para o tratador de interrupção (ver trata_irq.asm).
-  if (mem_escreve(self->mem, CPU_END_A, self->regA) != ERR_OK
-      || mem_escreve(self->mem, CPU_END_PC, self->regPC) != ERR_OK
-      || mem_escreve(self->mem, CPU_END_erro, self->regERRO) != ERR_OK
-      || mem_escreve(self->mem, 59, self->regX)) {
+  if (self->processoCorrente == NULL) return 1;
+  if (mem_escreve(self->mem, CPU_END_A, self->processoCorrente->regA) != ERR_OK
+      || mem_escreve(self->mem, CPU_END_PC, self->processoCorrente->regPC) != ERR_OK
+      || mem_escreve(self->mem, CPU_END_erro, self->processoCorrente->regERRO) != ERR_OK
+      || mem_escreve(self->mem, 59, self->processoCorrente->regX) != ERR_OK) {
     console_printf("SO: erro na escrita dos registradores");
     self->erro_interno = true;
   }
@@ -238,6 +258,8 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
+  processo_t* init = cria_processo(NULL, 1);
+
   // coloca o programa init na memória
   ender = so_carrega_programa(self, "init.maq");
   if (ender != 100) {
@@ -247,7 +269,8 @@ static void so_trata_reset(so_t *self)
   }
 
   // altera o PC para o endereço de carga
-  self->regPC = ender; // deveria ser no processo
+  self->processoCorrente->regPC = ender; // deveria ser no processo
+  self->processosCPU = insere(self->processosCPU, init);
 }
 
 // interrupção gerada quando a CPU identifica um erro
@@ -260,9 +283,17 @@ static void so_trata_irq_err_cpu(so_t *self)
   // t2: com suporte a processos, deveria pegar o valor do registrador erro
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
-  err_t err = self->regERRO;
-  console_printf("SO: IRQ não tratada -- erro na CPU: %s", err_nome(err));
-  self->erro_interno = true;
+  err_t err = self->processoCorrente->regERRO;
+  // se o processo tenta acessar um discpositivo ocupado, o processo bloqueia
+  if (err == ERR_OCUP) {
+    self->processoCorrente->estadoCorrente = BLOQUEADO;
+    return;
+  }
+  if (err == ERR_INSTR_INV || err == ERR_END_INV ||
+      err == ERR_INSTR_PRIV || err == ERR_OP_INV ||
+      err == ERR_DISP_INV) {
+        so_mata_processo(self);
+  }
 }
 
 // interrupção gerada quando o timer expira
@@ -279,6 +310,7 @@ static void so_trata_irq_relogio(so_t *self)
   // t2: deveria tratar a interrupção
   //   por exemplo, decrementa o quantum do processo corrente, quando se tem
   //   um escalonador com quantum
+
   console_printf("SO: interrupção do relógio (não tratada)");
 }
 
@@ -305,7 +337,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
 {
   // a identificação da chamada está no registrador A
   // t2: com processos, o reg A deve estar no descritor do processo corrente
-  int id_chamada = self->regA;
+  int id_chamada = self->processoCorrente->regA;
   console_printf("SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
     case SO_LE:
@@ -325,7 +357,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
       break;
     default:
       console_printf("SO: chamada de sistema desconhecida (%d)", id_chamada);
-      // t2: deveria matar o processo
+      so_mata_processo(self);
       self->erro_interno = true;
   }
 }
@@ -368,7 +400,7 @@ static void so_chamada_le(so_t *self)
   // t2: se houvesse processo, deveria escrever no reg A do processo
   // t2: o acesso só deve ser feito nesse momento se for possível; se não, o processo
   //   é bloqueado, e o acesso só deve ser feito mais tarde (e o processo desbloqueado)
-  self->regA = dado;
+  self->processoCorrente->regA = dado;
 }
 
 // implementação da chamada se sistema SO_ESCR
@@ -418,19 +450,19 @@ static void so_chamada_cria_proc(so_t *self)
   // em X está o endereço onde está o nome do arquivo
   int ender_proc;
   // t2: deveria ler o X do descritor do processo criador
-  ender_proc = self->regX;
+  ender_proc = self->processoCorrente->regX;
   char nome[100];
   if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
     int ender_carga = so_carrega_programa(self, nome);
     if (ender_carga > 0) {
       // t2: deveria escrever no PC do descritor do processo criado
-      self->regPC = ender_carga;
+      self->processoCriado->regPC = ender_carga;
       return;
     } // else?
   }
   // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
   //   do processo que pediu a criação
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 // implementação da chamada se sistema SO_MATA_PROC
@@ -440,7 +472,7 @@ static void so_chamada_mata_proc(so_t *self)
   // t2: deveria matar um processo
   // ainda sem suporte a processos, retorna erro -1
   console_printf("SO: SO_MATA_PROC não implementada");
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 // implementação da chamada se sistema SO_ESPERA_PROC
@@ -450,7 +482,7 @@ static void so_chamada_espera_proc(so_t *self)
   // t2: deveria bloquear o processo se for o caso (e desbloquear na morte do esperado)
   // ainda sem suporte a processos, retorna erro -1
   console_printf("SO: SO_ESPERA_PROC não implementada");
-  self->regA = -1;
+  self->processoCorrente->regA = -1;
 }
 
 
