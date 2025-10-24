@@ -34,7 +34,7 @@ struct so_t {
   console_t *console;
   bool erro_interno;
   processo_t* processoCorrente;
-  lista_t* processosCPU; // isso aqui TEM que ser uma lista
+  processo_t** processosCPU; // isso aqui TEM que ser uma lista
   int indiceProc;
   int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
@@ -60,7 +60,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
   self->processoCorrente=NULL;
-  self->processosCPU = lista_cria();
+  self->processosCPU = processos_cria();
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -161,15 +161,15 @@ static void so_escalona(so_t *self)
   //   corrente não possa continuar executando, senão deixa o mesmo processo.
   //   depois, implementa um escalonador melhor
   if (self->processoCorrente == NULL || self->processoCorrente->estadoCorrente == BLOQUEADO ){
-    lista_t* lista = self->processosCPU;
-    if (lista_vazia(lista)) {
-      self->processoCorrente = NULL;
-      //self->erro_interno = true;
-    } else {
-      self->processoCorrente = busca_proc_pronto(lista);
+    // esvazia o processoCorrente
+    self->processoCorrente = NULL;
+    for (int i = 0; i < MAX_PROC; i++) {
+      if (self->processosCPU[i] != NULL && self->processosCPU[i]->estadoCorrente == PRONTO) {
+        self->processoCorrente = self->processosCPU[i];
+      }
     }
-    //procurar um não-bloqueado
-    //se não achar, null
+    // se achou algum processo pronto, escalona ele
+    // se não, permanece como NULL
   }
 }
 
@@ -258,7 +258,7 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
-  processo_t* init = cria_processo(NULL, 1);
+  processo_t* init = cria_processo(NULL);
 
   // coloca o programa init na memória
   ender = so_carrega_programa(self, "init.maq");
@@ -267,10 +267,10 @@ static void so_trata_reset(so_t *self)
     self->erro_interno = true;
     return;
   }
-
+  init->regPC = ender;
+  so_insere_processo(self, init);
   // altera o PC para o endereço de carga
-  self->processoCorrente->regPC = ender; // deveria ser no processo
-  self->processosCPU = insere(self->processosCPU, init);
+  self->processoCorrente = init; // deveria ser no processo
 }
 
 // interrupção gerada quando a CPU identifica um erro
@@ -446,7 +446,7 @@ static void so_chamada_cria_proc(so_t *self)
   // ainda sem suporte a processos, carrega programa e passa a executar ele
   // quem chamou o sistema não vai mais ser executado, coitado!
   // t2: deveria criar um novo processo
-
+  processo_t* novo_proc = cria_processo(self->processoCorrente);
   // em X está o endereço onde está o nome do arquivo
   int ender_proc;
   // t2: deveria ler o X do descritor do processo criador
@@ -456,19 +456,31 @@ static void so_chamada_cria_proc(so_t *self)
     int ender_carga = so_carrega_programa(self, nome);
     if (ender_carga > 0) {
       // t2: deveria escrever no PC do descritor do processo criado
-      self->processoCriado->regPC = ender_carga;
+      novo_proc->regPC = ender_carga;
+      self->processoCorrente->regA = novo_proc->pid;
+      if (!so_insere_processo(self, novo_proc)) {
+        so_mata_processo(novo_proc);
+        self->processoCorrente->regA = -1;
+      }
       return;
-    } // else?
+    } else {
+      // se aconteceu algum erro ao carregar o programa da memória, o programa morre
+      // então o processo também morre
+      so_mata_processo(novo_proc);
+
+      //registra erro no processo criador
+      self->processoCorrente->regA = -1;
+    }
   }
   // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
   //   do processo que pediu a criação
-  self->processoCorrente->regA = -1;
 }
 
 // implementação da chamada se sistema SO_MATA_PROC
 // mata o processo com pid X (ou o processo corrente se X é 0)
 static void so_chamada_mata_proc(so_t *self)
 {
+
   // t2: deveria matar um processo
   // ainda sem suporte a processos, retorna erro -1
   console_printf("SO: SO_MATA_PROC não implementada");
@@ -541,6 +553,18 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
     }
   }
   // estourou o tamanho de str
+  return false;
+}
+
+// insere um novo processo na tabela de processos
+bool so_insere_processo(so_t* self, processo_t* proc) {
+  if (proc == NULL) return;
+  // insere o processo na primeira posição vazia da tabela
+  for (int i = 0; i < MAX_PROC; i++) {
+    if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
+    return true;
+  }
+  // tabela cheia, não conseguiu inserir o processo
   return false;
 }
 

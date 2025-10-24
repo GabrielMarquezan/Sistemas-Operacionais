@@ -25,6 +25,10 @@ enum estadoProcesso {
     EXECUTANDO
 };
 
-processo_t* cria_processo(processo_t* processoPai, int pid);
+static int prox_pid = 1;
+
+processo_t* cria_processo(processo_t* processoPai);
+
+processo_t** processos_cria();
 
 #endif
