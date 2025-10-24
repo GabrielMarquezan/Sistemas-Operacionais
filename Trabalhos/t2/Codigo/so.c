@@ -34,7 +34,7 @@ struct so_t {
   console_t *console;
   bool erro_interno;
   processo_t* processoCorrente;
-  processo_t** processosCPU; // isso aqui TEM que ser uma lista
+  processo_t** processosCPU;
   int indiceProc;
   int qtdProc;
   // t2: tabela de processos, processo corrente, pendências, etc
@@ -59,8 +59,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
 {
   so_t *self = malloc(sizeof(*self));
   if (self == NULL) return NULL;
-  self->processoCorrente=NULL;
-  self->processosCPU = processos_cria();
+  self->processoCorrente = NULL;
+  self->processosCPU = cria_vetor_processos();
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -482,9 +482,10 @@ static void so_chamada_mata_proc(so_t *self)
 {
 
   // t2: deveria matar um processo
-  // ainda sem suporte a processos, retorna erro -1
-  console_printf("SO: SO_MATA_PROC não implementada");
-  self->processoCorrente->regA = -1;
+  // INACABADO
+  int ppid_processo_corrente = self->processoCorrente->parentPID;
+  int processos_mortos = mata_processo(self->processoCorrente, self->processosCPU);
+  if(processos_mortos == 0) console_printf("SO: processo corrente já estava morto");
 }
 
 // implementação da chamada se sistema SO_ESPERA_PROC
@@ -561,7 +562,10 @@ bool so_insere_processo(so_t* self, processo_t* proc) {
   if (proc == NULL) return;
   // insere o processo na primeira posição vazia da tabela
   for (int i = 0; i < MAX_PROC; i++) {
-    if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
+    if (self->processosCPU[i] == NULL) {
+      self->processosCPU[i] = proc;
+      self->qtdProc++;
+    }
     return true;
   }
   // tabela cheia, não conseguiu inserir o processo

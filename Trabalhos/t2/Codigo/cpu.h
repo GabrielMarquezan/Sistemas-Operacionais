@@ -18,6 +18,7 @@ typedef enum { supervisor, usuario } cpu_modo_t;
 #define CPU_END_A           51
 #define CPU_END_erro        52
 #define CPU_END_complemento 53
+#define CPU_END_X           59
 
 // endereço inicial do PC quando o processador é inicializado
 #define CPU_END_RESET        0
