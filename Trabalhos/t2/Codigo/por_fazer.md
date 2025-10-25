@@ -11,17 +11,12 @@
 - [ ] implemente as chamadas de criação e morte de processos
 - [ ] altere as chamadas de E/S, para usar um terminal diferente dependendo do pid do processo
 - [ ] o pid do processo não é a mesma coisa que sua entrada na tabela: quando um processo termina sua entrada na tabela pode ser reutilizada por outro processo, o pid não, é uma espécie de número de série do processo.
-# Parte I
-
-- altere `so_salva_estado_da_cpu` e `so_despacha` para salvar o estado do processador na tabela de processos (na entrada correspondente ao processo em execução) e para recuperar o estado do processador a partir da tabela 
-- altere as chamadas de E/S, para usar um terminal diferente dependendo do pid do processo
-- o pid do processo não é a mesma coisa que sua entrada na tabela: quando um processo termina sua entrada na tabela pode ser reutilizada por outro processo, o pid não, é uma espécie de número de série do processo.
 
 ## Parte II
 
 Na parte I, um processo não bloqueia, se ele não está morto, ele pode executar.
 Nesta parte, vamos implementar o bloqueio de processos e eliminar a espera ocupada na E/S.
-- nas chamadas de E/S, se o dispositivo não estiver pronto, o SO deve bloquear o processo e não realizar a E/S; se o dispositivo estiver pronto, ele realiza a E/S e não bloqueia, como na parte I.
+- [ ] nas chamadas de E/S, se o dispositivo não estiver pronto, o SO deve bloquear o processo e não realizar a E/S; se o dispositivo estiver pronto, ele realiza a E/S e não bloqueia, como na parte I.
 - na função que trata de pendências, o SO deve verificar o estado dos dispositivos que causaram bloqueio e realizar operações pendentes e desbloquear processos se for o caso
 - implemente a chamada de sistema SO_ESPERA_PROC, que bloqueia o processo chamador até que o processo que ele identifica na chamada tenha terminado. Se o processo esperado não existe ou se for o próprio processo chamador, retorna um erro para o processo, não bloqueia ele esperando algo que não vai acontecer. Quando tratar a morte de um processo, o SO deve verificar se há alguém esperando por esse acontecimento.
 
