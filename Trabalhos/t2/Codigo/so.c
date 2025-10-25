@@ -16,6 +16,7 @@
 #include "processo.h"
 #include "lista_processos.h"
 
+#include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -34,9 +35,11 @@ struct so_t {
   console_t *console;
   bool erro_interno;
   processo_t* processoCorrente;
-  processo_t** processosCPU; // isso aqui TEM que ser uma lista
+  processo_t** processosCPU; 
   int indiceProc;
   int qtdProc;
+  bool terminais_ocupados[4]; // 0 = TERM_A, 1 = TERM_B, ...
+  int cont_esperando;
   // t2: tabela de processos, processo corrente, pendências, etc
 };
 
@@ -50,6 +53,77 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel);
 // copia para str da memória do processador, até copiar um 0 (retorna true) ou tam bytes
 static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 
+//--------------------------------------------------------------------
+// PROCESSOS 
+//--------------------------------------------------------------------
+
+static processo_t* busca_processo_escrita_pendente(so_t* self, int terminal){
+  for (int i = 0; i < MAX_PROC; i++) {
+    if (self->processosCPU[i] == NULL) continue;
+    if (self->processosCPU[i]->terminal == terminal
+        && self->processosCPU[i]->esperando_escrita) {
+          return self->processosCPU[i];
+        }
+  }
+  return NULL;
+}
+
+static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
+  for (int i = 0; i < MAX_PROC; i++) {
+    if (self->processosCPU[i] == NULL) continue;
+    if (self->processosCPU[i]->terminal == terminal
+        && self->processosCPU[i]->esperando_leitura) {
+          return self->processosCPU[i];
+        }
+  }
+  return NULL;
+}
+
+// insere um novo processo na tabela de processos
+bool so_insere_processo(so_t* self, processo_t* proc) {
+  if (proc == NULL) return;
+  // insere o processo na primeira posição vazia da tabela
+  for (int i = 0; i < MAX_PROC; i++) {
+    if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
+    return true;
+  }
+  // tabela cheia, não conseguiu inserir o processo
+  return false;
+}
+
+// TERMINAL
+
+static bool checa_terminal_ok(so_t* self, int terminal) {
+  int estado;
+  if (es_le(self->es, terminal, &estado) != ERR_OK) {
+    console_printf("SO: problema no acesso ao estado do terminal");
+    self->erro_interno = true;
+    return false;
+  }
+  return estado == 1;
+}
+
+static void le_dado_teclado(so_t* self, processo_t* proc) {
+  int dado;
+  if (es_le(self->es, proc->terminal + TERM_TECLADO, &dado) != ERR_OK) {
+    console_printf("SO: problema no acesso ao teclado");
+    self->erro_interno = true;
+    return;
+  }
+  // escreve no reg A do processo corrente
+  // (na verdade, na posição onde o processador vai pegar o A quando retornar da int)
+  proc->regA = dado;
+}
+
+static void escreve_dado_tela(so_t* self, processo_t* proc) {
+  if (es_escreve(self->es, proc->terminal + TERM_TELA, proc->regX) != ERR_OK) {
+    console_printf("SO: problema no acesso à tela");
+    self->erro_interno = true;
+    return;
+  }
+  proc->regA = 0;
+}
+
 
 // ---------------------------------------------------------------------
 // CRIAÇÃO {{{1
@@ -61,6 +135,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
   if (self == NULL) return NULL;
   self->processoCorrente=NULL;
   self->processosCPU = processos_cria();
+  memset(self->terminais_ocupados, 0, sizeof(self->terminais_ocupados));
+  self->cont_esperando = 0;
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -151,6 +227,34 @@ static void so_trata_pendencias(so_t *self)
   // - desbloqueio de processos
   // - contabilidades
   // - etc
+  //checa se algum terminal que foi pedido está livre => se algum terminal marcado como 1 ficou livre
+  for (int i = 0; i < 4; i++) {
+    processo_t* proc = NULL;
+    int leitura = 0, escrita = 0;
+    if (self->terminais_ocupados[i]) {
+      // le se tem dado no teclado
+      leitura = checa_terminal_ok(self, (self->terminais_ocupados[i] * 4) + TERM_TECLADO_OK);
+      // escreve se n tem nada sendo escrito
+      escrita = checa_terminal_ok(self, (self->terminais_ocupados[i] * 4) + TERM_TELA_OK);
+      if (leitura) {
+        proc = busca_processo_leitura_pendente(self, (self->terminais_ocupados[i] * 4));
+        if (proc != NULL) {
+          le_dado_teclado(self, proc);
+          proc->estadoCorrente = PRONTO;
+          proc->esperando_leitura = false;
+        }
+      } else if (escrita) {
+        proc = busca_processo_escrita_pendente(self, (self->terminais_ocupados[i] * 4));
+        if (proc != NULL) {
+          escreve_dado_tela(self, proc);
+          proc->estadoCorrente = PRONTO;
+          proc->esperando_escrita = false;
+        }
+      }
+      // libera o terminal
+      self->terminais_ocupados[i] = 0;
+    }
+  }
 }
 
 static void so_escalona(so_t *self)
@@ -366,77 +470,27 @@ static void so_trata_irq_chamada_sistema(so_t *self)
 // faz a leitura de um dado da entrada corrente do processo, coloca o dado no reg A
 static void so_chamada_le(so_t *self)
 {
-  // implementação com espera ocupada
-  //   t2: deveria realizar a leitura somente se a entrada estiver disponível,
-  //     senão, deveria bloquear o processo.
-  //   no caso de bloqueio do processo, a leitura (e desbloqueio) deverá
-  //     ser feita mais tarde, em tratamentos pendentes em outra interrupção,
-  //     ou diretamente em uma interrupção específica do dispositivo, se for
-  //     o caso
-  // implementação lendo direto do terminal A
-  //   t2: deveria usar dispositivo de entrada corrente do processo
-  for (;;) {  // espera ocupada!
-    int estado;
-    if (es_le(self->es, D_TERM_A_TECLADO_OK, &estado) != ERR_OK) {
-      console_printf("SO: problema no acesso ao estado do teclado");
-      self->erro_interno = true;
-      return;
-    }
-    if (estado != 0) break;
-    // como não está saindo do SO, a unidade de controle não está executando seu laço.
-    // esta gambiarra faz pelo menos a console ser atualizada
-    // t2: com a implementação de bloqueio de processo, esta gambiarra não
-    //   deve mais existir.
-    console_tictac(self->console);
-  }
-  int dado;
-  if (es_le(self->es, D_TERM_A_TECLADO, &dado) != ERR_OK) {
-    console_printf("SO: problema no acesso ao teclado");
-    self->erro_interno = true;
-    return;
-  }
-  // escreve no reg A do processador
-  // (na verdade, na posição onde o processador vai pegar o A quando retornar da int)
-  // t2: se houvesse processo, deveria escrever no reg A do processo
-  // t2: o acesso só deve ser feito nesse momento se for possível; se não, o processo
-  //   é bloqueado, e o acesso só deve ser feito mais tarde (e o processo desbloqueado)
-  self->processoCorrente->regA = dado;
+  bool estado = checa_terminal_ok(self, self->processoCorrente->terminal + TERM_TECLADO_OK);
+  if (estado == false) {
+    self->processoCorrente->esperando_leitura = true;
+    self->terminais_ocupados[(self->processoCorrente->terminal)%4] = true;
+    so_bloqueia_processo(self);
+  } // teclado não está pronto para a leitura
+  // então bloqueia o processo que fez a chamada
+  le_dado_teclado(self, self->processoCorrente->terminal);
 }
 
 // implementação da chamada se sistema SO_ESCR
 // escreve o valor do reg X na saída corrente do processo
 static void so_chamada_escr(so_t *self)
 {
-  // implementação com espera ocupada
-  //   t2: deveria bloquear o processo se dispositivo ocupado
-  // implementação escrevendo direto do terminal A
-  //   t2: deveria usar o dispositivo de saída corrente do processo
-  for (;;) {
-    int estado;
-    if (es_le(self->es, D_TERM_A_TELA_OK, &estado) != ERR_OK) {
-      console_printf("SO: problema no acesso ao estado da tela");
-      self->erro_interno = true;
-      return;
-    }
-    if (estado != 0) break;
-    // como não está saindo do SO, a unidade de controle não está executando seu laço.
-    // esta gambiarra faz pelo menos a console ser atualizada
-    // t2: não deve mais existir quando houver suporte a processos, porque o SO não poderá
-    //   executar por muito tempo, permitindo a execução do laço da unidade de controle
-    console_tictac(self->console);
+  bool estado = checa_terminal_ok(self, self->processoCorrente->terminal + TERM_TELA_OK);
+  if (estado == false) {
+    self->processoCorrente->esperando_escrita = true;
+    self->terminais_ocupados[(self->processoCorrente->terminal)%4] = true;
+    so_bloqueia_processo(self);
   }
-  int dado;
-  // está lendo o valor de X e escrevendo o de A direto onde o processador colocou/vai pegar
-  // t2: deveria usar os registradores do processo que está realizando a E/S
-  // t2: caso o processo tenha sido bloqueado, esse acesso deve ser realizado em outra execução
-  //   do SO, quando ele verificar que esse acesso já pode ser feito.
-  dado = self->regX;
-  if (es_escreve(self->es, D_TERM_A_TELA, dado) != ERR_OK) {
-    console_printf("SO: problema no acesso à tela");
-    self->erro_interno = true;
-    return;
-  }
-  self->regA = 0;
+  escreve_dado_tela(self, self->processoCorrente);
 }
 
 // implementação da chamada se sistema SO_CRIA_PROC
@@ -480,6 +534,7 @@ static void so_chamada_cria_proc(so_t *self)
 // mata o processo com pid X (ou o processo corrente se X é 0)
 static void so_chamada_mata_proc(so_t *self)
 {
+  // tratar aqui a pendência de quando um processo está esperando outro morrer
 
   // t2: deveria matar um processo
   // ainda sem suporte a processos, retorna erro -1
@@ -493,8 +548,8 @@ static void so_chamada_espera_proc(so_t *self)
 {
   // t2: deveria bloquear o processo se for o caso (e desbloquear na morte do esperado)
   // ainda sem suporte a processos, retorna erro -1
-  console_printf("SO: SO_ESPERA_PROC não implementada");
-  self->processoCorrente->regA = -1;
+  self->processoCorrente->esperando_processo = self->processoCorrente->regX;
+  self->processoCorrente->estadoCorrente = BLOQUEADO;
 }
 
 
@@ -553,18 +608,6 @@ static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
     }
   }
   // estourou o tamanho de str
-  return false;
-}
-
-// insere um novo processo na tabela de processos
-bool so_insere_processo(so_t* self, processo_t* proc) {
-  if (proc == NULL) return;
-  // insere o processo na primeira posição vazia da tabela
-  for (int i = 0; i < MAX_PROC; i++) {
-    if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
-    return true;
-  }
-  // tabela cheia, não conseguiu inserir o processo
   return false;
 }
 

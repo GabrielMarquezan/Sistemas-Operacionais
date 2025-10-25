@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdbool.h>
 #include "cpu.h"
 #include "processo.h"
 
@@ -9,14 +8,19 @@ processo_t* cria_processo(processo_t* processoPai) {
     processo_t* proc = malloc(sizeof(processo_t));
     if (proc == NULL) return NULL;
     proc->estadoCorrente = PRONTO;
-    if (processoPai == NULL){
-        proc->parentPID = 1; //id do INIT
-    } else proc->parentPID = processoPai->pid;
     proc->prioridade = QUANTUM;
     proc->regERRO = ERR_OK;
     proc->regA = 0;
     proc->regX = 0;
     proc->pid = prox_pid++;
+    proc->esperando_escrita = false;
+    proc->esperando_escrita = false;
+    proc->esperando_processo = 0;
+    proc->terminal = (proc->pid%4) * 4; // 0 = TERM_A, 1 = TERM_B
+    if (processoPai == NULL){
+        proc->parentPID = 0; //id do INIT
+        proc->pid = 1;
+    } else proc->parentPID = processoPai->pid;
 
     return proc;
 }
