@@ -1,14 +1,14 @@
 #include "processo.h"
+#include "fila_prioridade.h"
 #include <stdlib.h>
 #include <stdbool.h>
 
 #define MAX_CAP 100000
 
 //É mais fácil coordenar as filas se só forem inseridos processos PRONTOS
-
 //Para usar isso aq tudo, só precisa o "cria", "destrói", "insere", "remove" e o "topo", no máximo
 
-typedef struct fila {
+typedef struct Fila_Prioridade {
     int qtd_elementos;
     int capacidade;
     processo_t** arr;

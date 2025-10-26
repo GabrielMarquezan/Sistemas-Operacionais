@@ -38,6 +38,7 @@ enum estadoProcesso {
 
 static int prox_pid = 2;
 
+processo_t* busca_proc_na_tabela(processo_t** tabela, int pid);
 processo_t* cria_processo(processo_t* processoPai);
 int mata_processo(processo_t* proc, processo_t** tabela);
 processo_t** cria_vetor_processos();

@@ -8,25 +8,25 @@
 - [X] crie uma variável que designe o processo em execução. Faça de tal forma que tenha suporte a não ter nenhum processo em execução
 - [X] altere `so_salva_estado_da_cpu` e `so_despacha` para salvar o estado do processador na tabela de processos (na entrada correspondente ao processo em execução) e para recuperar o estado do processador a partir da tabela
 - [X] implemente a função do escalonador (`so_escalona`). Ela escolhe o próximo processo a executar (altera a variável que designa o processo em execução). Pode ser bem simples: se o processo que estava em execução estiver pronto continua sendo executado e se não, escolhe o primeiro que encontrar na tabela que esteja pronto. 
-- [ ] implemente as chamadas de criação e morte de processos
-- [ ] altere as chamadas de E/S, para usar um terminal diferente dependendo do pid do processo
-- [ ] o pid do processo não é a mesma coisa que sua entrada na tabela: quando um processo termina sua entrada na tabela pode ser reutilizada por outro processo, o pid não, é uma espécie de número de série do processo.
+- [X] implemente as chamadas de criação e morte de processos
+- [X] altere as chamadas de E/S, para usar um terminal diferente dependendo do pid do processo
+- [X] o pid do processo não é a mesma coisa que sua entrada na tabela: quando um processo termina sua entrada na tabela pode ser reutilizada por outro processo, o pid não, é uma espécie de número de série do processo.
 
 ## Parte II
 
 Na parte I, um processo não bloqueia, se ele não está morto, ele pode executar.
 Nesta parte, vamos implementar o bloqueio de processos e eliminar a espera ocupada na E/S.
-- [ ] nas chamadas de E/S, se o dispositivo não estiver pronto, o SO deve bloquear o processo e não realizar a E/S; se o dispositivo estiver pronto, ele realiza a E/S e não bloqueia, como na parte I.
-- na função que trata de pendências, o SO deve verificar o estado dos dispositivos que causaram bloqueio e realizar operações pendentes e desbloquear processos se for o caso
-- implemente a chamada de sistema SO_ESPERA_PROC, que bloqueia o processo chamador até que o processo que ele identifica na chamada tenha terminado. Se o processo esperado não existe ou se for o próprio processo chamador, retorna um erro para o processo, não bloqueia ele esperando algo que não vai acontecer. Quando tratar a morte de um processo, o SO deve verificar se há alguém esperando por esse acontecimento.
+- [X] nas chamadas de E/S, se o dispositivo não estiver pronto, o SO deve bloquear o processo e não realizar a E/S; se o dispositivo estiver pronto, ele realiza a E/S e não bloqueia, como na parte I.
+- [X] na função que trata de pendências, o SO deve verificar o estado dos dispositivos que causaram bloqueio e realizar operações pendentes e desbloquear processos se for o caso
+- [X] implemente a chamada de sistema SO_ESPERA_PROC, que bloqueia o processo chamador até que o processo que ele identifica na chamada tenha terminado. Se o processo esperado não existe ou se for o próprio processo chamador, retorna um erro para o processo, não bloqueia ele esperando algo que não vai acontecer. Quando tratar a morte de um processo, o SO deve verificar se há alguém esperando por esse acontecimento.
 
 ## Parte III
 
 Implemente um escalonador preemptivo *round-robin* (circular):
-- os processos prontos são colocados em uma fila
-- o escalonador sempre escolhe o primeiro da fila
-- quando um processo fica pronto (é criado ou desbloqueia), vai para o final da fila
-- se terminar o *quantum* de um processo, ele é colocado no final da fila (preempção)
+- [X] os processos prontos são colocados em uma fila
+- [X] o escalonador sempre escolhe o primeiro da fila
+- [X] quando um processo fica pronto (é criado ou desbloqueia), vai para o final da fila
+- [X] se terminar o *quantum* de um processo, ele é colocado no final da fila (preempção)
 
 O *quantum* é definido como um múltiplo do intervalo de interrupção do relógio (em outras palavras, o *quantum* equivale a tantas interrupções). Quando um processo é selecionado para executar, tem o direito de executar durante o tempo de um quantum. Uma forma simples de implementar isso é ter uma variável do SO, controlada pelo escalonador, que é inicializada com o valor do quantum (em interrupções) quando um processo diferente do que foi interrompido é selecionado. Cada vez que recebe uma interrupção do relógio, decrementa essa variável. Quando essa variável chega a zero, o processo corrente é movido para o final da fila, se não tiver bloqueado.
 
