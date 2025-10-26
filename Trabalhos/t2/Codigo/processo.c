@@ -23,7 +23,8 @@ processo_t* cria_processo(processo_t* processoPai) {
     
     proc->num_filhos = 0;
     proc->proc_filhos = NULL;
-    proc->prioridade = QUANTUM;
+    proc->prioridade = 0.5;
+    proc->quantum = QUANTUM;
     proc->regERRO = ERR_OK;
     proc->regA = 0;
     proc->regX = 0;

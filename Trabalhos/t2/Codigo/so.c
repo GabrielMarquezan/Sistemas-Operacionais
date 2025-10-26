@@ -28,6 +28,8 @@
 
 // intervalo entre interrupções do relógio
 #define INTERVALO_INTERRUPCAO 50   // em instruções executadas
+#define ESCALONADOR_ATIVO ESC_ROUND_ROBIN
+#define CAP_MAX_HEAP 100000
 
 struct so_t {
   cpu_t *cpu;
@@ -41,6 +43,7 @@ struct so_t {
   int qtdProc;
   bool terminais_ocupados[4]; // 0 = TERM_A, 1 = TERM_B, ...
   fila_rr* fila_proc_prontos;
+  fila_prioridade* fila_proc_prioridade;
   int cont_esperando;
   // t2: tabela de processos, processo corrente, pendências, etc
 };
@@ -55,10 +58,17 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel);
 // copia para str da memória do processador, até copiar um 0 (retorna true) ou tam bytes
 static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
 
+static void so_recalcula_prioridade(processo_t* proc) {
+  if (proc == NULL) return;
+  float t_exec = QUANTUM - proc->quantum;
+  proc->prioridade = (proc->prioridade + (t_exec / QUANTUM)) / 2.0;
+}
+
 static void so_bloqueia_processo(so_t *self) {
     if (self->processoCorrente != NULL) {
+      if(ESCALONADOR_ATIVO == ESC_PRIORIDADE) so_recalcula_prioridade(self->processoCorrente);
+
       self->processoCorrente->estadoCorrente = BLOQUEADO;
-      // Força o escalonador a rodar
       self->processoCorrente = NULL; 
     }
 }
@@ -193,7 +203,14 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
   self->es = es;
   self->console = console;
   self->erro_interno = false;
-  self->fila_proc_prontos = fila_rr_cria();
+  if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) {
+    self->fila_proc_prontos = fila_rr_cria();
+    self->fila_proc_prioridade = NULL;
+  }
+  else {
+    self->fila_proc_prontos = NULL;
+    self->fila_proc_prioridade = fila_cria(CAP_MAX_HEAP);
+  }
 
   // quando a CPU executar uma instrução CHAMAC, deve chamar a função
   //   so_trata_interrupcao, com primeiro argumento um ptr para o SO
@@ -205,7 +222,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
 void so_destroi(so_t *self)
 {
   cpu_define_chamaC(self->cpu, NULL, NULL);
-  fila_rr_destroi(self->fila_proc_prontos);
+  if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_destroi(self->fila_proc_prontos);
+  else fila_destroi(self->fila_proc_prioridade);
   free(self);
 }
 
@@ -244,7 +262,9 @@ static int so_trata_interrupcao(void *argC, int reg_A)
   // salva o estado da cpu no descritor do processo que foi interrompido
   so_salva_estado_da_cpu(self);
 
-  if (self->processoCorrente != NULL) self->processoCorrente->estadoCorrente = PRONTO;
+  if (self->processoCorrente != NULL && self->processoCorrente->estadoCorrente == EXECUTANDO) {
+    self->processoCorrente->estadoCorrente = PRONTO;
+  }
 
   // faz o atendimento da interrupção
   so_trata_irq(self, irq);
@@ -297,7 +317,10 @@ static void so_trata_pendencias_es(so_t *self)
           le_dado_teclado(self, proc);
           proc->estadoCorrente = PRONTO;
           proc->esperando_leitura = false;
-          fila_rr_insere_fim(self->fila_proc_prontos, proc);
+
+          if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
+          else inserir(self->fila_proc_prioridade, proc);
+        
         }
       } else if (escrita) {
         proc = busca_processo_escrita_pendente(self, (self->terminais_ocupados[i] * 4));
@@ -305,6 +328,9 @@ static void so_trata_pendencias_es(so_t *self)
           escreve_dado_tela(self, proc);
           proc->estadoCorrente = PRONTO;
           proc->esperando_escrita = false;
+
+          if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
+          else inserir(self->fila_proc_prioridade, proc);
         }
       }
       // libera o terminal
@@ -324,19 +350,22 @@ static void so_escalona(so_t *self)
   // Lógica de escalonamento Round-Robin
 
   if (self->processoCorrente != NULL && self->processoCorrente->estadoCorrente == PRONTO) {
-    fila_rr_insere_fim(self->fila_proc_prontos, self->processoCorrente);
+    if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, self->processoCorrente);
+    else inserir(self->fila_proc_prioridade, self->processoCorrente);
     self->processoCorrente = NULL;
   }
   
   if (self->processoCorrente == NULL) {
-    processo_t* proximo = fila_rr_remove_inicio(self->fila_proc_prontos);
+    processo_t* proximo = NULL;
+    if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) proximo = fila_rr_remove_inicio(self->fila_proc_prontos);
+    else proximo = remover(self->fila_proc_prioridade);
       
     if (proximo != NULL) {
       self->processoCorrente = proximo;
       self->processoCorrente->estadoCorrente = EXECUTANDO;
       self->processoCorrente->quantum = QUANTUM;
     } else {
-      console_printf("SO: Fila de prontos vazia");
+      console_printf("SO: Fila vazia");
       self->processoCorrente = NULL;
     }
   }
@@ -440,7 +469,8 @@ static void so_trata_reset(so_t *self)
     return;
   }
   init->regPC = ender;
-  fila_rr_fim(self->fila_proc_prontos, init);
+  if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, init);
+  else inserir(self->fila_proc_prioridade, init);
   so_insere_processo(self, init);
 }
 
@@ -464,13 +494,12 @@ static void so_trata_irq_err_cpu(so_t *self)
   if (err == ERR_INSTR_INV || err == ERR_END_INV ||
       err == ERR_INSTR_PRIV || err == ERR_OP_INV ||
       err == ERR_DISP_INV) {
-        so_chamada_mata_proc(self);
+      so_chamada_mata_proc(self);
   }
 }
 
 // interrupção gerada quando o timer expira
-static void so_trata_irq_relogio(so_t *self)
-{
+static void so_trata_irq_relogio(so_t *self) {
   // rearma o interruptor do relógio e reinicializa o timer para a próxima interrupção
   err_t e1, e2;
   e1 = es_escreve(self->es, D_RELOGIO_INTERRUPCAO, 0); // desliga o sinalizador de interrupção
@@ -480,7 +509,12 @@ static void so_trata_irq_relogio(so_t *self)
     self->erro_interno = true;
   }
 
-  if (self->processoCorrente != NULL) self->processoCorrente->quantum--;
+  if (self->processoCorrente != NULL) {
+    self->processoCorrente->quantum--;
+  
+    if(ESCALONADOR_ATIVO == ESC_PRIORIDADE) so_recalcula_prioridade(self->processoCorrente);
+    self->processoCorrente->estadoCorrente = PRONTO;
+  }
 
   // t2: deveria tratar a interrupção
   //   por exemplo, decrementa o quantum do processo corrente, quando se tem
@@ -592,7 +626,8 @@ static void so_chamada_cria_proc(so_t *self) {
         self->processoCorrente->regA = -1;
       }
 
-      fila_rr_insere_fim(self->fila_proc_prontos, novo_proc); // Insere no fim da fila do escalonador
+      if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, novo_proc); // Insere no fim da fila do escalonador
+      else inserir(self->fila_proc_prioridade, novo_proc);
 
       return;
     } else {
@@ -618,7 +653,8 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
       proc->esperando_processo = 0;
       proc->regA = 0;
 
-      fila_rr_insere_fim(self->fila_proc_prontos, proc);
+      if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc); // Insere no fim da fila do escalonador
+      else inserir(self->fila_proc_prioridade, proc);
     }
   }
 }

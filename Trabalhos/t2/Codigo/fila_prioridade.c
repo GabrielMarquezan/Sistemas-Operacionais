@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX_CAP 100000
-
 //É mais fácil coordenar as filas se só forem inseridos processos PRONTOS
 //Para usar isso aq tudo, só precisa o "cria", "destrói", "insere", "remove" e o "topo", no máximo
 
@@ -43,10 +41,10 @@ void bubble_down(fila_prioridade* heap, int pai){
     int filho_dir = 2*pai + 1;
     int maior_filho = filho_esq;
 
-    if (maior_filho < n && heap->arr[filho_esq]->quantum < heap->arr[filho_dir]->quantum){
+    if (maior_filho < n && heap->arr[filho_esq]->prioridade < heap->arr[filho_dir]->prioridade){
         maior_filho = filho_dir;
     }
-    if (maior_filho <= n && heap->arr[maior_filho]->quantum > heap->arr[pai]->quantum){
+    if (maior_filho <= n && heap->arr[maior_filho]->prioridade > heap->arr[pai]->prioridade){
         troca(heap, maior_filho, pai);
         bubble_down(heap, maior_filho);
     }
@@ -57,7 +55,7 @@ void bubble_up(fila_prioridade* heap, int atual){
     int n = heap->qtd_elementos;
     if (atual <= 1) return;
     int pai = atual/2;
-    if (heap->arr[atual]->quantum > heap->arr[pai]->quantum){
+    if (heap->arr[atual]->prioridade > heap->arr[pai]->prioridade){
         troca(heap, atual, pai);
         bubble_up(heap, pai);
     }
