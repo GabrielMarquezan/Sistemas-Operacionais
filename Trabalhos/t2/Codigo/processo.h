@@ -23,6 +23,7 @@ struct processo_t {
     int regPC, regA, regX, regERRO;
     estado_t estadoCorrente;
     int pIniMemoria;
+    int pFimMemoria;
     float prioridade;
     int quantum;
     //memória

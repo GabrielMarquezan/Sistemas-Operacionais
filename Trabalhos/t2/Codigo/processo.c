@@ -31,6 +31,9 @@ processo_t* cria_processo(processo_t* processoPai) {
     proc->esperando_escrita = false;
     proc->esperando_processo = 0;
     proc->terminal = ((proc->pid - 1) % 4) * 4; // 0 = TERM_A, 1 = TERM_B
+    proc->contadorBloqueado = 0;
+    proc->contadorExecutando = 0;
+    proc->contadorPronto = 1;
 
     return proc;
 }

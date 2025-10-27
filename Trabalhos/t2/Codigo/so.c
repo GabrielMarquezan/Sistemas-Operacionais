@@ -45,7 +45,6 @@ struct so_t {
   fila_rr* fila_proc_prontos;
   fila_prioridade* fila_proc_prioridade;
   int cont_esperando;
-  int n_processos_tabela;
 
   // t2: tabela de processos, processo corrente, pendências, etc
 };
@@ -58,9 +57,9 @@ static void so_chamada_mata_proc(so_t *self);
 
 // funções auxiliares
 // carrega o programa contido no arquivo na memória do processador; retorna end. inicial
-static int so_carrega_programa(so_t *self, char *nome_do_executavel);
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* endFim);
 // copia para str da memória do processador, até copiar um 0 (retorna true) ou tam bytes
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender);
+static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc);
 
 static void so_recalcula_prioridade(processo_t* proc) {
   if (proc == NULL) return;
@@ -91,7 +90,7 @@ bool mata_processo(so_t* self, int pid) {
     if(proc == NULL) return false;
 
     //mata os filhos
-    for (int i=0; i < self->n_processos_tabela; i++) {
+    for (int i=0; i < self->qtdProc; i++) {
       if (self->processosCPU[i] == NULL) continue;
       if (self->processosCPU[i]->parentPID == proc->pid) {
         mata_processo(self, self->processosCPU[i]->pid);
@@ -107,7 +106,7 @@ bool mata_processo(so_t* self, int pid) {
     console_printf("MORRI! PID=%d", proc->pid);
     if (pid_morto == self->processoCorrente->pid) self->processoCorrente = NULL;
     free(proc);
-    self->n_processos_tabela--;
+    self->qtdProc--;
     return true;
 }
 
@@ -137,7 +136,8 @@ static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
 bool so_insere_processo(so_t* self, processo_t* proc) {
   if (proc == NULL) return false;
   // insere o processo na primeira posição vazia da tabela
-  for (int i = 0; i < MAX_PROC; i++) {
+  self->qtdProc++;
+  for (int i = 0; i < self->qtdProc; i++) {
     if (self->processosCPU[i] == NULL) {
       console_printf("Inseri o processo %d na posição %d", proc->pid, i);
       self->processosCPU[i] = proc;
@@ -194,6 +194,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console)
   self->processosCPU = cria_vetor_processos();
   memset(self->terminais_ocupados, 0, sizeof(self->terminais_ocupados));
   self->cont_esperando = 0;
+  self->qtdProc = 0;
   self->cpu = cpu;
   self->mem = mem;
   self->es = es;
@@ -437,7 +438,7 @@ static void so_trata_reset(so_t *self)
   //   de interrupção (escrito em asm). esse programa deve conter a
   //   instrução CHAMAC, que vai chamar so_trata_interrupcao (como
   //   foi definido na inicialização do SO)
-  int ender = so_carrega_programa(self, "trata_int.maq");
+  int ender = so_carrega_programa(self, "trata_int.maq", NULL);
   if (ender != CPU_END_TRATADOR) {
     console_printf("SO: problema na carga do programa de tratamento de interrupção");
     self->erro_interno = true;
@@ -462,13 +463,16 @@ static void so_trata_reset(so_t *self)
   processo_t* init = cria_processo(NULL);
   
   // coloca o programa init na memória
-  ender = so_carrega_programa(self, "init.maq");
+  int enderFim = -1;
+  ender = so_carrega_programa(self, "init.maq", &enderFim);
   if (ender != 100) {
     console_printf("SO: problema na carga do programa inicial");
     self->erro_interno = true;
     return;
   }
   init->regPC = ender;
+  init->pIniMemoria = ender;
+  init->pFimMemoria = enderFim;
   if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, init);
   else inserir(self->fila_proc_prioridade, init);
   so_insere_processo(self, init);
@@ -554,18 +558,23 @@ static void so_trata_irq_chamada_sistema(so_t *self)
   switch (id_chamada) {
     case SO_LE:
       so_chamada_le(self);
+      console_printf("Recebi chamada LEITURA!");
       break;
     case SO_ESCR:
       so_chamada_escr(self);
+      console_printf("Recebi chamada ESCRITA!");
       break;
     case SO_CRIA_PROC:
       so_chamada_cria_proc(self);
+      console_printf("Recebi chamada CRIA PROCESSO!");
       break;
     case SO_MATA_PROC:
       so_chamada_mata_proc(self);
+      console_printf("Recebi chamada MATA PROCESSO!");
       break;
     case SO_ESPERA_PROC:
       so_chamada_espera_proc(self);
+      console_printf("Recebi chamada ESPERA PROCESSO!");
       break;
     default:
       console_printf("SO: chamada de sistema desconhecida (%d)", id_chamada);
@@ -610,15 +619,19 @@ static void so_chamada_cria_proc(so_t *self) {
   int ender_proc;
   ender_proc = self->processoCorrente->regX;
   char nome[100];
-  if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
-    int ender_carga = so_carrega_programa(self, nome);
-    if (ender_carga > 0) {
+  if (copia_str_da_mem(100, nome, self->mem, ender_proc, self->processoCorrente)) {
+    int enderFim = -1;
+    int ender_carga = so_carrega_programa(self, nome, &enderFim);
+    console_printf("ENDER_FIM = %d", enderFim);
+    if (ender_carga > 0 && enderFim != -1) {
       // t2: deveria escrever no PC do descritor do processo criado
       // se aconteceu algum erro ao carregar o programa da memória, o programa morre
       // então o processo também morre
       // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
       //   do processo que pediu a criação
       novo_proc->regPC = ender_carga;
+      novo_proc->pIniMemoria = ender_carga;
+      novo_proc->pFimMemoria = enderFim;
       self->processoCorrente->regA = novo_proc->pid;
       if (!so_insere_processo(self, novo_proc)) {
         mata_processo(self, novo_proc->pid);
@@ -699,7 +712,7 @@ static void so_chamada_espera_proc(so_t *self)
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
-static int so_carrega_programa(so_t *self, char *nome_do_executavel)
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim)
 {
   // programa para executar na nossa CPU
   programa_t *prog = prog_cria(nome_do_executavel);
@@ -719,7 +732,8 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel)
   }
 
   prog_destroi(prog);
-  //console_printf("SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
+  console_printf("SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
+  if (enderFim != NULL) *enderFim = end_fim;
   return end_ini;
 }
 
@@ -732,8 +746,10 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel)
 // retorna false se erro (string maior que vetor, valor não char na memória,
 //   erro de acesso à memória)
 // t2: deveria verificar se a memória pertence ao processo
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender)
+static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc)
 {
+  if (ender < proc->pIniMemoria || ender > proc->pFimMemoria) return false;
+  if (ender + tam < proc->pIniMemoria || ender + tam > proc->pFimMemoria) return false;
   for (int indice_str = 0; indice_str < tam; indice_str++) {
     int caractere;
     if (mem_le(mem, ender + indice_str, &caractere) != ERR_OK) {
