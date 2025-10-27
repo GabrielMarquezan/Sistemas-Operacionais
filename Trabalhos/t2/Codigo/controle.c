@@ -62,6 +62,9 @@ void controle_laco(controle_t *self)
 
     controle_processa_comandos_da_console(self);
     controle_atualiza_estado_na_console(self);
+    
+    if(self->cpu->fim_do_programa) self->estado = fim;
+
   } while (self->estado != fim);
 
   console_printf("Fim da execução.");

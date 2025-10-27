@@ -6,10 +6,43 @@
 #ifndef CPU_H
 #define CPU_H
 
-typedef struct cpu_t cpu_t; // tipo opaco
+#include "err.h"
+#include "instrucao.h"
+#include "irq.h"
+#include "memoria.h"
+#include "es.h"
+#include "irq.h"
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
 
 // os modos de execução da CPU
 typedef enum { supervisor, usuario } cpu_modo_t;
+
+// tipo da função a ser chamada quando executar a instrução CHAMAC
+typedef int (*func_chamaC_t)(void *argC, int reg_A);
+
+typedef struct cpu_t {
+  // registradores
+  int PC;
+  int A;
+  int X;
+  // estado interno da CPU
+  err_t erro;
+  int complemento;
+  cpu_modo_t modo;
+  // acesso a dispositivos externos
+  mem_t *mem;
+  es_t *es;
+  // identificação das instruções privilegiadas
+  bool privilegiadas[N_OPCODE];
+  // função e argumento para implementar instrução CHAMAC
+  func_chamaC_t func_chamaC;
+  void *arg_chamaC;
+  bool fim_do_programa;
+} cpu_t;
 
 // endereços na memória onde a CPU salva os valores dos registradores
 //   quando aceita uma interrupção, e de onde recupera esses valores
@@ -30,14 +63,6 @@ typedef enum { supervisor, usuario } cpu_modo_t;
 #define CPU_END_FIM_ROM     49
 // endereço limite da memória protegida (não acessável em modo usuário)
 #define CPU_END_FIM_PROT    99
-
-#include "memoria.h"
-#include "es.h"
-#include "irq.h"
-
-// tipo da função a ser chamada quando executar a instrução CHAMAC
-typedef int (*func_chamaC_t)(void *argC, int reg_A);
-
 
 // cria uma unidade de execução com acesso à memória e ao
 //   controlador de E/S fornecidos

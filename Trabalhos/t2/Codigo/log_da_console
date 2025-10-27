@@ -259,38 +259,7 @@ ID da syscall: 2
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
-ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=2 
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -377,6 +346,7 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -398,6 +368,14 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -408,49 +386,100 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: preempção por esgotamento de quantum do PID 3
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 ESCALONANDO: PID=4 
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -559,6 +588,37 @@ SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -574,6 +634,144 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 4
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -654,7 +852,6 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -676,6 +873,26 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -694,9 +911,14 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: preempção por esgotamento de quantum do PID 2
+SO: preempção por esgotamento de quantum do PID 3
 ESCALONANDO: PID=3 
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -725,37 +947,6 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -784,7 +975,6 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -802,6 +992,27 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -817,130 +1028,30 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 3
-ESCALONANDO: PID=4 
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
@@ -970,24 +1081,6 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
-ESCALONANDO: PID=3 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 ESCALONANDO: PID=2 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -1010,30 +1103,6 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
-ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 ESCALONANDO: PID=2 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -1056,30 +1125,6 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
-ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 ESCALONANDO: PID=2 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -1105,10 +1150,135 @@ ID da syscall: 2
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 ESCALONANDO: PID=3 
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 8
+QUERO MORRER PID=2
+Estamos removendo PID=2
+MORRI! PID=2
+ESCALONANDO: PID=1 
+Recebi chamada MATA PROCESSO!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 9
+Processo PID=1 quer esperar o 3
+Recebi chamada ESPERA PROCESSO!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -1129,15 +1299,28 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-ESCALONANDO: PID=2 
+ESCALONANDO: PID=3 
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -1146,82 +1329,44 @@ SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=2 
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: preempção por esgotamento de quantum do PID 2
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-ID da syscall: 2
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=2 
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: preempção por esgotamento de quantum do PID 2
 ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
@@ -1237,20 +1382,1039 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 ID da syscall: 2
 Recebi chamada ESCRITA!
-ESCALONANDO: PID=2 
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 8
+QUERO MORRER PID=3
+Estamos removendo PID=3
+MORRI! PID=3
+ESCALONANDO: PID=1 
+Recebi chamada MATA PROCESSO!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 9
+Processo PID=1 quer esperar o 4
+Recebi chamada ESPERA PROCESSO!
+SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
-CMD: 'f'
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 8
+QUERO MORRER PID=4
+Estamos removendo PID=4
+MORRI! PID=4
+ESCALONANDO: PID=1 
+Recebi chamada MATA PROCESSO!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 2
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+ID da syscall: 8
+QUERO MORRER PID=1
+Estamos removendo PID=1
+MORRI! PID=1
+SO: Fila vazia
+Recebi chamada MATA PROCESSO!
+SO: Fila vazia
 Fim da execução.

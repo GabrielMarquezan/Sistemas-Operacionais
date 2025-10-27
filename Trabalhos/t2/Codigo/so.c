@@ -28,7 +28,7 @@
 
 // intervalo entre interrupções do relógio
 #define INTERVALO_INTERRUPCAO 50   // em instruções executadas
-#define ESCALONADOR_ATIVO ESC_ROUND_ROBIN
+#define ESCALONADOR_ATIVO ESC_PRIORIDADE
 #define CAP_MAX_HEAP 100000
 
 struct so_t {
@@ -102,7 +102,8 @@ bool mata_processo(so_t* self, int pid) {
     int pid_morto = proc->pid;
     so_trata_espera_proc_morrer(self, pid_morto);
 
-    fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
+    if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
+    
     console_printf("MORRI! PID=%d", proc->pid);
     if (proc == self->processoCorrente) self->processoCorrente = NULL;
 
@@ -340,6 +341,15 @@ static void so_trata_pendencias(so_t *self)
   }
 }
 
+static bool so_verifica_tabela_vazia(so_t* self) {
+  bool tabela_vazia = true;
+  for(int i = 0; i < MAX_PROC; i++) {
+    if(self->processosCPU[i] != NULL) tabela_vazia = false;
+  }
+
+  return tabela_vazia;
+}
+
 static void so_escalona(so_t *self)
 {
   // escolhe o próximo processo a executar, que passa a ser o processo
@@ -366,7 +376,7 @@ static void so_escalona(so_t *self)
       self->processoCorrente->quantum = QUANTUM;
     } else {
       console_printf("SO: Fila vazia");
-      self->processoCorrente = NULL;
+      if(so_verifica_tabela_vazia(self)) self->cpu->fim_do_programa = true;
     }
   }
 }
@@ -683,9 +693,9 @@ static void so_chamada_mata_proc(so_t *self) {
   // tratar aqui a pendência de quando um processo está esperando outro morrer
   console_printf("QUERO MORRER PID=%d", self->processoCorrente->regX == 0 ? self->processoCorrente->pid : self->processoCorrente->regX);
   if (mata_processo(self, self->processoCorrente->regX)){
-    if (self->processoCorrente != NULL) {
-        self->processoCorrente->regA = 0;
-    }
+    if (self->processoCorrente != NULL) self->processoCorrente->regA = 0;
+
+    so_escalona(self);
   }
   else {
     self->processoCorrente->regA = -1; // Não conseguiu matar o processo?

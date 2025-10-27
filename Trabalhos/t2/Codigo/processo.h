@@ -13,7 +13,8 @@ typedef struct lista lista_t;
 enum estadoProcesso {
     PRONTO,
     BLOQUEADO,
-    EXECUTANDO
+    EXECUTANDO,
+    FINALIZADO
 };
 
 struct processo_t {

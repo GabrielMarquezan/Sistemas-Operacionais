@@ -16,7 +16,7 @@ lista_t* insere(lista_t* lista, processo_t* proc) {
     return novo;
 }
 
-lista_t* remove(lista_t* lista, processo_t* proc) {
+lista_t* remove_lista(lista_t* lista, processo_t* proc) {
     lista_t* anterior = NULL;
     lista_t* temp = lista;
     while (temp != NULL && temp->processo->pid != proc->pid) {
