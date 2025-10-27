@@ -19,14 +19,9 @@ processo_t* cria_processo(processo_t* processoPai) {
         proc->pid = 1;
     }
     else{
-        processoPai->proc_filhos = insere(processoPai->proc_filhos, proc);
-        processoPai->num_filhos++;
         proc->parentPID = processoPai->pid;
         proc->pid = prox_pid++;
     }
-    
-    proc->num_filhos = 0;
-    proc->proc_filhos = NULL;
     proc->prioridade = 0.5;
     proc->quantum = QUANTUM;
     proc->regERRO = ERR_OK;
@@ -35,7 +30,7 @@ processo_t* cria_processo(processo_t* processoPai) {
     proc->esperando_escrita = false;
     proc->esperando_escrita = false;
     proc->esperando_processo = 0;
-    proc->terminal = (proc->pid % 4) * 4; // 0 = TERM_A, 1 = TERM_B
+    proc->terminal = ((proc->pid - 1) % 4) * 4; // 0 = TERM_A, 1 = TERM_B
 
     return proc;
 }
@@ -55,6 +50,8 @@ processo_t* busca_proc_na_tabela(processo_t** tabela, int pid) {
 
     return NULL;
 }
+
+// insere na tabela
 
 processo_t* busca_remove_proc_tabela(processo_t** tabela, int pid) {
     for(int i = 0; i < MAX_PROC; i++) {

@@ -90,7 +90,6 @@ console_t *console_cria(void)
   self->arquivo_de_log = fopen("log_da_console", "w");
 
   tela_init();
-
   return self;
 }
 
@@ -138,7 +137,7 @@ static void insere_string_no_terminal(console_t *self, char id_terminal, char *s
   // insere caracteres no terminal (e espaço no final)
   terminal_t *terminal = console_terminal(self, id_terminal);
   if (terminal == NULL) {
-    console_printf("Terminal '%c' inválido\n", id_terminal);
+    //console_printf("Terminal '%c' inválido\n", id_terminal);
     return;
   }
   char *p = str;
@@ -153,7 +152,7 @@ static void limpa_saida_do_terminal(console_t *self, char id_terminal)
 {
   terminal_t *terminal = console_terminal(self, id_terminal);
   if (terminal == NULL) {
-    console_printf("Terminal '%c' inválido\n", id_terminal);
+    //console_printf("Terminal '%c' inválido\n", id_terminal);
     return;
   }
   terminal_limpa_saida(terminal);
@@ -270,7 +269,7 @@ static void interpreta_linha_entrada(console_t *self)
       insere_comando_externo(self, cmd);
       break;
     default:
-      console_printf("Comando '%c' não reconhecido", cmd);
+      //console_printf("Comando '%c' não reconhecido", cmd);
   }
   strcpy(self->txt_entrada, "");
 }
