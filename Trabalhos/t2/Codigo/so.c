@@ -51,6 +51,8 @@ struct so_t {
 
 // função de tratamento de interrupção (entrada no SO)
 static int so_trata_interrupcao(void *argC, int reg_A);
+static void so_trata_espera_proc_morrer(so_t* self, int pid_morto);
+static void so_chamada_mata_proc(so_t *self);
 
 // funções auxiliares
 // carrega o programa contido no arquivo na memória do processador; retorna end. inicial
@@ -77,16 +79,15 @@ static void so_bloqueia_processo(so_t *self) {
 // PROCESSOS 
 //--------------------------------------------------------------------
 
-int mata_processo(so_t* self) {
+int mata_processo(so_t* self, int pid) {
     //Mata um processo e recursivamente mata seus filhos em cascata
     int processos_mortos_total = 0;
-    int pid_alvo = self->processoCorrente->regA;
+    int pid_alvo = pid;
     if(pid_alvo == 0) {
       pid_alvo = self->processoCorrente->pid;
-      self->processoCorrente = NULL;
     }
     
-    processo_t* proc = busca_proc_na_tabela(self->processosCPU, pid_alvo);
+    processo_t* proc = busca_remove_proc_tabela(self->processosCPU, pid_alvo);
     if(proc == NULL) return 0;
 
     lista_t* no_atual = proc->proc_filhos;
@@ -97,7 +98,7 @@ int mata_processo(so_t* self) {
         lista_t* proximo_no = no_atual->proximo;
 
         // Mata os filhos dos filhos recursivamente
-        processos_mortos_total += mata_processo(self);
+        processos_mortos_total += mata_processo(self, filho_a_matar->pid);
         remove(proc->proc_filhos, no_atual->processo);
         no_atual = proximo_no;
     }
@@ -142,7 +143,7 @@ static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
 
 // insere um novo processo na tabela de processos
 bool so_insere_processo(so_t* self, processo_t* proc) {
-  if (proc == NULL) return;
+  if (proc == NULL) return false;
   // insere o processo na primeira posição vazia da tabela
   for (int i = 0; i < MAX_PROC; i++) {
     if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
@@ -295,7 +296,7 @@ static void so_salva_estado_da_cpu(so_t *self)
   }
 }
 
-static void so_trata_pendencias_es(so_t *self)
+static void so_trata_pendencias(so_t *self)
 {
   // t2: realiza ações que não são diretamente ligadas com a interrupção que
   //   está sendo atendida:
@@ -520,7 +521,7 @@ static void so_trata_irq_relogio(so_t *self) {
   //   por exemplo, decrementa o quantum do processo corrente, quando se tem
   //   um escalonador com quantum
 
-  console_printf("SO: interrupção do relógio (não tratada)");
+  console_printf("SO: interrupcao do relogio (tratada)");
 }
 
 // foi gerada uma interrupção para a qual o SO não está preparado
@@ -567,8 +568,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
       break;
     default:
       console_printf("SO: chamada de sistema desconhecida (%d)", id_chamada);
-      so_mata_processo(self);
-      so_mata_processo(self->processoCorrente, self->processosCPU);
+      mata_processo(self, self->processoCorrente->pid);
       self->processoCorrente = NULL;
       self->erro_interno = true;
   }
@@ -585,7 +585,7 @@ static void so_chamada_le(so_t *self)
     so_bloqueia_processo(self);
   } // teclado não está pronto para a leitura
   // então bloqueia o processo que fez a chamada
-  le_dado_teclado(self, self->processoCorrente->terminal);
+  le_dado_teclado(self, self->processoCorrente);
 }
 
 // implementação da chamada se sistema SO_ESCR
@@ -601,16 +601,11 @@ static void so_chamada_escr(so_t *self)
   escreve_dado_tela(self, self->processoCorrente);
 }
 
-// implementação da chamada se sistema SO_CRIA_PROC
-// cria um processo
+
 static void so_chamada_cria_proc(so_t *self) {
-  // ainda sem suporte a processos, carrega programa e passa a executar ele
-  // quem chamou o sistema não vai mais ser executado, coitado!
-  // t2: deveria criar um novo processo
   processo_t* novo_proc = cria_processo(self->processoCorrente);
   // em X está o endereço onde está o nome do arquivo
   int ender_proc;
-  // t2: deveria ler o X do descritor do processo criador
   ender_proc = self->processoCorrente->regX;
   char nome[100];
   if (copia_str_da_mem(100, nome, self->mem, ender_proc)) {
@@ -619,10 +614,12 @@ static void so_chamada_cria_proc(so_t *self) {
       // t2: deveria escrever no PC do descritor do processo criado
       // se aconteceu algum erro ao carregar o programa da memória, o programa morre
       // então o processo também morre
+      // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
+      //   do processo que pediu a criação
       novo_proc->regPC = ender_carga;
       self->processoCorrente->regA = novo_proc->pid;
       if (!so_insere_processo(self, novo_proc)) {
-        so_mata_processo(novo_proc);
+        mata_processo(self, novo_proc->pid);
         self->processoCorrente->regA = -1;
       }
 
@@ -631,15 +628,11 @@ static void so_chamada_cria_proc(so_t *self) {
 
       return;
     } else {
-      so_mata_processo(novo_proc);
-      //registra erro no processo criador
+      mata_processo(self, novo_proc->pid);
       self->processoCorrente->regA = -1;
     }
-  // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
-  //   do processo que pediu a criação
-  }
-  else {
-    so_mata_processo(novo_proc);
+  } else {
+    mata_processo(self, novo_proc->pid);
     self->processoCorrente->regA = -1;
   }
 }
@@ -659,11 +652,9 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
   }
 }
 
-// implementação da chamada se sistema SO_MATA_PROC
-// mata o processo com pid X (ou o processo corrente se X é 0)
 static void so_chamada_mata_proc(so_t *self) {
   // tratar aqui a pendência de quando um processo está esperando outro morrer
-  int processos_mortos = mata_processo(self);
+  int processos_mortos = mata_processo(self, self->processoCorrente->regX);
   if(processos_mortos != 0) {
     self->processoCorrente->regA = 0;
     return;
@@ -674,12 +665,8 @@ static void so_chamada_mata_proc(so_t *self) {
   }
 }
 
-// implementação da chamada se sistema SO_ESPERA_PROC
-// espera o fim do processo com pid X
 static void so_chamada_espera_proc(so_t *self)
 {
-  // t2: deveria bloquear o processo se for o caso (e desbloquear na morte do esperado)
-  // ainda sem suporte a processos, retorna erro -1
   int pid_alvo = self->processoCorrente->regX;
   
   if (pid_alvo == self->processoCorrente->pid) {
