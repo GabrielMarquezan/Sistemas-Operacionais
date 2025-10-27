@@ -45,6 +45,8 @@ struct so_t {
   fila_rr* fila_proc_prontos;
   fila_prioridade* fila_proc_prioridade;
   int cont_esperando;
+  int n_processos_tabela;
+
   // t2: tabela de processos, processo corrente, pendências, etc
 };
 
@@ -79,44 +81,34 @@ static void so_bloqueia_processo(so_t *self) {
 // PROCESSOS 
 //--------------------------------------------------------------------
 
-int mata_processo(so_t* self, int pid) {
-    //Mata um processo e recursivamente mata seus filhos em cascata
-    int processos_mortos_total = 0;
+bool mata_processo(so_t* self, int pid) {
     int pid_alvo = pid;
     if(pid_alvo == 0) {
       pid_alvo = self->processoCorrente->pid;
     }
-    
+    console_printf("Estamos removendo PID=%d",pid_alvo);
     processo_t* proc = busca_remove_proc_tabela(self->processosCPU, pid_alvo);
-    if(proc == NULL) return 0;
+    if(proc == NULL) return false;
 
-    lista_t* no_atual = proc->proc_filhos;
-
-    // Itera sobre lista de filhos do processo principal
-    while (no_atual != NULL) {
-        processo_t* filho_a_matar = no_atual->processo;
-        lista_t* proximo_no = no_atual->proximo;
-
-        // Mata os filhos dos filhos recursivamente
-        processos_mortos_total += mata_processo(self, filho_a_matar->pid);
-        remove(proc->proc_filhos, no_atual->processo);
-        no_atual = proximo_no;
-    }
-    
-    for(int i = 0; i < MAX_PROC; i++) {
-        if(self->processosCPU[i] == proc) {
-            self->processosCPU[i] = NULL;
-            break; 
-        }
+    //mata os filhos
+    for (int i=0; i < self->n_processos_tabela; i++) {
+      if (self->processosCPU[i] == NULL) continue;
+      if (self->processosCPU[i]->parentPID == proc->pid) {
+        mata_processo(self, self->processosCPU[i]->pid);
+        int pid_morto = self->processosCPU[i]->pid;
+        so_trata_espera_proc_morrer(self, pid_morto);
+      }
     }
 
     int pid_morto = proc->pid;
     so_trata_espera_proc_morrer(self, pid_morto);
 
-    processo_t* processo_pai = busca_proc_na_tabela(self->processosCPU, proc->parentPID);
-    if(processo_pai != NULL) remove(processo_pai->proc_filhos, proc);
+    fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
+    console_printf("MORRI! PID=%d", proc->pid);
+    if (pid_morto == self->processoCorrente->pid) self->processoCorrente = NULL;
     free(proc);
-    return processos_mortos_total + 1;
+    self->n_processos_tabela--;
+    return true;
 }
 
 static processo_t* busca_processo_escrita_pendente(so_t* self, int terminal){
@@ -146,8 +138,11 @@ bool so_insere_processo(so_t* self, processo_t* proc) {
   if (proc == NULL) return false;
   // insere o processo na primeira posição vazia da tabela
   for (int i = 0; i < MAX_PROC; i++) {
-    if (self->processosCPU[i] == NULL) self->processosCPU[i] = proc;
-    return true;
+    if (self->processosCPU[i] == NULL) {
+      console_printf("Inseri o processo %d na posição %d", proc->pid, i);
+      self->processosCPU[i] = proc;
+      return true;
+    }
   }
   // tabela cheia, não conseguiu inserir o processo
   return false;
@@ -309,11 +304,12 @@ static void so_trata_pendencias(so_t *self)
     int leitura = 0, escrita = 0;
     if (self->terminais_ocupados[i]) {
       // le se tem dado no teclado
-      leitura = checa_terminal_ok(self, (self->terminais_ocupados[i] * 4) + TERM_TECLADO_OK);
+      leitura = checa_terminal_ok(self, (i * 4) + TERM_TECLADO_OK);
       // escreve se n tem nada sendo escrito
-      escrita = checa_terminal_ok(self, (self->terminais_ocupados[i] * 4) + TERM_TELA_OK);
+      escrita = checa_terminal_ok(self, (i * 4) + TERM_TELA_OK);
+      //console_printf("Leitura = %d, escrita = %d", leitura, escrita);
       if (leitura) {
-        proc = busca_processo_leitura_pendente(self, (self->terminais_ocupados[i] * 4));
+        proc = busca_processo_leitura_pendente(self, i*4);
         if (proc != NULL) {
           le_dado_teclado(self, proc);
           proc->estadoCorrente = PRONTO;
@@ -324,8 +320,10 @@ static void so_trata_pendencias(so_t *self)
         
         }
       } else if (escrita) {
-        proc = busca_processo_escrita_pendente(self, (self->terminais_ocupados[i] * 4));
+        //console_printf("ENTREI PARA VER SE ACHO AMIGUINHOS");
+        proc = busca_processo_escrita_pendente(self, i*4);
         if (proc != NULL) {
+          //console_printf("AMIGINHOS!!! PID=%d",proc->pid);
           escreve_dado_tela(self, proc);
           proc->estadoCorrente = PRONTO;
           proc->esperando_escrita = false;
@@ -335,7 +333,7 @@ static void so_trata_pendencias(so_t *self)
         }
       }
       // libera o terminal
-      self->terminais_ocupados[i] = 0;
+      self->terminais_ocupados[i] = !(escrita && leitura);
     }
   }
 }
@@ -360,8 +358,9 @@ static void so_escalona(so_t *self)
     processo_t* proximo = NULL;
     if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) proximo = fila_rr_remove_inicio(self->fila_proc_prontos);
     else proximo = remover(self->fila_proc_prioridade);
-      
+
     if (proximo != NULL) {
+      //console_printf("ESCALONANDO: PID=%d ", proximo->pid);      
       self->processoCorrente = proximo;
       self->processoCorrente->estadoCorrente = EXECUTANDO;
       self->processoCorrente->quantum = QUANTUM;
@@ -486,6 +485,8 @@ static void so_trata_irq_err_cpu(so_t *self)
   //   no descritor do processo corrente, e reagir de acordo com esse erro
   //   (em geral, matando o processo)
   err_t err = self->processoCorrente->regERRO;
+  console_printf("ERRO DE CPU: PID=%d, Codigo de Erro=%d (%s)", 
+               self->processoCorrente->pid, err, err_nome(err));
   // se o processo tenta acessar um discpositivo ocupado, o processo bloqueia
   if (err == ERR_OCUP) {
     self->processoCorrente->estadoCorrente = BLOQUEADO;
@@ -521,7 +522,7 @@ static void so_trata_irq_relogio(so_t *self) {
   //   por exemplo, decrementa o quantum do processo corrente, quando se tem
   //   um escalonador com quantum
 
-  console_printf("SO: interrupcao do relogio (tratada)");
+  //console_printf("SO: interrupcao do relogio (tratada)");
 }
 
 // foi gerada uma interrupção para a qual o SO não está preparado
@@ -549,7 +550,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
   // a identificação da chamada está no registrador A
   // t2: com processos, o reg A deve estar no descritor do processo corrente
   int id_chamada = self->processoCorrente->regA;
-  console_printf("SO: chamada de sistema %d", id_chamada);
+  //console_printf("SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
     case SO_LE:
       so_chamada_le(self);
@@ -581,7 +582,7 @@ static void so_chamada_le(so_t *self)
   bool estado = checa_terminal_ok(self, self->processoCorrente->terminal + TERM_TECLADO_OK);
   if (estado == false) {
     self->processoCorrente->esperando_leitura = true;
-    self->terminais_ocupados[(self->processoCorrente->terminal)%4] = true;
+    self->terminais_ocupados[(self->processoCorrente->terminal)/4] = true;
     so_bloqueia_processo(self);
   } // teclado não está pronto para a leitura
   // então bloqueia o processo que fez a chamada
@@ -595,8 +596,9 @@ static void so_chamada_escr(so_t *self)
   bool estado = checa_terminal_ok(self, self->processoCorrente->terminal + TERM_TELA_OK);
   if (estado == false) {
     self->processoCorrente->esperando_escrita = true;
-    self->terminais_ocupados[(self->processoCorrente->terminal)%4] = true;
+    self->terminais_ocupados[(self->processoCorrente->terminal)/4] = true;
     so_bloqueia_processo(self);
+    return;
   }
   escreve_dado_tela(self, self->processoCorrente);
 }
@@ -638,6 +640,7 @@ static void so_chamada_cria_proc(so_t *self) {
 }
 
 static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
+  if (pid_morto == 0) return;
   for(int i = 0; i < MAX_PROC; i++) {
     processo_t* proc = self->processosCPU[i];
     
@@ -654,10 +657,11 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
 
 static void so_chamada_mata_proc(so_t *self) {
   // tratar aqui a pendência de quando um processo está esperando outro morrer
-  int processos_mortos = mata_processo(self, self->processoCorrente->regX);
-  if(processos_mortos != 0) {
-    self->processoCorrente->regA = 0;
-    return;
+  console_printf("QUERO MORRER PID=%d", self->processoCorrente->regX == 0 ? self->processoCorrente->pid : self->processoCorrente->regX);
+  if (mata_processo(self, self->processoCorrente->regX)){
+    if (self->processoCorrente != NULL) {
+        self->processoCorrente->regA = 0;
+    }
   }
   else {
     self->processoCorrente->regA = -1; // Não conseguiu matar o processo?
@@ -668,7 +672,6 @@ static void so_chamada_mata_proc(so_t *self) {
 static void so_chamada_espera_proc(so_t *self)
 {
   int pid_alvo = self->processoCorrente->regX;
-  
   if (pid_alvo == self->processoCorrente->pid) {
       self->processoCorrente->regA = -1; // Esperando por si mesmo
       return;
@@ -676,10 +679,15 @@ static void so_chamada_espera_proc(so_t *self)
 
   processo_t* proc_alvo = busca_proc_na_tabela(self->processosCPU, pid_alvo);
   if(proc_alvo == NULL) {
+    for(int x=0;x<5;x++){
+      console_printf("Meu PID=%d", (self->processosCPU[x]!=NULL)?self->processosCPU[x]->pid:-1);      
+    }
+    console_printf("Processo PID=%d quer esperar o %d que já morreu e eu n gostei!!!!",self->processoCorrente->pid,pid_alvo);
     self->processoCorrente->regA = -1; // Processo não existe (ou já morreu)
     return;
   }
 
+  console_printf("Processo PID=%d quer esperar o %d",self->processoCorrente->pid,pid_alvo);
   self->processoCorrente->esperando_processo = pid_alvo;
   so_bloqueia_processo(self);
 }
@@ -711,7 +719,7 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel)
   }
 
   prog_destroi(prog);
-  console_printf("SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
+  //console_printf("SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
   return end_ini;
 }
 

@@ -56,6 +56,24 @@ processo_t* fila_rr_remove_inicio(fila_rr *fila)
     return proc_retorno;
 }
 
+void fila_rr_remove_pid(fila_rr* fila, int pid) {
+    if (fila_rr_esta_vazia(fila)) return;
+    node_fila* no = fila->inicio;
+    node_fila* anterior = NULL;
+    while (no != NULL && no->processo->pid != pid) {
+        anterior = no;
+        no = no->proximo;
+    }
+    if (no == NULL ){
+        return;
+    }
+    if (anterior == NULL) {
+        fila_rr_remove_inicio(fila);
+    }
+    anterior->proximo = no->proximo;
+    free(no);
+}
+
 void fila_rr_destroi(fila_rr *fila)
 {
     if (fila == NULL) return;
