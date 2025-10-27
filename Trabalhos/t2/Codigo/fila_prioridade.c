@@ -52,7 +52,6 @@ void bubble_down(fila_prioridade* heap, int pai){
 }
 
 void bubble_up(fila_prioridade* heap, int atual){
-    int n = heap->qtd_elementos;
     if (atual <= 1) return;
     int pai = atual/2;
     if (heap->arr[atual]->prioridade > heap->arr[pai]->prioridade){

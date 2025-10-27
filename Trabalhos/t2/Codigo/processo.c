@@ -1,8 +1,12 @@
 #include <stdlib.h>
 #include "cpu.h"
 #include "processo.h"
+#include "lista_processos.h"
 
 typedef struct processo_t processo_t;
+
+
+static int prox_pid = 2;
 
 processo_t* cria_processo(processo_t* processoPai) {
     processo_t* proc = malloc(sizeof(processo_t));
@@ -11,7 +15,7 @@ processo_t* cria_processo(processo_t* processoPai) {
     proc->estadoCorrente = PRONTO;
 
     if (processoPai == NULL) {
-        proc->parentPID = 0; //id do INIT
+        proc->parentPID = 1; //id do INIT
         proc->pid = 1;
     }
     else{
@@ -47,6 +51,18 @@ processo_t** cria_vetor_processos() {
 processo_t* busca_proc_na_tabela(processo_t** tabela, int pid) {
     for(int i = 0; i < MAX_PROC; i++) {
         if(tabela[i] != NULL && tabela[i]->pid == pid) return tabela[i];
+    }
+
+    return NULL;
+}
+
+processo_t* busca_remove_proc_tabela(processo_t** tabela, int pid) {
+    for(int i = 0; i < MAX_PROC; i++) {
+        if(tabela[i] != NULL && tabela[i]->pid == pid) {
+            processo_t* proc = tabela[i];
+            tabela[i] = NULL;
+            return proc;
+        }
     }
 
     return NULL;

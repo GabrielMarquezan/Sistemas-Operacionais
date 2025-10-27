@@ -5,7 +5,7 @@
 #include <stdlib.h> 
 #include "processo.h"
 
-typedef struct fila fila_prioridade;
+typedef struct Fila_Prioridade fila_prioridade;
 
 fila_prioridade* fila_cria(int capacidade_max);
 void fila_destroi(fila_prioridade* heap);
