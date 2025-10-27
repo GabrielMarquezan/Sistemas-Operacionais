@@ -104,7 +104,8 @@ bool mata_processo(so_t* self, int pid) {
 
     fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
     console_printf("MORRI! PID=%d", proc->pid);
-    if (pid_morto == self->processoCorrente->pid) self->processoCorrente = NULL;
+    if (proc == self->processoCorrente) self->processoCorrente = NULL;
+
     free(proc);
     self->qtdProc--;
     return true;
@@ -134,7 +135,10 @@ static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
 
 // insere um novo processo na tabela de processos
 bool so_insere_processo(so_t* self, processo_t* proc) {
-  if (proc == NULL) return false;
+  if (proc == NULL){
+    console_printf("processo a inserir é NULL!");
+    return false;
+  }
   // insere o processo na primeira posição vazia da tabela
   self->qtdProc++;
   for (int i = 0; i < self->qtdProc; i++) {
@@ -144,6 +148,7 @@ bool so_insere_processo(so_t* self, processo_t* proc) {
       return true;
     }
   }
+  console_printf("Tabela cheia!");
   // tabela cheia, não conseguiu inserir o processo
   return false;
 }
@@ -259,10 +264,6 @@ static int so_trata_interrupcao(void *argC, int reg_A)
   // salva o estado da cpu no descritor do processo que foi interrompido
   so_salva_estado_da_cpu(self);
 
-  if (self->processoCorrente != NULL && self->processoCorrente->estadoCorrente == EXECUTANDO) {
-    self->processoCorrente->estadoCorrente = PRONTO;
-  }
-
   // faz o atendimento da interrupção
   so_trata_irq(self, irq);
   // faz o processamento independente da interrupção
@@ -346,9 +347,7 @@ static void so_escalona(so_t *self)
   // t2: na primeira versão, escolhe um processo pronto caso o processo
   //   corrente não possa continuar executando, senão deixa o mesmo processo.
   //   depois, implementa um escalonador melhor
-  // --- MODIFICAÇÃO RR ---
-  // Lógica de escalonamento Round-Robin
-
+  
   if (self->processoCorrente != NULL && self->processoCorrente->estadoCorrente == PRONTO) {
     if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, self->processoCorrente);
     else inserir(self->fila_proc_prioridade, self->processoCorrente);
@@ -361,7 +360,7 @@ static void so_escalona(so_t *self)
     else proximo = remover(self->fila_proc_prioridade);
 
     if (proximo != NULL) {
-      //console_printf("ESCALONANDO: PID=%d ", proximo->pid);      
+      console_printf("ESCALONANDO: PID=%d ", proximo->pid);      
       self->processoCorrente = proximo;
       self->processoCorrente->estadoCorrente = EXECUTANDO;
       self->processoCorrente->quantum = QUANTUM;
@@ -517,9 +516,14 @@ static void so_trata_irq_relogio(so_t *self) {
 
   if (self->processoCorrente != NULL) {
     self->processoCorrente->quantum--;
-  
-    if(ESCALONADOR_ATIVO == ESC_PRIORIDADE) so_recalcula_prioridade(self->processoCorrente);
-    self->processoCorrente->estadoCorrente = PRONTO;
+
+    
+    if(self->processoCorrente->quantum <= 0) {
+      console_printf("SO: preempção por esgotamento de quantum do PID %d", self->processoCorrente->pid);
+    
+      if(ESCALONADOR_ATIVO == ESC_PRIORIDADE) so_recalcula_prioridade(self->processoCorrente);
+      self->processoCorrente->estadoCorrente = PRONTO;
+    }
   }
 
   // t2: deveria tratar a interrupção
@@ -534,7 +538,7 @@ static void so_trata_irq_desconhecida(so_t *self, int irq)
 {
   console_printf("SO: não sei tratar IRQ %d (%s)", irq, irq_nome(irq));
   self->erro_interno = true;
-  if (self->processoCorrente != NULL) so_chamada_mata_proc(self);
+  if (self->processoCorrente != NULL) so_chamada_mata_proc(self); 
 }
 
 
@@ -554,6 +558,7 @@ static void so_trata_irq_chamada_sistema(so_t *self)
   // a identificação da chamada está no registrador A
   // t2: com processos, o reg A deve estar no descritor do processo corrente
   int id_chamada = self->processoCorrente->regA;
+  console_printf("ID da syscall: %d", id_chamada);
   //console_printf("SO: chamada de sistema %d", id_chamada);
   switch (id_chamada) {
     case SO_LE:
@@ -594,8 +599,7 @@ static void so_chamada_le(so_t *self)
     self->terminais_ocupados[(self->processoCorrente->terminal)/4] = true;
     so_bloqueia_processo(self);
   } // teclado não está pronto para a leitura
-  // então bloqueia o processo que fez a chamada
-  le_dado_teclado(self, self->processoCorrente);
+  else le_dado_teclado(self, self->processoCorrente); // então bloqueia o processo que fez a chamada
 }
 
 // implementação da chamada se sistema SO_ESCR
@@ -616,6 +620,9 @@ static void so_chamada_escr(so_t *self)
 static void so_chamada_cria_proc(so_t *self) {
   processo_t* novo_proc = cria_processo(self->processoCorrente);
   // em X está o endereço onde está o nome do arquivo
+
+  console_printf("Processo criado com PID %d e filho do proc com PID %d", novo_proc->pid, novo_proc->parentPID);
+
   int ender_proc;
   ender_proc = self->processoCorrente->regX;
   char nome[100];
@@ -623,6 +630,7 @@ static void so_chamada_cria_proc(so_t *self) {
     int enderFim = -1;
     int ender_carga = so_carrega_programa(self, nome, &enderFim);
     console_printf("ENDER_FIM = %d", enderFim);
+    console_printf("ENDER_CARGA = %d", ender_carga);
     if (ender_carga > 0 && enderFim != -1) {
       // t2: deveria escrever no PC do descritor do processo criado
       // se aconteceu algum erro ao carregar o programa da memória, o programa morre
@@ -634,6 +642,7 @@ static void so_chamada_cria_proc(so_t *self) {
       novo_proc->pFimMemoria = enderFim;
       self->processoCorrente->regA = novo_proc->pid;
       if (!so_insere_processo(self, novo_proc)) {
+        console_printf("IMPOSSIVEL INSERIR NA TABELA. MATANDO PROCESSO");
         mata_processo(self, novo_proc->pid);
         self->processoCorrente->regA = -1;
       }
@@ -643,10 +652,12 @@ static void so_chamada_cria_proc(so_t *self) {
 
       return;
     } else {
+      console_printf("Ender carga <= 0 ou enderFim != -1");
       mata_processo(self, novo_proc->pid);
       self->processoCorrente->regA = -1;
     }
   } else {
+    console_printf("Erro ao copiar string da memoria");
     mata_processo(self, novo_proc->pid);
     self->processoCorrente->regA = -1;
   }
@@ -748,8 +759,17 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
 // t2: deveria verificar se a memória pertence ao processo
 static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc)
 {
-  if (ender < proc->pIniMemoria || ender > proc->pFimMemoria) return false;
-  if (ender + tam < proc->pIniMemoria || ender + tam > proc->pFimMemoria) return false;
+  console_printf("pIniMemoria = %d, pFimMemoria = %d", proc->pIniMemoria, proc->pFimMemoria);
+  if (ender < proc->pIniMemoria || ender > proc->pFimMemoria) {
+    console_printf("ender < proc->pIniMemoria || ender > proc->pFimMemoria");
+    return false;
+  }
+  if (tam > proc->pFimMemoria - proc->pIniMemoria) {
+    console_printf("tam = %d", tam);
+    console_printf("proc->pFimMemoria - proc->pIniMemoria = %d", proc->pFimMemoria - proc->pIniMemoria);
+    console_printf("String maior do que a memoria disponivel para o processo");
+    return false;
+  }
   for (int indice_str = 0; indice_str < tam; indice_str++) {
     int caractere;
     if (mem_le(mem, ender + indice_str, &caractere) != ERR_OK) {
