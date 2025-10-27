@@ -16,7 +16,7 @@ void tela_init(void)
   initscr();     // inicializa o curses
   cbreak();      // lê cada char, não espera enter
   noecho();      // não mostra o que é digitado
-  timeout(5);    // t max a esperar por tecla, retorna ERR se nada foi digitado
+  timeout(2);    // t max a esperar por tecla, retorna ERR se nada foi digitado
   // inicializa algumas cores
   start_color();
   init_pair(COR_TXT_PAR,      COLOR_GREEN,  COLOR_BLACK );

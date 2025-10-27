@@ -8,11 +8,15 @@
 
 typedef struct so_t so_t;
 
-#include "processo.h"
 #include "memoria.h"
 #include "cpu.h"
 #include "es.h"
 #include "console.h" // só para uma gambiarra
+
+typedef enum {
+    ESC_ROUND_ROBIN,
+    ESC_PRIORIDADE
+} escalonador_t;
 
 so_t *so_cria(cpu_t *cpu, mem_t *mem, es_t *es, console_t *console);
 void so_destroi(so_t *self);
