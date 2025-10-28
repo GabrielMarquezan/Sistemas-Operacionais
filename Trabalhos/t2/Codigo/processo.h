@@ -13,8 +13,7 @@ typedef struct lista lista_t;
 enum estadoProcesso {
     PRONTO,
     BLOQUEADO,
-    EXECUTANDO,
-    FINALIZADO
+    EXECUTANDO
 };
 
 struct processo_t {
@@ -36,11 +35,21 @@ struct processo_t {
     int contadorPronto;
     int contadorBloqueado;
     int contadorExecutando;
-    float criacao;
+    int num_preepcoes;
+    int criacao;
+    int tempo_de_retorno;
+    int ultima_entrada_em_bloqueio;
+    int tempo_bloqueado;
+    int ultima_entrada_em_execucao;
+    int tempo_executando;
+    int ultima_entrada_em_prontidao;
+    int tempo_pronto;
+    int tempo_de_resposta_total;
+    int num_respostas;
 };
 
 processo_t* busca_proc_na_tabela(processo_t** tabela, int pid);
-processo_t* cria_processo(processo_t* processoPai);
+processo_t* cria_processo(processo_t* processoPai, int tempo_criacao);
 //int mata_processo(processo_t* proc, processo_t** tabela);
 processo_t** cria_vetor_processos();
 processo_t* busca_remove_proc_tabela(processo_t** tabela, int pid);

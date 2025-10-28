@@ -13,7 +13,7 @@
 // CRIAÇÃO {{{1
 // ---------------------------------------------------------------------
 
-cpu_t *cpu_cria(mem_t *mem, es_t *es)
+cpu_t *cpu_cria(mem_t *mem, es_t *es, relogio_t *relogio)
 {
   cpu_t *self;
   self = malloc(sizeof(*self));
@@ -32,6 +32,7 @@ cpu_t *cpu_cria(mem_t *mem, es_t *es)
   self->modo = supervisor;
   self->func_chamaC = NULL;
   self->fim_do_programa = false;
+  self->relogio = relogio;
 
   // inicializa instruções privilegiadas
   memset(self->privilegiadas, 0, sizeof(self->privilegiadas)); // todos em false

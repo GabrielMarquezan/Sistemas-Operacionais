@@ -67,7 +67,7 @@ void controle_laco(controle_t *self)
 
   } while (self->estado != fim);
 
-  console_printf("Fim da execução.");
+  console_printf("Fim da execucao.");
 }
  
 

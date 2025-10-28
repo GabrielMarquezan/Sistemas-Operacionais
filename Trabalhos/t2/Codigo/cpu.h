@@ -11,7 +11,9 @@
 #include "irq.h"
 #include "memoria.h"
 #include "es.h"
+#include "relogio.h"
 #include "irq.h"
+#include "console.h"
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -36,6 +38,7 @@ typedef struct cpu_t {
   // acesso a dispositivos externos
   mem_t *mem;
   es_t *es;
+  relogio_t *relogio;
   // identificação das instruções privilegiadas
   bool privilegiadas[N_OPCODE];
   // função e argumento para implementar instrução CHAMAC
@@ -66,7 +69,7 @@ typedef struct cpu_t {
 
 // cria uma unidade de execução com acesso à memória e ao
 //   controlador de E/S fornecidos
-cpu_t *cpu_cria(mem_t *mem, es_t *es);
+cpu_t *cpu_cria(mem_t *mem, es_t *es, relogio_t* relogio);
 
 // destrói a unidade de execução
 void cpu_destroi(cpu_t *self);
@@ -91,4 +94,4 @@ void cpu_define_chamaC(cpu_t *self, func_chamaC_t func, void *argC);
 // concatena a descrição do estado da CPU no final de str
 void cpu_concatena_descricao(cpu_t *self, char *str);
 
-#endif // CPU_H
+#endif // CPU

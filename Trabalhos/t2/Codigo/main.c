@@ -104,7 +104,7 @@ static void cria_hardware(hardware_t *hw)
   es_registra_dispositivo(hw->es, D_RELOGIO_INTERRUPCAO,hw->relogio, 3, relogio_leitura, relogio_escrita);
 
   // cria a unidade de execução e inicializa com a memória e o controlador de E/S
-  hw->cpu = cpu_cria(hw->mem, hw->es);
+  hw->cpu = cpu_cria(hw->mem, hw->es, hw->relogio);
 
   // cria o controlador da CPU e inicializa com a unidade de execução, a console e
   //   o relógio

@@ -23,7 +23,19 @@
 
 #include "err.h"
 
-typedef struct relogio_t relogio_t;
+#include <stdbool.h>
+#include <stdlib.h>
+#include <time.h>
+#include <assert.h>
+
+typedef struct relogio_t {
+  // que horas são (em tics)
+  int agora;
+  // quanto tempo até gerar uma interrupção
+  int t_ate_interrupcao;
+  // true se está gerando interrupção
+  bool interrupcao_ativa;
+} relogio_t;
 
 // cria e inicializa um relógio
 relogio_t *relogio_cria(void);

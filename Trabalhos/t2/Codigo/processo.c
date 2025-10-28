@@ -8,7 +8,7 @@ typedef struct processo_t processo_t;
 
 static int prox_pid = 2;
 
-processo_t* cria_processo(processo_t* processoPai) {
+processo_t* cria_processo(processo_t* processoPai, int tempo_criacao) {
     processo_t* proc = malloc(sizeof(processo_t));
     if (proc == NULL) return NULL;
     
@@ -33,7 +33,10 @@ processo_t* cria_processo(processo_t* processoPai) {
     proc->terminal = ((proc->pid - 1) % 4) * 4; // 0 = TERM_A, 1 = TERM_B
     proc->contadorBloqueado = 0;
     proc->contadorExecutando = 0;
-    proc->contadorPronto = 1;
+    proc->contadorPronto = 0;
+    proc->num_preepcoes = 0;
+    proc->criacao = tempo_criacao;
+    proc->tempo_de_retorno = 0;
 
     return proc;
 }
