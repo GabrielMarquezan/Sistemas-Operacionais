@@ -480,16 +480,6 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
@@ -501,7 +491,21 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: preempção por esgotamento de quantum do PID 2
@@ -570,16 +574,6 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
@@ -591,6 +585,16 @@ Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -696,17 +700,66 @@ SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
 SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
@@ -718,10 +771,328 @@ SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: preempção por esgotamento de quantum do PID 2
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
 ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
@@ -746,16 +1117,8 @@ SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
 ESCALONANDO: PID=3 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: buscando processo esperando escrita
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: buscando processo esperando escrita
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
@@ -763,20 +1126,50 @@ SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
 ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
-SO: buscando processo esperando escrita
 SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=2 
 SO: recebi IRQ 2 (Chamada de sistema)
 QUERO MORRER PID=2
 SO: matando processo com PID = 2
@@ -784,22 +1177,13 @@ SO: realizando morte em cascata
 SO: removendo processo da fila de prontos
 SO: processo com PID = 2 morto com sucesso
 Recebi chamada MATA PROCESSO!
-SO: buscando processo esperando escrita
 ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
 ESCALONANDO: PID=1 
 SO: recebi IRQ 2 (Chamada de sistema)
 Processo PID=1 quer esperar o 3
@@ -808,76 +1192,38 @@ SO: verficando se todos estão bloqueados
 Recebi chamada ESPERA PROCESSO!
 ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
 SO: buscando processo esperando escrita
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-SO: bloqueando processo
-SO: verficando se todos estão bloqueados
-Recebi chamada ESCRITA!
-SO: Fila vazia
-SO: recebi IRQ 3 (E/S: relógio)
-SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
 SO: buscando processo esperando escrita
-SO: buscando processo esperando escrita
-ESCALONANDO: PID=3 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
 ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: buscando processo esperando escrita
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
 ESCALONANDO: PID=3 
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
 SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
-SO: buscando processo esperando escrita
-SO: buscando processo esperando escrita
-ESCALONANDO: PID=3 
-SO: recebi IRQ 2 (Chamada de sistema)
-SO: bloqueando processo
-SO: verficando se todos estão bloqueados
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=4 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-Recebi chamada ESCRITA!
-SO: buscando processo esperando escrita
-SO: recebi IRQ 2 (Chamada de sistema)
-SO: bloqueando processo
-SO: verficando se todos estão bloqueados
-Recebi chamada ESCRITA!
-ESCALONANDO: PID=3 
-SO: recebi IRQ 3 (E/S: relógio)
-SO: recebi IRQ 2 (Chamada de sistema)
-SO: bloqueando processo
-SO: verficando se todos estão bloqueados
-Recebi chamada ESCRITA!
 SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
 SO: buscando processo esperando escrita
@@ -893,6 +1239,9 @@ Recebi chamada MATA PROCESSO!
 ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
 SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
@@ -902,9 +1251,31 @@ Processo PID=1 quer esperar o 4
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
 Recebi chamada ESPERA PROCESSO!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
 SO: buscando processo esperando escrita
 ESCALONANDO: PID=4 
 SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
 SO: recebi IRQ 2 (Chamada de sistema)
 SO: bloqueando processo
 SO: verficando se todos estão bloqueados
@@ -921,6 +1292,972 @@ SO: verficando se todos estão bloqueados
 Recebi chamada ESCRITA!
 SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
 SO: Fila vazia
 SO: recebi IRQ 3 (E/S: relógio)
 SO: buscando processo esperando escrita
@@ -1016,14 +2353,14 @@ SO: processo com PID = 1 morto com sucesso
 Recebi chamada MATA PROCESSO!
 SO: Fila vazia
 Numero de processos criados: 4
-Tempo total de execucao (instrucoes): 10783
-Tempo ocioso total: 2041
-Numero de interrupcoes de relogio: 199
-Numero de interrupcoes de chamada de sistema: 322
+Tempo total de execucao (instrucoes): 31372
+Tempo ocioso total: 9800
+Numero de interrupcoes de relogio: 587
+Numero de interrupcoes de chamada de sistema: 462
 Numero de interrupcoes de erro de cpu: 0
 Numero de interrupcoes de reset: 1
 Numero de interrupcoes desconhecidas: 0
-Numero de preempcoes: 5
+Numero de preempcoes: 13
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1031,15 +2368,15 @@ Numero de preempcoes: 5
 ////////////////////////////////////////////////////////////////////////////
 
 
-Tempo de bloqueio do processo com PID 1: 9325
-Tempo de prontidao do processo com PID 1: 17412
-Tempo de execucao do processo com PID 1: 37
-Tempo de retorno do processo com PID 1: 10782
-Tempo medio de resposta do processo com PID 1: 252
+Tempo de bloqueio do processo com PID 1: 30161
+Tempo de prontidao do processo com PID 1: 34
+Tempo de execucao do processo com PID 1: 58
+Tempo de retorno do processo com PID 1: 31371
+Tempo medio de resposta do processo com PID 1: 257
 Numero de preempcoes do processo com PID 1: 0
 Numero de bloqueios do processo com PID 1: 3
 Numero de prontidoes do processo com PID 1: 3
-Numero de execucoes do processo com PID 1: 69
+Numero de execucoes do processo com PID 1: 4
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1047,15 +2384,15 @@ Numero de execucoes do processo com PID 1: 69
 ////////////////////////////////////////////////////////////////////////////
 
 
-Tempo de bloqueio do processo com PID 2: 122
-Tempo de prontidao do processo com PID 2: 270415
-Tempo de execucao do processo com PID 2: 108
-Tempo de retorno do processo com PID 2: 8010
-Tempo medio de resposta do processo com PID 2: 1827
-Numero de preempcoes do processo com PID 2: 2
-Numero de bloqueios do processo com PID 2: 2
-Numero de prontidoes do processo com PID 2: 4
-Numero de execucoes do processo com PID 2: 148
+Tempo de bloqueio do processo com PID 2: 264
+Tempo de prontidao do processo com PID 2: 7553
+Tempo de execucao do processo com PID 2: 556
+Tempo de retorno do processo com PID 2: 18504
+Tempo medio de resposta do processo com PID 2: 1177
+Numero de preempcoes do processo com PID 2: 10
+Numero de bloqueios do processo com PID 2: 4
+Numero de prontidoes do processo com PID 2: 14
+Numero de execucoes do processo com PID 2: 15
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1063,15 +2400,15 @@ Numero de execucoes do processo com PID 2: 148
 ////////////////////////////////////////////////////////////////////////////
 
 
-Tempo de bloqueio do processo com PID 3: 428
-Tempo de prontidao do processo com PID 3: 301985
-Tempo de execucao do processo com PID 3: 247
-Tempo de retorno do processo com PID 3: 9118
-Tempo medio de resposta do processo com PID 3: 1819
+Tempo de bloqueio do processo com PID 3: 867
+Tempo de prontidao do processo com PID 3: 13316
+Tempo de execucao do processo com PID 3: 422
+Tempo de retorno do processo com PID 3: 18789
+Tempo medio de resposta do processo com PID 3: 1597
 Numero de preempcoes do processo com PID 3: 2
-Numero de bloqueios do processo com PID 3: 8
-Numero de prontidoes do processo com PID 3: 10
-Numero de execucoes do processo com PID 3: 166
+Numero de bloqueios do processo com PID 3: 15
+Numero de prontidoes do processo com PID 3: 17
+Numero de execucoes do processo com PID 3: 18
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1079,13 +2416,13 @@ Numero de execucoes do processo com PID 3: 166
 ////////////////////////////////////////////////////////////////////////////
 
 
-Tempo de bloqueio do processo com PID 4: 803
-Tempo de prontidao do processo com PID 4: 364196
-Tempo de execucao do processo com PID 4: 288
-Tempo de retorno do processo com PID 4: 9741
-Tempo medio de resposta do processo com PID 4: 2305
+Tempo de bloqueio do processo com PID 4: 8355
+Tempo de prontidao do processo com PID 4: 13960
+Tempo de execucao do processo com PID 4: 2579
+Tempo de retorno do processo com PID 4: 30330
+Tempo medio de resposta do processo com PID 4: 1136
 Numero de preempcoes do processo com PID 4: 1
-Numero de bloqueios do processo com PID 4: 12
-Numero de prontidoes do processo com PID 4: 13
-Numero de execucoes do processo com PID 4: 158
+Numero de bloqueios do processo com PID 4: 124
+Numero de prontidoes do processo com PID 4: 125
+Numero de execucoes do processo com PID 4: 126
 Fim da execucao.

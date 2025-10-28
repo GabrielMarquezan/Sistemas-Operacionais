@@ -134,16 +134,16 @@ A prioridade de um processo é calculada da seguinte forma:
 O valor da prioridade é uma espécie de média do percentual do quantum que o processo usou a cada vez que executou. Quanto menor esse valor, maior deve ser a prioridade do processo.
 
 O SO deve manter algumas métricas, que devem ser apresentadas no final da execução do SO (quando o init morrer):
-- número de processos criados
-- tempo total de execução
-- tempo total em que o sistema ficou ocioso (todos os processos bloqueados)
-- número de interrupções recebidas de cada tipo
-- número de preempções
-- tempo de retorno de cada processo (diferença entre data do término e da criação)
-- número de preempções de cada processo
-- número de vezes que cada processo entrou em cada estado (pronto, bloqueado, executando)
-- tempo total de cada processo em cada estado (pronto, bloqueado, executando)
-- tempo médio de resposta de cada processo (tempo entre desbloquear e ser escalonado)
+-[X] número de processos criados
+-[X] tempo total de execução
+-[X] tempo total em que o sistema ficou ocioso (todos os processos bloqueados)
+-[X] número de interrupções recebidas de cada tipo
+-[X] número de preempções
+-[X] tempo de retorno de cada processo (diferença entre data do término e da criação)
+-[X] número de preempções de cada processo
+-[X] número de vezes que cada processo entrou em cada estado (pronto, bloqueado, executando)
+-[X] tempo total de cada processo em cada estado (pronto, bloqueado, executando)
+-[X] tempo médio de resposta de cada processo (tempo entre desbloquear e ser escalonado)
 
 Os tempos acima são medidos em número de instruções (medidas pelo relógio).
 

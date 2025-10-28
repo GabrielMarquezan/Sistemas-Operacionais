@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "lista_processos.h": "c",
-    "fila_round_robin.h": "c"
+    "fila_round_robin.h": "c",
+    "programa.h": "c"
   }
 }

@@ -31,6 +31,8 @@
 #define ESCALONADOR_ATIVO ESC_ROUND_ROBIN
 #define CAP_MAX_HEAP 100
 
+static bool alterar_tempo_pronto = true;
+
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
@@ -63,7 +65,6 @@ struct so_t {
   int num_bloqueios_por_processo[MAX_PROC+1];
   int num_prontos_por_processo[MAX_PROC+1];
   int num_execucoes_por_processo[MAX_PROC+1];
-  // t2: tabela de processos, processo corrente, pendências, etc
 };
 
 
@@ -124,9 +125,22 @@ bool mata_processo(so_t* self, int pid) {
       return false;
     }
 
+    int agora = self->cpu->relogio->agora;
+    switch (proc->estadoCorrente) {
+      case EXECUTANDO:
+          proc->tempo_executando += agora - proc->ultima_entrada_em_execucao;
+          break;
+      case PRONTO: 
+          proc->tempo_pronto += agora - proc->ultima_entrada_em_prontidao;
+          break;
+      case BLOQUEADO:
+          proc->tempo_bloqueado += agora - proc->ultima_entrada_em_bloqueio;
+          break;
+    }
+
     //mata os filhos
     console_printf("SO: realizando morte em cascata");
-    for (int i=0; i < self->qtdProc; i++) {
+    for (int i=0; i < MAX_PROC; i++) {
       if (self->processosCPU[i] == NULL) continue;
       if (self->processosCPU[i]->parentPID == proc->pid) {
         mata_processo(self, self->processosCPU[i]->pid);
@@ -151,7 +165,10 @@ bool mata_processo(so_t* self, int pid) {
       self->tempo_processos_bloqueados[pid_morto] = proc->tempo_bloqueado;
       self->tempo_processos_prontos[pid_morto] = proc->tempo_pronto;
       self->tempo_processos_executando[pid_morto] = proc->tempo_executando;
-      self->tempo_resposta_processos[pid_morto] = proc->tempo_de_resposta_total / proc->num_respostas;
+      if(proc->num_respostas > 0) {
+        self->tempo_resposta_processos[pid_morto] = proc->tempo_de_resposta_total / proc->num_respostas;
+      }
+      else self->tempo_resposta_processos[pid_morto] = -1; // Indica que nunca executou
       self->num_bloqueios_por_processo[pid_morto] = proc->contadorBloqueado;
       self->num_prontos_por_processo[pid_morto] = proc->contadorPronto;
       self->num_execucoes_por_processo[pid_morto] = proc->contadorExecutando;
@@ -395,6 +412,7 @@ static void so_trata_pendencias(so_t *self)
           proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
           proc->estadoCorrente = PRONTO;
           proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
+          alterar_tempo_pronto = true;
           proc->contadorPronto++;
           proc->esperando_leitura = false;
 
@@ -415,6 +433,7 @@ static void so_trata_pendencias(so_t *self)
           proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
           proc->estadoCorrente = PRONTO;
           proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
+          alterar_tempo_pronto = true;
           proc->contadorPronto++;
           proc->esperando_escrita = false;
 
@@ -464,12 +483,8 @@ static void so_escalona(so_t *self)
     if (proximo != NULL) {
       console_printf("ESCALONANDO: PID=%d ", proximo->pid);      
       self->processoCorrente = proximo;
-      self->processoCorrente->tempo_pronto += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
-      self->processoCorrente->ultima_entrada_em_execucao = self->cpu->relogio->agora;
       self->processoCorrente->estadoCorrente = EXECUTANDO;
       self->processoCorrente->contadorExecutando++;
-      self->processoCorrente->num_respostas++;
-      self->processoCorrente->tempo_de_resposta_total += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
       self->processoCorrente->quantum = QUANTUM;
     } else {
       console_printf("SO: Fila vazia");
@@ -514,12 +529,13 @@ static int so_despacha(so_t *self)
   //   registrador A para o tratador de interrupção (ver trata_irq.asm).
   if (self->processoCorrente == NULL) return 1;
 
-  self->processoCorrente->tempo_pronto += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
+  if(alterar_tempo_pronto) {
+    self->processoCorrente->tempo_pronto += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
+    alterar_tempo_pronto = false;
+  }
   self->processoCorrente->ultima_entrada_em_execucao = self->cpu->relogio->agora;
-  self->processoCorrente->estadoCorrente = EXECUTANDO;
   self->processoCorrente->num_respostas++;
   self->processoCorrente->tempo_de_resposta_total += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
-  self->processoCorrente->contadorExecutando++;
 
   if (mem_escreve(self->mem, CPU_END_A, self->processoCorrente->regA) != ERR_OK
       || mem_escreve(self->mem, CPU_END_PC, self->processoCorrente->regPC) != ERR_OK
@@ -681,6 +697,7 @@ static void so_trata_irq_relogio(so_t *self) {
       self->processoCorrente->estadoCorrente = PRONTO;
       self->processoCorrente->contadorPronto++;
       self->processoCorrente->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
+      alterar_tempo_pronto = true;
       if(self->todos_proc_bloqueados == true) {
         self->todos_proc_bloqueados = false;
         self->tempo_total_todos_bloqueados += self->cpu->relogio->agora - self->ultimo_tempo_todos_bloqueados;
@@ -842,6 +859,7 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
       proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
       proc->estadoCorrente = PRONTO;
       proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
+      alterar_tempo_pronto = true;
       proc->contadorPronto++;
       proc->esperando_processo = 0;
       proc->regA = 0;

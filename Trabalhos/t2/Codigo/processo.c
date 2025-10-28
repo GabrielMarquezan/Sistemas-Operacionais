@@ -37,6 +37,14 @@ processo_t* cria_processo(processo_t* processoPai, int tempo_criacao) {
     proc->num_preepcoes = 0;
     proc->criacao = tempo_criacao;
     proc->tempo_de_retorno = 0;
+    proc->tempo_bloqueado = 0;
+    proc->tempo_executando = 0;
+    proc->tempo_pronto = 1;
+    proc->tempo_de_resposta_total = 0;
+    proc->num_respostas = 0;
+    proc->ultima_entrada_em_prontidao = tempo_criacao;
+    proc->ultima_entrada_em_bloqueio = 0;
+    proc->ultima_entrada_em_execucao = 0;
 
     return proc;
 }
