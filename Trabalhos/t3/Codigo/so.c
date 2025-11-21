@@ -61,7 +61,7 @@ static void so_chamada_mata_proc(so_t *self);
 
 // funções auxiliares
 // carrega o programa contido no arquivo na memória do processador; retorna end. inicial
-static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* endFim);
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* endFim, int *tamanho);
 // copia para str da memória do processador, até copiar um 0 (retorna true) ou tam bytes
 static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc);
 
@@ -584,7 +584,8 @@ static void so_trata_reset(so_t *self)
   //   de interrupção (escrito em asm). esse programa deve conter a
   //   instrução CHAMAC, que vai chamar so_trata_interrupcao (como
   //   foi definido na inicialização do SO)
-  int ender = so_carrega_programa(self, "trata_int.maq", NULL);
+  int tamanho = 0;
+  int ender = so_carrega_programa(self, "trata_int.maq", NULL, &tamanho);
   if (ender != CPU_END_TRATADOR) {
     console_printf("SO: problema na carga do programa de tratamento de interrupção");
     self->erro_interno = true;
@@ -606,11 +607,11 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
-  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora);
+  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora, tamanho);
   self->qtd_processos_criados++;
   // coloca o programa init na memória
   int enderFim = -1;
-  ender = so_carrega_programa(self, "init.maq", &enderFim);
+  ender = so_carrega_programa(self, "init.maq", &enderFim, &tamanho);
   if (ender != 100) {
     console_printf("SO: problema na carga do programa inicial");
     self->erro_interno = true;
@@ -787,21 +788,20 @@ static void so_chamada_escr(so_t *self)
 
 
 static void so_chamada_cria_proc(so_t *self) {
-  processo_t* novo_proc = cria_processo(self->processoCorrente, self->cpu->relogio->agora);
-  if (novo_proc == NULL) {
-    console_printf("Erro na criação do processo!");
-    return;
-  }
-
-  console_printf("Processo criado com PID %d e filho do proc com PID %d", novo_proc->pid, novo_proc->parentPID);
-  self->qtd_processos_criados++;
-
+  int tamanho = 0;
   int ender_proc;
   ender_proc = self->processoCorrente->estado_cpu.regX; // em X está o endereço onde está o nome do arquivo
   char nome[100];
   if (copia_str_da_mem(100, nome, self->mem, ender_proc, self->processoCorrente)) {
     int enderFim = -1;
-    int ender_carga = so_carrega_programa(self, nome, &enderFim);
+    int ender_carga = so_carrega_programa(self, nome, &enderFim, &tamanho);
+    processo_t* novo_proc = cria_processo(self->processoCorrente, self->cpu->relogio->agora, &tamanho);
+    if (novo_proc == NULL) {
+      console_printf("Erro na criação do processo!");
+      return;
+    }
+    console_printf("Processo criado com PID %d e filho do proc com PID %d", novo_proc->pid, novo_proc->parentPID);
+    self->qtd_processos_criados++;
     console_printf("ENDER_FIM = %d", enderFim);
     console_printf("ENDER_CARGA = %d", ender_carga);
     if (ender_carga > 0 && enderFim != -1) {
@@ -832,7 +832,6 @@ static void so_chamada_cria_proc(so_t *self) {
     }
   } else {
     console_printf("Erro ao copiar string da memoria");
-    mata_processo(self, novo_proc->pid);
     self->processoCorrente->estado_cpu.regA = -1;
   }
 }
@@ -904,7 +903,7 @@ static void so_chamada_espera_proc(so_t *self)
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
-static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim)
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim, int* tamanho)
 {
   // programa para executar na nossa CPU
   programa_t *prog = prog_cria(nome_do_executavel);
@@ -914,7 +913,8 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
   }
 
   int end_ini = prog_end_carga(prog);
-  int end_fim = end_ini + prog_tamanho(prog);
+  *tamanho = prog_tamanho(prog);
+  int end_fim = end_ini + *tamanho;
 
   for (int end = end_ini; end < end_fim; end++) {
     if (mem_escreve(self->mem, end, prog_dado(prog, end)) != ERR_OK) {
