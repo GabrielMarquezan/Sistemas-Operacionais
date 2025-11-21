@@ -8,46 +8,19 @@
 // ---------------------------------------------------------------------
 
 #include "cpu.h"
-#include "err.h"
-#include "instrucao.h"
-
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <assert.h>
-
 
 // ---------------------------------------------------------------------
 // DECLARAÇÃO {{{1
 // ---------------------------------------------------------------------
 
 // uma CPU tem estado, memória, controlador de ES
-struct cpu_t {
-  // registradores
-  int PC;
-  int A;
-  int X;
-  // estado interno da CPU
-  err_t erro;
-  int complemento;
-  cpu_modo_t modo;
-  // acesso a dispositivos externos
-  mmu_t *mmu;
-  es_t *es;
-  // identificação das instruções privilegiadas
-  bool privilegiadas[N_OPCODE];
-  // função e argumento para implementar instrução CHAMAC
-  func_chamaC_t func_chamaC;
-  void *arg_chamaC;
-};
 
 
 // ---------------------------------------------------------------------
 // CRIAÇÃO {{{1
 // ---------------------------------------------------------------------
 
-cpu_t *cpu_cria(mmu_t *mmu, es_t *es)
+cpu_t *cpu_cria(mmu_t *mmu, es_t *es, relogio_t *relogio)
 {
   cpu_t *self;
   self = malloc(sizeof(*self));
@@ -65,6 +38,8 @@ cpu_t *cpu_cria(mmu_t *mmu, es_t *es)
   self->complemento = 0;
   self->modo = supervisor;
   self->func_chamaC = NULL;
+  self->fim_do_programa = false;
+  self->relogio = relogio;
 
   // inicializa instruções privilegiadas
   memset(self->privilegiadas, 0, sizeof(self->privilegiadas)); // todos em false

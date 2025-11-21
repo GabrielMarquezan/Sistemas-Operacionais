@@ -6,16 +6,38 @@
 #ifndef SO_H
 #define SO_H
 
-typedef struct so_t so_t;
-
 #include "memoria.h"
 #include "mmu.h"
 #include "cpu.h"
 #include "es.h"
 #include "console.h" // só para uma gambiarra
 
-so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
-              es_t *es, console_t *console);
+// ---------------------------------------------------------------------
+// INCLUDES {{{1
+// ---------------------------------------------------------------------
+
+#include "dispositivos.h"
+#include "err.h"
+#include "irq.h"
+#include "memoria.h"
+#include "programa.h"
+#include "processo.h"
+#include "lista_processos.h"
+#include "fila_prioridade.h"
+#include "fila_round_robin.h"
+#include "tabpag.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+typedef enum {
+    ESC_ROUND_ROBIN,
+    ESC_PRIORIDADE
+} escalonador_t;
+
+typedef struct so_t so_t;
+
+so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu, es_t *es, console_t *console);
 void so_destroi(so_t *self);
 
 // Chamadas de sistema

@@ -6,10 +6,51 @@
 #ifndef CPU_H
 #define CPU_H
 
-typedef struct cpu_t cpu_t; // tipo opaco
-
 // os modos de execução da CPU
 typedef enum { supervisor, usuario } cpu_modo_t;
+// tipo da função a ser chamada quando executar a instrução CHAMAC
+typedef int (*func_chamaC_t)(void *argC, int reg_A);
+
+#include "err.h"
+#include "instrucao.h"
+#include "relogio.h"
+#include "es.h"
+#include "irq.h"
+#include "mmu.h"
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+
+typedef struct cpu_t {
+  // registradores
+  int PC;
+  int A;
+  int X;
+  // estado interno da CPU
+  err_t erro;
+  int complemento;
+  cpu_modo_t modo;
+  // acesso a dispositivos externos
+  mmu_t *mmu;
+  es_t *es;
+  relogio_t *relogio;
+  // identificação das instruções privilegiadas
+  bool privilegiadas[N_OPCODE];
+  // função e argumento para implementar instrução CHAMAC
+  func_chamaC_t func_chamaC;
+  void *arg_chamaC;
+  bool fim_do_programa;
+} cpu_t;
+
+typedef struct cpu_estado_t {
+    int regA;
+    int regX;
+    int regPC;
+    int regERRO;
+    int regComplemento;
+} cpu_estado_t;
 
 // endereços na memória onde a CPU salva os valores dos registradores
 //   quando aceita uma interrupção, e de onde recupera esses valores
@@ -30,17 +71,10 @@ typedef enum { supervisor, usuario } cpu_modo_t;
 // endereço limite da memória protegida (não acessável em modo usuário)
 #define CPU_END_FIM_PROT    99
 
-#include "es.h"
-#include "irq.h"
-#include "mmu.h"
-
-// tipo da função a ser chamada quando executar a instrução CHAMAC
-typedef int (*func_chamaC_t)(void *argC, int reg_A);
-
 
 // cria uma unidade de execução com acesso à MMU e ao
 //   controlador de E/S fornecidos
-cpu_t *cpu_cria(mmu_t *mmu, es_t *es);
+cpu_t *cpu_cria(mmu_t *mmu, es_t *es, relogio_t *relogio);
 
 // destrói a unidade de execução
 void cpu_destroi(cpu_t *self);
@@ -65,4 +99,4 @@ void cpu_define_chamaC(cpu_t *self, func_chamaC_t func, void *argC);
 // concatena a descrição do estado da CPU no final de str
 void cpu_concatena_descricao(cpu_t *self, char *str);
 
-#endif // CPU_H
+#endif 

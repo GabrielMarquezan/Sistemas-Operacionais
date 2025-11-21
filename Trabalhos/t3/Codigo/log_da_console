@@ -1,0 +1,35 @@
+INICIALIZANDO SISTEMA OPERACIONAL
+SISTEMA OPERACIONAL INICIALIZADO COM SUCESSO
+CMD: '1'
+CMD: '1'
+SO: recebi IRQ 0 (Reset)
+SO: carga de 'trata_int.maq' em 60-72
+SO: carga de 'init.maq' em 0-170
+SO: problema na carga do programa inicial
+SO: Fila vazia
+Numero de processos criados: 1
+Tempo total de execucao (instrucoes): 1
+Tempo ocioso total: 0
+Numero de interrupcoes de relogio: 0
+Numero de interrupcoes de chamada de sistema: 0
+Numero de interrupcoes de erro de cpu: 0
+Numero de interrupcoes de reset: 1
+Numero de interrupcoes desconhecidas: 0
+Numero de preempcoes: 0
+
+
+////////////////////////////////////////////////////////////////////////////
+                             PROCESSO COM PID 1                          
+////////////////////////////////////////////////////////////////////////////
+
+
+Tempo de bloqueio do processo com PID 1: 0
+Tempo de prontidao do processo com PID 1: 0
+Tempo de execucao do processo com PID 1: 0
+Tempo de retorno do processo com PID 1: 0
+Tempo medio de resposta do processo com PID 1: 0
+Numero de preempcoes do processo com PID 1: 0
+Numero de bloqueios do processo com PID 1: 0
+Numero de prontidoes do processo com PID 1: 0
+Numero de execucoes do processo com PID 1: 0
+Fim da execução.
