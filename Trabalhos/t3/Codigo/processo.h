@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "cpu.h"
 #include "tabpag.h"
+#include "mmu.h"
+#include <math.h>
 
 #define MAX_PROC 100
 #define QUANTUM 20
@@ -52,7 +54,8 @@ typedef struct processo_t {
     int end_disco;
     int tam_em_mem;
     int num_page_faults;
-    unsigned int* envelhecimento_paginas;;
+    int num_paginas;
+    int* envelhecimento_paginas;;
 
 } processo_t;
 

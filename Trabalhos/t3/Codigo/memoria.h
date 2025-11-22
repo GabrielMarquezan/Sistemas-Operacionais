@@ -19,8 +19,11 @@
 
 #include "err.h"
 
-// tipo opaco que representa a memória
-typedef struct mem_t mem_t;
+// tipo de dados para representar uma região de memória
+typedef struct mem_t {
+  int tam;
+  int *conteudo;
+} mem_t;
 
 // cria uma região de memória com capacidade para 'tam' valores (inteiros)
 // retorna um ponteiro para um descritor, que deverá ser usado em todas

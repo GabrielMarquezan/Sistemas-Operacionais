@@ -21,6 +21,7 @@ static bool alterar_tempo_pronto = true;
 struct so_t {
   cpu_t *cpu;
   mem_t *mem;
+  mem_t *disco;
   es_t *es;
   console_t *console;
   bool erro_interno;
@@ -50,7 +51,10 @@ struct so_t {
   int num_bloqueios_por_processo[MAX_PROC+1];
   int num_prontos_por_processo[MAX_PROC+1];
   int num_execucoes_por_processo[MAX_PROC+1];
-  bool quadros_livres[MAX_PROC];
+  int total_frames;
+  bool* frames_livres;
+  int tempo_disco_livre;
+  int proximo_end_livre_disco;
 };
 
 
@@ -105,6 +109,7 @@ bool mata_processo(so_t* self, int pid) {
       pid_alvo = self->processoCorrente->pid;
     }
     console_printf("SO: matando processo com PID = %d", pid_alvo);
+    libera_vetor_lru(self->processoCorrente);
     processo_t* proc = busca_remove_proc_tabela(self->processosCPU, pid_alvo);
     if(proc == NULL) {
       console_printf("SO: processo não encontrado na tabela");
@@ -175,6 +180,13 @@ static processo_t* busca_processo_escrita_pendente(so_t* self, int terminal){
         }
   }
   return NULL;
+}
+
+static void libera_vetor_lru(processo_t* proc) {
+  for(int i = 0; i < proc->num_paginas; i++) {
+    free(proc->envelhecimento_paginas[i]);
+  }
+  free(proc->envelhecimento_paginas);
 }
 
 static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
@@ -248,7 +260,7 @@ static void escreve_dado_tela(so_t* self, processo_t* proc) {
 // CRIAÇÃO {{{1
 // ---------------------------------------------------------------------
 
-so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
+so_t *so_cria(cpu_t *cpu, mem_t *mem, mem_t *disco, mmu_t *mmu,
               es_t *es, console_t *console)
 {
   console_printf("INICIALIZANDO SISTEMA OPERACIONAL");
@@ -263,6 +275,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
   self->todos_proc_bloqueados = false;
   self->cpu = cpu;
   self->mem = mem;
+  self->disco = disco;
   self->es = es;
   self->console = console;
   self->erro_interno = false;
@@ -285,6 +298,13 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu,
     self->tempo_resposta_processos[i] = 0;
     self->tempo_retorno_processos[i] = 0;
   }
+
+  self->total_frames = ceil(mem->tam / TAM_PAGINA);
+  self->frames_livres = malloc(self->total_frames * sizeof(bool));
+  for(int i = 0; i < self->total_frames; i++) self->frames_livres[i] = true;
+  self->tempo_disco_livre = 0;
+  self->proximo_end_livre_disco = 0;
+
 
   if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) {
     self->fila_proc_prontos = fila_rr_cria();
@@ -903,6 +923,7 @@ static void so_chamada_espera_proc(so_t *self)
 
 // carrega o programa na memória
 // retorna o endereço de carga ou -1
+// Alterado para escrever primariamente no disco
 static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim, int* tamanho)
 {
   // programa para executar na nossa CPU
@@ -916,9 +937,18 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
   *tamanho = prog_tamanho(prog);
   int end_fim = end_ini + *tamanho;
 
+  mem_t *memoria_destino;
+  char disco_ou_mem[] = "memoria";
+  if(nome_do_executavel != "trata_int.maq") {
+    memoria_destino = self->disco;
+    sprintf(disco_ou_mem, "disco\0");
+    self->proximo_end_livre_disco = end_fim;
+  }
+  else memoria_destino = self->mem;
+
   for (int end = end_ini; end < end_fim; end++) {
-    if (mem_escreve(self->mem, end, prog_dado(prog, end)) != ERR_OK) {
-      console_printf("Erro na carga da memória, endereco %d\n", end);
+    if (mem_escreve(memoria_destino, end, prog_dado(prog, end)) != ERR_OK) {
+      console_printf("Erro na carga do %s, endereco %d\n", disco_ou_mem, end);
       return -1;
     }
   }
@@ -926,6 +956,7 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
   prog_destroi(prog);
   console_printf("SO: carga de '%s' em %d-%d", nome_do_executavel, end_ini, end_fim);
   if (enderFim != NULL) *enderFim = end_fim;
+
   return end_ini;
 }
 

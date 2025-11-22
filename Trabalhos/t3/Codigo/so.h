@@ -37,7 +37,7 @@ typedef enum {
 
 typedef struct so_t so_t;
 
-so_t *so_cria(cpu_t *cpu, mem_t *mem, mmu_t *mmu, es_t *es, console_t *console);
+so_t *so_cria(cpu_t *cpu, mem_t *mem, mem_t *disco, mmu_t *mmu, es_t *es, console_t *console);
 void so_destroi(so_t *self);
 
 // Chamadas de sistema
