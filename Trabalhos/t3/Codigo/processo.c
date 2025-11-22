@@ -5,7 +5,7 @@ typedef struct processo_t processo_t;
 
 static int prox_pid = 2;
 
-processo_t* cria_processo(processo_t* processoPai, int tempo_criacao, int tamanho) {
+processo_t* cria_processo(processo_t* processoPai, int tempo_criacao,  int end_carga, int tamanho) {
     processo_t* proc = malloc(sizeof(processo_t));
     if (proc == NULL) return NULL;
     
@@ -42,10 +42,12 @@ processo_t* cria_processo(processo_t* processoPai, int tempo_criacao, int tamanh
     proc->ultima_entrada_em_prontidao = tempo_criacao;
     proc->ultima_entrada_em_bloqueio = 0;
     proc->ultima_entrada_em_execucao = 0;
+    proc->end_disco = end_carga;
     proc->num_page_faults = 0;
     proc->tabpag = tabpag_cria();
+    proc->tamanho = tamanho;
     proc->num_paginas = ceil(tamanho/TAM_PAGINA);
-    proc->envelhecimento_paginas = malloc(proc->num_paginas *  sizeof(int));
+    proc->envelhecimento_paginas = calloc(proc->num_paginas, sizeof(int));
 
     return proc;
 }

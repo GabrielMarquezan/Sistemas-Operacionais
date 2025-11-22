@@ -135,3 +135,4 @@ err_t tabpag_traduz(tabpag_t *self, int pagina, int *pquadro)
   *pquadro = self->tabela[pagina].quadro;
   return ERR_OK;
 }
+

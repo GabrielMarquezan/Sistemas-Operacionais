@@ -22,6 +22,7 @@ struct so_t {
   cpu_t *cpu;
   mem_t *mem;
   mem_t *disco;
+  mmu_t *mmu;
   es_t *es;
   console_t *console;
   bool erro_interno;
@@ -275,6 +276,7 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mem_t *disco, mmu_t *mmu,
   self->todos_proc_bloqueados = false;
   self->cpu = cpu;
   self->mem = mem;
+  self->mmu = mmu;
   self->disco = disco;
   self->es = es;
   self->console = console;
@@ -544,6 +546,8 @@ static int so_despacha(so_t *self)
   self->processoCorrente->num_respostas++;
   self->processoCorrente->tempo_de_resposta_total += self->cpu->relogio->agora - self->processoCorrente->ultima_entrada_em_prontidao;
 
+  mmu_usa_tabpag(self->mmu, self->processoCorrente->tabpag);
+
   if (mem_escreve(self->mem, CPU_END_A, self->processoCorrente->estado_cpu.regA) != ERR_OK
       || mem_escreve(self->mem, CPU_END_PC, self->processoCorrente->estado_cpu.regPC) != ERR_OK
       || mem_escreve(self->mem, CPU_END_erro, self->processoCorrente->estado_cpu.regERRO) != ERR_OK
@@ -627,7 +631,7 @@ static void so_trata_reset(so_t *self)
   //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
   //   deste código
 
-  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora, tamanho);
+  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora, ender, tamanho);
   self->qtd_processos_criados++;
   // coloca o programa init na memória
   int enderFim = -1;
@@ -673,11 +677,37 @@ static void so_trata_irq_err_cpu(so_t *self)
     self->processoCorrente = NULL;
     return;
   }
-  if (err == ERR_INSTR_INV || err == ERR_END_INV ||
+  else if (err == ERR_INSTR_INV || err == ERR_END_INV ||
       err == ERR_INSTR_PRIV || err == ERR_OP_INV ||
       err == ERR_DISP_INV) {
       so_chamada_mata_proc(self);
   }
+  else if(err == ERR_PAG_AUSENTE) {
+    int end_err = self->processoCorrente->estado_cpu.regComplemento;
+    if(end_err < self->processoCorrente->end_disco ||
+       end_err > self->processoCorrente->end_disco + self->processoCorrente->tamanho) {
+        self->processoCorrente->estado_cpu.regA = 0;
+        so_chamada_mata_proc(self);
+    }
+    else{
+      int quadro_livre = busca_quadro_livre_mem(self);
+      if(quadro_livre > -1) {
+
+      }
+      else {
+        // IMPLEMENTAR LRU
+      }
+    }
+  }
+}
+
+static int busca_quadro_livre_mem(so_t *self) {
+  int num_quadros = ceil(self->mem->tam / TAM_PAGINA);
+  for(int i = 0; i < num_quadros; i++){
+    if(self->frames_livres[i]) return i;
+  }
+
+  return -1;
 }
 
 // interrupção gerada quando o timer expira
@@ -815,7 +845,7 @@ static void so_chamada_cria_proc(so_t *self) {
   if (copia_str_da_mem(100, nome, self->mem, ender_proc, self->processoCorrente)) {
     int enderFim = -1;
     int ender_carga = so_carrega_programa(self, nome, &enderFim, &tamanho);
-    processo_t* novo_proc = cria_processo(self->processoCorrente, self->cpu->relogio->agora, &tamanho);
+    processo_t* novo_proc = cria_processo(self->processoCorrente, self->cpu->relogio->agora, ender_carga, tamanho);
     if (novo_proc == NULL) {
       console_printf("Erro na criação do processo!");
       return;

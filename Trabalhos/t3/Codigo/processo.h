@@ -36,6 +36,7 @@ typedef struct processo_t {
     int terminal;
     bool esperando_leitura;
     bool esperando_escrita;
+    // metricas
     int esperando_processo;
     int contadorPronto;
     int contadorBloqueado;
@@ -51,9 +52,11 @@ typedef struct processo_t {
     int tempo_pronto;
     int tempo_de_resposta_total;
     int num_respostas;
+    //disco
     int end_disco;
     int tam_em_mem;
     int num_page_faults;
+    int tamanho;
     int num_paginas;
     int* envelhecimento_paginas;;
 
@@ -62,7 +65,7 @@ typedef struct processo_t {
 #include "lista_processos.h"
 
 processo_t* busca_proc_na_tabela(processo_t** tabela, int pid);
-processo_t* cria_processo(processo_t* processoPai, int tempo_criacao, int num_paginas);
+processo_t* cria_processo(processo_t* processoPai, int tempo_criacao, int end_carga, int tamanho);
 //int mata_processo(processo_t* proc, processo_t** tabela);
 processo_t** cria_vetor_processos();
 processo_t* busca_remove_proc_tabela(processo_t** tabela, int pid);
