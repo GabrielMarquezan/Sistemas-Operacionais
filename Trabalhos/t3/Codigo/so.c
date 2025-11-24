@@ -15,6 +15,7 @@
 #define CAP_MAX_HEAP 100
 #define NENHUM_PROCESSO -1
 #define ALGUM_PROCESSO 0
+#define TEMPO_DISCO 100
 
 static bool alterar_tempo_pronto = true;
 
@@ -656,7 +657,7 @@ static int busca_pagina_mais_velha(processo_t *proc) {
   int aux = -1;
   for(int i = 0; i < proc->num_paginas; i++) {
     if(tabpag_traduz(proc->tabpag, i, &aux) == ERR_OK) {
-      if(pagina_mais_velha < proc->envelhecimento_paginas[i]) {
+      if(pagina_mais_velha > proc->envelhecimento_paginas[i]) {
         pagina_mais_velha = proc->envelhecimento_paginas[i];
       }
     }
@@ -671,12 +672,14 @@ static void atualiza_least_recently_used(processo_t *proc) {
     if(tabpag_traduz(proc->tabpag, i, &aux) == ERR_OK) {
       bool acessou = tabpag_bit_acesso(proc->tabpag, i);
 
+      proc->envelhecimento_paginas[i] = proc->envelhecimento_paginas[i] >> 1;
+
       if(acessou) {
-        proc->envelhecimento_paginas[i]--;
+        proc->envelhecimento_paginas[i] |= 0x80000000;
         tabpag_zera_bit_acesso(proc->tabpag, i);  
       }
-      else proc->envelhecimento_paginas[i]++;
     }
+    else proc->envelhecimento_paginas[i] = 0;
   }
 }
 
@@ -687,6 +690,7 @@ static void trata_page_fault(so_t *self) {
   int end_disco = pagina_faltante * TAM_PAGINA + self->processoCorrente->end_disco;
   int vai_pra_mem[TAM_PAGINA];
   int end_mem;
+  self->processoCorrente->num_page_faults++;
 
   for(int i = 0; i < TAM_PAGINA; i++) {
     mem_le(self->disco, i + end_disco, &vai_pra_mem[i]);
@@ -717,6 +721,7 @@ static void trata_page_fault(so_t *self) {
     mem_escreve(self->mem, end_mem + i, vai_pra_mem[i]);
   }
   tabpag_define_quadro(self->processoCorrente->tabpag, pagina_faltante, quadro_livre);
+  so_bloqueia_processo(self);
 }
 
 // interrupção gerada quando a CPU identifica um erro
