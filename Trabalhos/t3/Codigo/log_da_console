@@ -1,10 +1,9 @@
 INICIALIZANDO SISTEMA OPERACIONAL
 SISTEMA OPERACIONAL INICIALIZADO COM SUCESSO
-CMD: '1'
-CMD: '1'
+CMD: 'c'
 SO: recebi IRQ 0 (Reset)
-SO: carga de 'trata_int.maq' em 60-72
-SO: carga de 'init.maq' em 0-170
+SO: carga de 'trata_int.maq' em memoria end_fisico: 60
+SO: carga de 'init.maq' em disco end_fisico: 0
 SO: problema na carga do programa inicial
 SO: Fila vazia
 Numero de processos criados: 1
