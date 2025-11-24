@@ -149,7 +149,7 @@ bool mata_processo(so_t* self, int pid) {
     if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) {
       console_printf("SO: removendo processo da fila de prontos");
       fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
-    }
+    } else fila_remove_proc_pid(self->fila_proc_prioridade, proc);
 
     if (proc == self->processoCorrente) self->processoCorrente = NULL;
     if(proc->pid < MAX_PROC){

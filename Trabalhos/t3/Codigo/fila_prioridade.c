@@ -36,7 +36,7 @@ void bubble_down(fila_prioridade* heap, int pai){
     int n = heap->qtd_elementos;
     int filho_esq = 2*pai;
 
-    if (filho_esq >= n) return;
+    if (filho_esq > n) return;
     
     int filho_dir = 2*pai + 1;
     int maior_filho = filho_esq;
@@ -44,7 +44,7 @@ void bubble_down(fila_prioridade* heap, int pai){
     if (maior_filho < n && heap->arr[filho_esq]->prioridade < heap->arr[filho_dir]->prioridade){
         maior_filho = filho_dir;
     }
-    if (maior_filho <= n && heap->arr[maior_filho]->prioridade > heap->arr[pai]->prioridade){
+    if (heap->arr[maior_filho]->prioridade > heap->arr[pai]->prioridade){
         troca(heap, maior_filho, pai);
         bubble_down(heap, maior_filho);
     }
@@ -84,4 +84,33 @@ processo_t* remover(fila_prioridade* heap){
 processo_t* topo(fila_prioridade* heap){
     if (heap->qtd_elementos >=1) return heap->arr[1];
     else return NULL;
+}
+
+bool fila_remove_proc_pid(fila_prioridade* heap, processo_t* proc_alvo) {
+    int n = heap->qtd_elementos;
+    int pos_alvo = -1;
+
+    for (int i = 1; i <= n; i++) {
+        if (heap->arr[i] == proc_alvo) {
+            pos_alvo = i;
+            break;
+        }
+    }
+    if (pos_alvo == -1) {
+        return false;
+    }
+    heap->arr[pos_alvo] = heap->arr[n];
+    heap->arr[n] = NULL;
+    heap->qtd_elementos--;
+
+    if (heap->qtd_elementos > 0) {
+        bubble_down(heap, pos_alvo);
+        bubble_up(heap, pos_alvo); 
+    }
+    
+    return true;
+}
+
+int quantidade_elementos(fila_prioridade* heap){
+    return heap->qtd_elementos;
 }

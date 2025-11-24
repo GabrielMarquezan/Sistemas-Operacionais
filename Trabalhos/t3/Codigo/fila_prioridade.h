@@ -12,5 +12,7 @@ void fila_destroi(fila_prioridade* heap);
 bool inserir(fila_prioridade* heap, processo_t* proc);
 processo_t* remover(fila_prioridade* heap);
 processo_t* topo(fila_prioridade* heap);
+int quantidade_elementos(fila_prioridade* heap);
+bool fila_remove_proc_pid(fila_prioridade* heap, processo_t* proc_alvo);
 
 #endif
