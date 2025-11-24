@@ -150,7 +150,7 @@ bool mata_processo(so_t* self, int pid) {
     if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) {
       console_printf("SO: removendo processo da fila de prontos");
       fila_rr_remove_pid(self->fila_proc_prontos, proc->pid);
-    }
+    } else fila_remove_proc_pid(self->fila_proc_prioridade, proc);
 
     if (proc == self->processoCorrente) self->processoCorrente = NULL;
     if(proc->pid < MAX_PROC){
@@ -631,10 +631,13 @@ static void so_trata_reset(so_t *self)
   // coloca o programa init na memória
   int enderFim = -1;
   ender = so_carrega_programa(self, "init.maq", &enderFim, &tamanho);
-  if (ender != 100) {
-    console_printf("SO: problema na carga do programa inicial");
-    self->erro_interno = true;
-    return;
+  // if (ender != 100) {
+  //   console_printf("SO: problema na carga do programa inicial");
+  //   self->erro_interno = true;
+  //   return;
+  // }
+  for (int i = 0; i < (ender - enderFim) / TAM_PAGINA + 1; i++) {
+    tabpag_define_quadro(init->tabpag, (ender / TAM_PAGINA) + i, ender);
   }
   init->estado_cpu.regPC = ender;
   init->pIniMemoria = ender;
@@ -761,6 +764,7 @@ static void so_trata_irq_err_cpu(so_t *self)
     int end_err = self->processoCorrente->estado_cpu.regComplemento;
     
     if(end_err < 0 || end_err > self->processoCorrente->tamanho) {
+      console_printf("O processo PID=%d morreu por tentar acessar endereço que não faz parte da sua memória END=%d.", self->processoCorrente->pid, end_err);
         self->processoCorrente->estado_cpu.regA = 0;
         so_chamada_mata_proc(self);
     }
@@ -934,7 +938,9 @@ static void so_chamada_cria_proc(so_t *self) {
 
       if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, novo_proc); // Insere no fim da fila do escalonador
       else inserir(self->fila_proc_prioridade, novo_proc);
-
+      for (int i = 0; i < (ender_carga - enderFim) / TAM_PAGINA + 1; i++) {
+        tabpag_define_quadro(novo_proc->tabpag, (ender_carga / TAM_PAGINA) + i, ender_carga);
+      }
       
       return;
     } else {
@@ -1015,6 +1021,7 @@ static void so_chamada_espera_proc(so_t *self)
 
 static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim, int* tamanho)
 {
+  console_printf("Carregando programa: %s", nome_do_executavel);
   programa_t *prog = prog_cria(nome_do_executavel);
   if (prog == NULL) {
     console_printf("Erro na leitura do programa '%s'\n", nome_do_executavel);
@@ -1028,11 +1035,14 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
   
   mem_t *memoria_destino;
   char disco_ou_mem[] = "memoria";
+  console_printf("Endereço inicio = %d", end_virt_ini);
+  console_printf("Endereço fim = %d", end_virt_fim);
+  
 
   if(strcmp(nome_do_executavel, "trata_int.maq") < 0) {
     memoria_destino = self->disco;
     strcpy(disco_ou_mem, "disco");
-    
+    console_printf("Endereço livre = %d", self->proximo_end_livre_disco);
     end_fisico_carga = self->proximo_end_livre_disco;
     self->proximo_end_livre_disco += *tamanho;
   }
@@ -1040,6 +1050,7 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
     memoria_destino = self->mem;
     end_fisico_carga = end_virt_ini; 
   }
+  int deslocamento = (end_virt_fim - end_virt_ini) % TAM_PAGINA;
 
   for (int end_virt = end_virt_ini; end_virt < end_virt_fim; end_virt++) {
     int deslocamento = end_virt - end_virt_ini;
@@ -1050,9 +1061,10 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
       return -1;
     }
   }
+  
 
   prog_destroi(prog);
-  console_printf("SO: carga de '%s' em %s end_fisico: %d", nome_do_executavel, disco_ou_mem, end_fisico_carga);
+  console_printf("SO: carga de '%s' em %s end_fisico: %d, deslocamento: %d ", nome_do_executavel, disco_ou_mem, end_fisico_carga, deslocamento);
 
   if (enderFim != NULL) *enderFim = end_virt_fim;
  

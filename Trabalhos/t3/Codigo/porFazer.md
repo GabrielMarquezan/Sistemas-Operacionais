@@ -1,0 +1,3 @@
+- [ ] Proteção de memória
+- [ ] Paginação
+- [X] Algoritmo de substituição
