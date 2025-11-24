@@ -58,7 +58,9 @@ typedef struct processo_t {
     int num_page_faults;
     int tamanho;
     int num_paginas;
-    int* envelhecimento_paginas;;
+    int* envelhecimento_paginas;
+    int tempo_desbloqueio;
+    bool esperando_disco;
 
 } processo_t;
 

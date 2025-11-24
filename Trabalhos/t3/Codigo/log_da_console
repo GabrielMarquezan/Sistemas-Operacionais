@@ -1,6 +1,7 @@
 INICIALIZANDO SISTEMA OPERACIONAL
 SISTEMA OPERACIONAL INICIALIZADO COM SUCESSO
-CMD: 'c'
+CMD: '1'
+CMD: '1'
 SO: recebi IRQ 0 (Reset)
 Carregando programa: trata_int.maq
 Endereço inicio = 60
@@ -13,38 +14,5 @@ Endereço livre = 0
 SO: carga de 'init.maq' em disco end_fisico: 0, deslocamento: 0 
 SO: Processo com PID 1 inserido na posição 0 da tabela
 ESCALONANDO: PID=1 
-SO: recebi IRQ 1 (Erro de execução)
-ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
-O processo PID=1 morreu por tentar acessar endereço que não faz parte da sua memória END=1431889376.
-QUERO MORRER PID=1
-SO: matando processo com PID = 1
-SO: realizando morte em cascata
-SO: removendo processo da fila de prontos
-SO: processo com PID = 1 morto com sucesso
-SO: Fila vazia
-Numero de processos criados: 1
-Tempo total de execucao (instrucoes): 8
-Tempo ocioso total: 0
-Numero de interrupcoes de relogio: 0
-Numero de interrupcoes de chamada de sistema: 0
-Numero de interrupcoes de erro de cpu: 1
-Numero de interrupcoes de reset: 1
-Numero de interrupcoes desconhecidas: 0
-Numero de preempcoes: 0
-
-
-////////////////////////////////////////////////////////////////////////////
-                             PROCESSO COM PID 1                          
-////////////////////////////////////////////////////////////////////////////
-
-
-Tempo de bloqueio do processo com PID 1: 0
-Tempo de prontidao do processo com PID 1: 1
-Tempo de execucao do processo com PID 1: 7
-Tempo de retorno do processo com PID 1: 7
-Tempo medio de resposta do processo com PID 1: 0
-Numero de preempcoes do processo com PID 1: 0
-Numero de bloqueios do processo com PID 1: 0
-Numero de prontidoes do processo com PID 1: 0
-Numero de execucoes do processo com PID 1: 1
+CMD: 'f'
 Fim da execução.

@@ -48,6 +48,8 @@ processo_t* cria_processo(processo_t* processoPai, int tempo_criacao,  int end_c
     proc->tamanho = tamanho;
     proc->num_paginas = ceil(tamanho/TAM_PAGINA);
     proc->envelhecimento_paginas = calloc(proc->num_paginas, sizeof(int));
+    proc->tempo_desbloqueio = 0;
+    proc->esperando_disco = false;
 
     return proc;
 }

@@ -198,6 +198,25 @@ static processo_t* busca_processo_leitura_pendente(so_t* self, int terminal){
   return NULL;
 }
 
+static void so_desbloqueia(so_t *self, processo_t *proc) {
+  proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
+  proc->estadoCorrente = PRONTO;
+  proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
+  alterar_tempo_pronto = true;
+  proc->contadorPronto++;
+}
+
+static void trata_processo_esperando_disco(so_t* self) {
+  for(int i = 0; i < MAX_PROC; i++) {
+    if(self->processosCPU[i] == NULL) continue;
+    if(self->processosCPU[i]->esperando_disco) {
+      if(self->processosCPU[i]->tempo_desbloqueio <= self->cpu->relogio->agora) {
+        so_desbloqueia(self, self->processosCPU[i]);
+      }
+    }
+  }
+}
+
 // insere um novo processo na tabela de processos
 bool so_insere_processo(so_t* self, processo_t* proc) {
   if (proc == NULL){
@@ -400,6 +419,8 @@ static void so_trata_pendencias(so_t *self)
   // - contabilidades
   // - etc
   //checa se algum terminal que foi pedido está livre => se algum terminal marcado como 1 ficou livre
+  trata_processo_esperando_disco(self);
+  
   for (int i = 0; i < 4; i++) {
     processo_t* proc = NULL;
     int leitura = 0, escrita = 0;
@@ -413,16 +434,11 @@ static void so_trata_pendencias(so_t *self)
         proc = busca_processo_leitura_pendente(self, i*4);
         if (proc != NULL) {
           le_dado_teclado(self, proc);
-          proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
-          proc->estadoCorrente = PRONTO;
-          proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
-          alterar_tempo_pronto = true;
-          proc->contadorPronto++;
+          so_desbloqueia(self, proc);
           proc->esperando_leitura = false;
-
           if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
           else inserir(self->fila_proc_prioridade, proc);
-          
+
           if(self->todos_proc_bloqueados == true) {
             self->todos_proc_bloqueados = false;
             self->tempo_total_todos_bloqueados += self->cpu->relogio->agora - self->ultimo_tempo_todos_bloqueados;
@@ -434,16 +450,12 @@ static void so_trata_pendencias(so_t *self)
         if (proc != NULL) {
           //console_printf("AMIGINHOS!!! PID=%d",proc->pid);
           escreve_dado_tela(self, proc);
-          proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
-          proc->estadoCorrente = PRONTO;
-          proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
-          alterar_tempo_pronto = true;
-          proc->contadorPronto++;
+          so_desbloqueia(self, proc);
           proc->esperando_escrita = false;
 
           if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
           else inserir(self->fila_proc_prioridade, proc);
-        
+          
           if(self->todos_proc_bloqueados == true) {
             self->todos_proc_bloqueados = false;
             self->tempo_total_todos_bloqueados += self->cpu->relogio->agora - self->ultimo_tempo_todos_bloqueados;
@@ -636,9 +648,11 @@ static void so_trata_reset(so_t *self)
   //   self->erro_interno = true;
   //   return;
   // }
-  for (int i = 0; i < (ender - enderFim) / TAM_PAGINA + 1; i++) {
-    tabpag_define_quadro(init->tabpag, (ender / TAM_PAGINA) + i, ender);
-  }
+  
+  //for (int i = 0; i < (ender - enderFim) / TAM_PAGINA + 1; i++) {
+  // tabpag_define_quadro(init->tabpag, (ender / TAM_PAGINA) + i, ender);
+  //}
+
   init->estado_cpu.regPC = ender;
   init->pIniMemoria = ender;
   init->pFimMemoria = enderFim;
@@ -656,8 +670,9 @@ static int busca_quadro_livre_mem(so_t *self) {
 }
 
 static int busca_pagina_mais_velha(processo_t *proc) {
-  int pagina_mais_velha = -1;
+  int pagina_mais_velha = 1000000;
   int aux = -1;
+  int indice = -1;
   for(int i = 0; i < proc->num_paginas; i++) {
     if(tabpag_traduz(proc->tabpag, i, &aux) == ERR_OK) {
       if(pagina_mais_velha > proc->envelhecimento_paginas[i]) {
@@ -665,7 +680,7 @@ static int busca_pagina_mais_velha(processo_t *proc) {
       }
     }
   }
-  return pagina_mais_velha;
+  return indice;
 }
 
 
@@ -724,6 +739,7 @@ static void trata_page_fault(so_t *self) {
     mem_escreve(self->mem, end_mem + i, vai_pra_mem[i]);
   }
   tabpag_define_quadro(self->processoCorrente->tabpag, pagina_faltante, quadro_livre);
+  self->processoCorrente->tempo_desbloqueio = self->cpu->relogio->agora + TEMPO_DISCO;
   so_bloqueia_processo(self);
 }
 
@@ -960,11 +976,7 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
     processo_t* proc = self->processosCPU[i];
     
     if((proc != NULL && proc->estadoCorrente == BLOQUEADO) && proc->esperando_processo == pid_morto){
-      proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
-      proc->estadoCorrente = PRONTO;
-      proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
-      alterar_tempo_pronto = true;
-      proc->contadorPronto++;
+      so_desbloqueia(self, proc);
       proc->esperando_processo = 0;
       proc->estado_cpu.regA = 0;
 
