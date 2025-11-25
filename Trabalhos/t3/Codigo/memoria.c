@@ -17,7 +17,7 @@ mem_t *mem_cria(int tam)
   self = malloc(sizeof(*self));
   assert(self != NULL);
 
-  self->conteudo = malloc(tam * sizeof(*(self->conteudo)));
+  self->conteudo = calloc(tam, sizeof(*(self->conteudo)));
   assert(self->conteudo != NULL);
 
   self->tam = tam;

@@ -82,7 +82,7 @@ static void inicializa_rom(mem_t *mem)
 }
 
 static void inicializa_disco(mem_t *disco) {
-  for(int i = 0; i < disco->tam; i++) disco->conteudo[i] = -1;
+  for(int i = 0; i < disco->tam; i++) disco->conteudo[i] = 0;
 }
 
 static void cria_hardware(hardware_t *hw)

@@ -15,7 +15,7 @@
 #define CAP_MAX_HEAP 100
 #define NENHUM_PROCESSO -1
 #define ALGUM_PROCESSO 0
-#define TEMPO_DISCO 100
+#define TEMPO_DISCO 3
 
 static bool alterar_tempo_pronto = true;
 
@@ -67,9 +67,9 @@ static void so_chamada_mata_proc(so_t *self);
 
 // funções auxiliares
 // carrega o programa contido no arquivo na memória do processador; retorna end. inicial
-static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* endFim, int *tamanho);
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* endFim, int *tamanho, int *end_disco);
 // copia para str da memória do processador, até copiar um 0 (retorna true) ou tam bytes
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc);
+static bool copia_str_da_mem(int tam, char str[tam], so_t *self, int ender);
 
 static void so_recalcula_prioridade(processo_t* proc) {
   if (proc == NULL) return;
@@ -202,16 +202,26 @@ static void so_desbloqueia(so_t *self, processo_t *proc) {
   proc->tempo_bloqueado += self->cpu->relogio->agora - proc->ultima_entrada_em_bloqueio;
   proc->estadoCorrente = PRONTO;
   proc->ultima_entrada_em_prontidao = self->cpu->relogio->agora;
-  alterar_tempo_pronto = true;
+  
+  if (ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
+  else inserir(self->fila_proc_prioridade, proc);
+  
   proc->contadorPronto++;
+  if (self->todos_proc_bloqueados) {
+    self->todos_proc_bloqueados = false;
+    self->tempo_total_todos_bloqueados += self->cpu->relogio->agora - self->ultimo_tempo_todos_bloqueados;
+  }
 }
 
 static void trata_processo_esperando_disco(so_t* self) {
   for(int i = 0; i < MAX_PROC; i++) {
-    if(self->processosCPU[i] == NULL) continue;
-    if(self->processosCPU[i]->esperando_disco) {
-      if(self->processosCPU[i]->tempo_desbloqueio <= self->cpu->relogio->agora) {
-        so_desbloqueia(self, self->processosCPU[i]);
+    processo_t* proc = self->processosCPU[i];
+    
+    if(proc != NULL && proc->esperando_disco) {
+      if(proc->tempo_desbloqueio <= self->cpu->relogio->agora && proc->tempo_desbloqueio > 0) {
+        proc->esperando_disco = false; 
+        proc->tempo_desbloqueio = 0;
+        so_desbloqueia(self, proc);
       }
     }
   }
@@ -316,9 +326,13 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mem_t *disco, mmu_t *mmu,
     self->tempo_retorno_processos[i] = 0;
   }
 
-  self->total_frames = ceil(mem->tam / TAM_PAGINA);
+  self->total_frames = (mem->tam + TAM_PAGINA - 1) / TAM_PAGINA;
   self->frames_livres = malloc(self->total_frames * sizeof(bool));
-  for(int i = 0; i < self->total_frames; i++) self->frames_livres[i] = true;
+
+  int frames_reservados = (CPU_END_FIM_PROT + TAM_PAGINA) / TAM_PAGINA;
+
+  for(int i = 0; i < frames_reservados; i++) self->frames_livres[i] = false;
+  for(int i = frames_reservados; i < self->total_frames; i++) self->frames_livres[i] = true;
   self->tempo_disco_livre = 0;
   self->proximo_end_livre_disco = 0;
 
@@ -405,6 +419,7 @@ static void so_salva_estado_da_cpu(so_t *self)
   if (mem_le(self->mem, CPU_END_A, &self->processoCorrente->estado_cpu.regA) != ERR_OK
       || mem_le(self->mem, CPU_END_PC, &self->processoCorrente->estado_cpu.regPC) != ERR_OK
       || mem_le(self->mem, CPU_END_erro, &self->processoCorrente->estado_cpu.regERRO) != ERR_OK
+      || mem_le(self->mem, CPU_END_complemento, &self->processoCorrente->estado_cpu.regComplemento) != ERR_OK
       || mem_le(self->mem, 59, &self->processoCorrente->estado_cpu.regX) != ERR_OK) {
     console_printf("SO: erro na leitura dos registradores");
     self->erro_interno = true;
@@ -419,7 +434,6 @@ static void so_trata_pendencias(so_t *self)
   // - contabilidades
   // - etc
   //checa se algum terminal que foi pedido está livre => se algum terminal marcado como 1 ficou livre
-  trata_processo_esperando_disco(self);
   
   for (int i = 0; i < 4; i++) {
     processo_t* proc = NULL;
@@ -436,8 +450,6 @@ static void so_trata_pendencias(so_t *self)
           le_dado_teclado(self, proc);
           so_desbloqueia(self, proc);
           proc->esperando_leitura = false;
-          if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
-          else inserir(self->fila_proc_prioridade, proc);
 
           if(self->todos_proc_bloqueados == true) {
             self->todos_proc_bloqueados = false;
@@ -453,9 +465,6 @@ static void so_trata_pendencias(so_t *self)
           so_desbloqueia(self, proc);
           proc->esperando_escrita = false;
 
-          if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc);
-          else inserir(self->fila_proc_prioridade, proc);
-          
           if(self->todos_proc_bloqueados == true) {
             self->todos_proc_bloqueados = false;
             self->tempo_total_todos_bloqueados += self->cpu->relogio->agora - self->ultimo_tempo_todos_bloqueados;
@@ -466,6 +475,8 @@ static void so_trata_pendencias(so_t *self)
       self->terminais_ocupados[i] = !(escrita && leitura);
     }
   }
+
+  trata_processo_esperando_disco(self);
 }
 
 static bool so_verifica_tabela_vazia(so_t* self) {
@@ -558,6 +569,7 @@ static int so_despacha(so_t *self)
   if (mem_escreve(self->mem, CPU_END_A, self->processoCorrente->estado_cpu.regA) != ERR_OK
       || mem_escreve(self->mem, CPU_END_PC, self->processoCorrente->estado_cpu.regPC) != ERR_OK
       || mem_escreve(self->mem, CPU_END_erro, self->processoCorrente->estado_cpu.regERRO) != ERR_OK
+      || mem_escreve(self->mem, CPU_END_complemento, self->processoCorrente->estado_cpu.regComplemento) != ERR_OK
       || mem_escreve(self->mem, 59, self->processoCorrente->estado_cpu.regX) != ERR_OK) {
     console_printf("SO: erro na escrita dos registradores");
     self->erro_interno = true;
@@ -607,62 +619,45 @@ static void so_trata_irq(so_t *self, int irq)
 // chamada uma única vez, quando a CPU inicializa
 static void so_trata_reset(so_t *self)
 {
-  // coloca o tratador de interrupção na memória
-  // quando a CPU aceita uma interrupção, passa para modo supervisor,
-  //   salva seu estado à partir do endereço CPU_END_PC, e desvia para o
-  //   endereço CPU_END_TRATADOR
-  // colocamos no endereço CPU_END_TRATADOR o programa de tratamento
-  //   de interrupção (escrito em asm). esse programa deve conter a
-  //   instrução CHAMAC, que vai chamar so_trata_interrupcao (como
-  //   foi definido na inicialização do SO)
-  int tamanho = 0;
-  int ender = so_carrega_programa(self, "trata_int.maq", NULL, &tamanho);
-  if (ender != CPU_END_TRATADOR) {
+  int tam_trata = 0;
+  int temp = -1;
+  int ender_trata = so_carrega_programa(self, "trata_int.maq", NULL, &tam_trata, &temp);
+  if (ender_trata != CPU_END_TRATADOR) {
     console_printf("SO: problema na carga do programa de tratamento de interrupção");
     self->erro_interno = true;
   }
 
-  // programa o relógio para gerar uma interrupção após INTERVALO_INTERRUPCAO
   if (es_escreve(self->es, D_RELOGIO_TIMER, INTERVALO_INTERRUPCAO) != ERR_OK) {
     console_printf("SO: problema na programação do timer");
     self->erro_interno = true;
   }
 
-  // t2: deveria criar um processo para o init, e inicializar o estado do
-  //   processador para esse processo com os registradores zerados, exceto
-  //   o PC e o modo.
-  // como não tem suporte a processos, está carregando os valores dos
-  //   registradores diretamente no estado da CPU mantido pelo SO; daí vai
-  //   copiar para o início da memória pelo despachante, de onde a CPU vai
-  //   carregar para os seus registradores quando executar a instrução RETI
-  //   em bios.asm (que é onde está a instrução CHAMAC que causou a execução
-  //   deste código
-
-  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora, ender, tamanho);
-  self->qtd_processos_criados++;
-  // coloca o programa init na memória
-  int enderFim = -1;
-  ender = so_carrega_programa(self, "init.maq", &enderFim, &tamanho);
-  // if (ender != 100) {
-  //   console_printf("SO: problema na carga do programa inicial");
-  //   self->erro_interno = true;
-  //   return;
-  // }
+  int tam_init = 0;
+  int end_disco_ini = -1;
+  int end_f_init = 0;
+  int end_carga_init = so_carrega_programa(self, "init.maq", &end_f_init, &tam_init, &end_disco_ini);
   
-  //for (int i = 0; i < (ender - enderFim) / TAM_PAGINA + 1; i++) {
-  // tabpag_define_quadro(init->tabpag, (ender / TAM_PAGINA) + i, ender);
-  //}
+  if (end_carga_init < 0) {
+    console_printf("SO: problema na carga do programa inicial");
+    self->erro_interno = true;
+    return;
+  }
 
-  init->estado_cpu.regPC = ender;
-  init->pIniMemoria = ender;
-  init->pFimMemoria = enderFim;
+  processo_t* init = cria_processo(NULL, self->cpu->relogio->agora, end_carga_init, tam_init);
+  self->qtd_processos_criados++;
+
+  init->estado_cpu.regPC = end_disco_ini;
+  init->pIniMemoria = end_disco_ini;
+  init->pFimMemoria = end_disco_ini + tam_init;
+
   if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, init);
   else inserir(self->fila_proc_prioridade, init);
+      
   so_insere_processo(self, init);
 }
 
 static int busca_quadro_livre_mem(so_t *self) {
-  int num_quadros = ceil(self->mem->tam / TAM_PAGINA);
+  int num_quadros = (self->mem->tam + TAM_PAGINA - 1) / TAM_PAGINA;
   for(int i = 0; i < num_quadros; i++){
     if(self->frames_livres[i]) return i;
   }
@@ -675,8 +670,9 @@ static int busca_pagina_mais_velha(processo_t *proc) {
   int indice = -1;
   for(int i = 0; i < proc->num_paginas; i++) {
     if(tabpag_traduz(proc->tabpag, i, &aux) == ERR_OK) {
-      if(pagina_mais_velha > proc->envelhecimento_paginas[i]) {
+      if(indice == -1 || pagina_mais_velha > proc->envelhecimento_paginas[i]) {
         pagina_mais_velha = proc->envelhecimento_paginas[i];
+        indice = i;
       }
     }
   }
@@ -705,6 +701,7 @@ static void trata_page_fault(so_t *self) {
   int quadro_livre = busca_quadro_livre_mem(self);
   int end_faltante = self->processoCorrente->estado_cpu.regComplemento;
   int pagina_faltante = end_faltante / TAM_PAGINA; 
+  console_printf("DEBUG: Tratando Page Fault. Pagina: %d -> Quadro: %d", pagina_faltante, quadro_livre);
   int end_disco = pagina_faltante * TAM_PAGINA + self->processoCorrente->end_disco;
   int vai_pra_mem[TAM_PAGINA];
   int end_mem;
@@ -713,6 +710,8 @@ static void trata_page_fault(so_t *self) {
   for(int i = 0; i < TAM_PAGINA; i++) {
     mem_le(self->disco, i + end_disco, &vai_pra_mem[i]);
   }
+
+  if(quadro_livre != -1) self->frames_livres[quadro_livre] = false;
 
   if(quadro_livre < 0) {
     int pagina_vitima = busca_pagina_mais_velha(self->processoCorrente);
@@ -739,6 +738,8 @@ static void trata_page_fault(so_t *self) {
     mem_escreve(self->mem, end_mem + i, vai_pra_mem[i]);
   }
   tabpag_define_quadro(self->processoCorrente->tabpag, pagina_faltante, quadro_livre);
+  self->processoCorrente->estado_cpu.regERRO = ERR_OK;
+  self->processoCorrente->esperando_disco = true;
   self->processoCorrente->tempo_desbloqueio = self->cpu->relogio->agora + TEMPO_DISCO;
   so_bloqueia_processo(self);
 }
@@ -778,6 +779,7 @@ static void so_trata_irq_err_cpu(so_t *self)
   }
   else if(err == ERR_PAG_AUSENTE) {
     int end_err = self->processoCorrente->estado_cpu.regComplemento;
+    console_printf("DEBUG: Falta de Pagina! Endereco Virtual de Falha: %d", end_err);
     
     if(end_err < 0 || end_err > self->processoCorrente->tamanho) {
       console_printf("O processo PID=%d morreu por tentar acessar endereço que não faz parte da sua memória END=%d.", self->processoCorrente->pid, end_err);
@@ -920,18 +922,25 @@ static void so_chamada_escr(so_t *self)
 
 
 static void so_chamada_cria_proc(so_t *self) {
+  if(self->processoCorrente == NULL) return;
+  processo_t *proc_chamador = self->processoCorrente;
+
   int tamanho = 0;
-  int ender_proc;
-  ender_proc = self->processoCorrente->estado_cpu.regX; // em X está o endereço onde está o nome do arquivo
+  int ender_proc = proc_chamador->estado_cpu.regX; 
   char nome[100];
-  if (copia_str_da_mem(100, nome, self->mem, ender_proc, self->processoCorrente)) {
+
+  if (copia_str_da_mem(100, nome, self, ender_proc)) {
     int enderFim = -1;
-    int ender_carga = so_carrega_programa(self, nome, &enderFim, &tamanho);
-    processo_t* novo_proc = cria_processo(self->processoCorrente, self->cpu->relogio->agora, ender_carga, tamanho);
+    int end_disco_ini = -1;
+    int ender_carga = so_carrega_programa(self, nome, &enderFim, &tamanho, &end_disco_ini);
+    processo_t* novo_proc = cria_processo(proc_chamador, self->cpu->relogio->agora, ender_carga, tamanho);
     if (novo_proc == NULL) {
       console_printf("Erro na criação do processo!");
       return;
     }
+    novo_proc->estado_cpu.regPC = end_disco_ini;
+    novo_proc->pIniMemoria = end_disco_ini;
+    novo_proc->pFimMemoria = end_disco_ini + tamanho;
     console_printf("Processo criado com PID %d e filho do proc com PID %d", novo_proc->pid, novo_proc->parentPID);
     self->qtd_processos_criados++;
     console_printf("ENDER_FIM = %d", enderFim);
@@ -942,31 +951,32 @@ static void so_chamada_cria_proc(so_t *self) {
       // então o processo também morre
       // deveria escrever -1 (se erro) ou o PID do processo criado (se OK) no reg A
       //   do processo que pediu a criação
-      novo_proc->estado_cpu.regPC = ender_carga;
-      novo_proc->pIniMemoria = ender_carga;
-      novo_proc->pFimMemoria = enderFim;
-      self->processoCorrente->estado_cpu.regA = novo_proc->pid;
+      
+      proc_chamador->estado_cpu.regA = novo_proc->pid;
       if (!so_insere_processo(self, novo_proc)) {
         console_printf("IMPOSSIVEL INSERIR NA TABELA. MATANDO PROCESSO");
         mata_processo(self, novo_proc->pid);
-        self->processoCorrente->estado_cpu.regA = -1;
+        proc_chamador->estado_cpu.regA = -1;
       }
 
       if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, novo_proc); // Insere no fim da fila do escalonador
       else inserir(self->fila_proc_prioridade, novo_proc);
-      for (int i = 0; i < (ender_carga - enderFim) / TAM_PAGINA + 1; i++) {
-        tabpag_define_quadro(novo_proc->tabpag, (ender_carga / TAM_PAGINA) + i, ender_carga);
-      }
+      //for (int i = 0; i < (ender_carga - enderFim) / TAM_PAGINA + 1; i++) {
+      //  tabpag_define_quadro(novo_proc->tabpag, (ender_carga / TAM_PAGINA) + i, ender_carga);
+      //}
       
       return;
     } else {
+      if(self->processoCorrente == NULL) return;
+
       console_printf("Ender carga <= 0 ou enderFim != -1");
       mata_processo(self, novo_proc->pid);
-      self->processoCorrente->estado_cpu.regA = -1;
+      proc_chamador->estado_cpu.regA = -1;
     }
   } else {
+    if(self->processoCorrente == NULL) return;
     console_printf("Erro ao copiar string da memoria");
-    self->processoCorrente->estado_cpu.regA = -1;
+    proc_chamador->estado_cpu.regA = -1;
   }
 }
 
@@ -979,9 +989,6 @@ static void so_trata_espera_proc_morrer(so_t* self, int pid_morto) {
       so_desbloqueia(self, proc);
       proc->esperando_processo = 0;
       proc->estado_cpu.regA = 0;
-
-      if(ESCALONADOR_ATIVO == ESC_ROUND_ROBIN) fila_rr_insere_fim(self->fila_proc_prontos, proc); // Insere no fim da fila do escalonador
-      else inserir(self->fila_proc_prioridade, proc);
 
       if(self->todos_proc_bloqueados == true) {
         self->todos_proc_bloqueados = false;
@@ -1031,56 +1038,52 @@ static void so_chamada_espera_proc(so_t *self)
 // CARGA DE PROGRAMA {{{1
 // ---------------------------------------------------------------------
 
-static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim, int* tamanho)
+static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderFim, int* tamanho, int* end_disco)
 {
-  console_printf("Carregando programa: %s", nome_do_executavel);
   programa_t *prog = prog_cria(nome_do_executavel);
   if (prog == NULL) {
     console_printf("Erro na leitura do programa '%s'\n", nome_do_executavel);
     return -1;
   }
 
-  int end_virt_ini = prog_end_carga(prog);
+  int end_disco_ini = prog_end_carga(prog);
+  if(end_disco != NULL) *end_disco = end_disco_ini;
   *tamanho = prog_tamanho(prog);
-  int end_virt_fim = end_virt_ini + *tamanho;
-  int end_fisico_carga; 
+  int end_disco_fim = end_disco_ini + *tamanho;
+  int end_mem_carga; 
   
   mem_t *memoria_destino;
-  char disco_ou_mem[] = "memoria";
-  console_printf("Endereço inicio = %d", end_virt_ini);
-  console_printf("Endereço fim = %d", end_virt_fim);
-  
+  char local_carga[10];
 
-  if(strcmp(nome_do_executavel, "trata_int.maq") < 0) {
+  if(strcmp(nome_do_executavel, "trata_int.maq") != 0) {
     memoria_destino = self->disco;
-    strcpy(disco_ou_mem, "disco");
-    console_printf("Endereço livre = %d", self->proximo_end_livre_disco);
-    end_fisico_carga = self->proximo_end_livre_disco;
-    self->proximo_end_livre_disco += *tamanho;
+    end_mem_carga = self->proximo_end_livre_disco;
+    self->proximo_end_livre_disco += *tamanho; 
+    strcpy(local_carga, "disco");
   }
   else {
     memoria_destino = self->mem;
-    end_fisico_carga = end_virt_ini; 
+    end_mem_carga = end_disco_ini;
+    strcpy(local_carga, "memoria");
   }
-  int deslocamento = (end_virt_fim - end_virt_ini) % TAM_PAGINA;
 
-  for (int end_virt = end_virt_ini; end_virt < end_virt_fim; end_virt++) {
-    int deslocamento = end_virt - end_virt_ini;
-    int dado = prog_dado(prog, end_virt);
-    if (mem_escreve(memoria_destino, end_fisico_carga + deslocamento, dado) != ERR_OK) {
-      console_printf("Erro na carga do %s, endereco %d\n", disco_ou_mem, end_virt);
+  for (int end = end_disco_ini; end < end_disco_fim; end++) {
+    int deslocamento = end - end_disco_ini;
+    int dado = prog_dado(prog, end);
+    // Escreve na memória correta (self->mem ou self->disco)
+    if (mem_escreve(memoria_destino, end_mem_carga + deslocamento, dado) != ERR_OK) {
+      console_printf("Erro na carga do %s, endereco %d\n", local_carga, end);
       prog_destroi(prog);
       return -1;
     }
   }
-  
 
   prog_destroi(prog);
-  console_printf("SO: carga de '%s' em %s end_fisico: %d, deslocamento: %d ", nome_do_executavel, disco_ou_mem, end_fisico_carga, deslocamento);
+  console_printf("SO: carga de '%s' em %s end_fisico: %d", nome_do_executavel, local_carga, end_mem_carga);
 
-  if (enderFim != NULL) *enderFim = end_virt_fim;
+  if (enderFim != NULL) *enderFim = end_disco_fim;
  
-  return end_fisico_carga;
+  return end_mem_carga;
 }
 
 
@@ -1096,33 +1099,31 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
 // retorna false se erro (string maior que vetor, valor não char na memória,
 //   erro de acesso à memória)
 // t2: deveria verificar se a memória pertence ao processo
-static bool copia_str_da_mem(int tam, char str[tam], mem_t *mem, int ender, processo_t* proc)
+static bool copia_str_da_mem(int tam, char str[tam], so_t *self, int ender)
 {
-  console_printf("pIniMemoria = %d, pFimMemoria = %d", proc->pIniMemoria, proc->pFimMemoria);
-  if (ender < proc->pIniMemoria || ender > proc->pFimMemoria) {
-    console_printf("ender < proc->pIniMemoria || ender > proc->pFimMemoria");
-    return false;
-  }
-  if (tam > proc->pFimMemoria - proc->pIniMemoria) {
-    console_printf("tam = %d", tam);
-    console_printf("proc->pFimMemoria - proc->pIniMemoria = %d", proc->pFimMemoria - proc->pIniMemoria);
-    console_printf("String maior do que a memoria disponivel para o processo");
-    return false;
-  }
-  for (int indice_str = 0; indice_str < tam; indice_str++) {
-    int caractere;
-    if (mem_le(mem, ender + indice_str, &caractere) != ERR_OK) {
-      return false;
+  processo_t *proc = self->processoCorrente;
+  if(ender < 0 || ender >= proc->tamanho) return false;
+
+  for(int i = 0; i < tam; i++) {
+    int end_virtual = ender + i;
+    int caractere = ' ';
+
+    if(mmu_le(self->mmu, end_virtual, &caractere, usuario) != ERR_OK) {
+      proc->estado_cpu.regComplemento = end_virtual;
+        
+      trata_page_fault(self);
+        
+      if(self->processoCorrente == NULL) {
+        proc->estado_cpu.regPC--; 
+        return false;
+      }
+        
+      if(mmu_le(self->mmu, end_virtual, &caractere, usuario) != ERR_OK) return false;
     }
-    if (caractere < 0 || caractere > 255) {
-      return false;
-    }
-    str[indice_str] = caractere;
-    if (caractere == 0) {
-      return true;
-    }
+
+    str[i] = caractere;
+    if(caractere == 0) return true;
   }
-  // estourou o tamanho de str
   return false;
 }
 

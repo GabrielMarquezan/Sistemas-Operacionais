@@ -1,18 +1,2995 @@
 INICIALIZANDO SISTEMA OPERACIONAL
 SISTEMA OPERACIONAL INICIALIZADO COM SUCESSO
-CMD: '1'
-CMD: '1'
+CMD: 'c'
 SO: recebi IRQ 0 (Reset)
-Carregando programa: trata_int.maq
-Endereço inicio = 60
-Endereço fim = 72
-SO: carga de 'trata_int.maq' em memoria end_fisico: 60, deslocamento: 2 
-Carregando programa: init.maq
-Endereço inicio = 0
-Endereço fim = 170
-Endereço livre = 0
-SO: carga de 'init.maq' em disco end_fisico: 0, deslocamento: 0 
+SO: carga de 'trata_int.maq' em memoria end_fisico: 60
+SO: carga de 'init.maq' em disco end_fisico: 0
 SO: Processo com PID 1 inserido na posição 0 da tabela
 ESCALONANDO: PID=1 
-CMD: 'f'
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 0
+DEBUG: Tratando Page Fault. Pagina: 0 -> Quadro: 10
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 143
+DEBUG: Tratando Page Fault. Pagina: 14 -> Quadro: 11
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 66
+DEBUG: Tratando Page Fault. Pagina: 6 -> Quadro: 12
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 150
+DEBUG: Tratando Page Fault. Pagina: 15 -> Quadro: 13
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 169
+DEBUG: Tratando Page Fault. Pagina: 16 -> Quadro: 14
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 70
+DEBUG: Tratando Page Fault. Pagina: 7 -> Quadro: 15
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 80
+DEBUG: Tratando Page Fault. Pagina: 8 -> Quadro: 16
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 10
+DEBUG: Tratando Page Fault. Pagina: 1 -> Quadro: 17
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+DEBUG: Tratando Page Fault. Pagina: 9 -> Quadro: 18
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada CRIA PROCESSO!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: carga de 'p1.maq' em disco end_fisico: 170
+Processo criado com PID 2 e filho do proc com PID 1
+ENDER_FIM = 241
+ENDER_CARGA = 170
+SO: Processo com PID 2 inserido na posição 1 da tabela
+Recebi chamada CRIA PROCESSO!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 109
+DEBUG: Tratando Page Fault. Pagina: 10 -> Quadro: 19
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 0
+DEBUG: Tratando Page Fault. Pagina: 0 -> Quadro: 20
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 20
+DEBUG: Tratando Page Fault. Pagina: 2 -> Quadro: 21
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 70
+DEBUG: Tratando Page Fault. Pagina: 7 -> Quadro: 22
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=1 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: carga de 'p2.maq' em disco end_fisico: 411
+Processo criado com PID 3 e filho do proc com PID 1
+ENDER_FIM = 243
+ENDER_CARGA = 411
+SO: Processo com PID 3 inserido na posição 2 da tabela
+Recebi chamada CRIA PROCESSO!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 110
+DEBUG: Tratando Page Fault. Pagina: 11 -> Quadro: 23
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 88
+DEBUG: Tratando Page Fault. Pagina: 8 -> Quadro: 24
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 0
+DEBUG: Tratando Page Fault. Pagina: 0 -> Quadro: 25
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: carga de 'p3.maq' em disco end_fisico: 654
+Processo criado com PID 4 e filho do proc com PID 1
+ENDER_FIM = 241
+ENDER_CARGA = 654
+SO: Processo com PID 4 inserido na posição 3 da tabela
+Recebi chamada CRIA PROCESSO!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 30
+DEBUG: Tratando Page Fault. Pagina: 3 -> Quadro: 26
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 90
+DEBUG: Tratando Page Fault. Pagina: 9 -> Quadro: 27
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 0
+DEBUG: Tratando Page Fault. Pagina: 0 -> Quadro: 28
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 72
+DEBUG: Tratando Page Fault. Pagina: 7 -> Quadro: 29
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Processo PID=1 quer esperar o 2
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESPERA PROCESSO!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 140
+DEBUG: Tratando Page Fault. Pagina: 14 -> Quadro: 30
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 70
+DEBUG: Tratando Page Fault. Pagina: 7 -> Quadro: 31
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 90
+DEBUG: Tratando Page Fault. Pagina: 9 -> Quadro: 32
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 153
+DEBUG: Tratando Page Fault. Pagina: 15 -> Quadro: 33
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 88
+DEBUG: Tratando Page Fault. Pagina: 8 -> Quadro: 34
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 142
+DEBUG: Tratando Page Fault. Pagina: 14 -> Quadro: 35
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 166
+DEBUG: Tratando Page Fault. Pagina: 16 -> Quadro: 36
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 90
+DEBUG: Tratando Page Fault. Pagina: 9 -> Quadro: 37
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 155
+DEBUG: Tratando Page Fault. Pagina: 15 -> Quadro: 38
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 10
+DEBUG: Tratando Page Fault. Pagina: 1 -> Quadro: 39
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 140
+DEBUG: Tratando Page Fault. Pagina: 14 -> Quadro: 40
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 168
+DEBUG: Tratando Page Fault. Pagina: 16 -> Quadro: 41
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 20
+DEBUG: Tratando Page Fault. Pagina: 2 -> Quadro: 42
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 153
+DEBUG: Tratando Page Fault. Pagina: 15 -> Quadro: 43
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 10
+DEBUG: Tratando Page Fault. Pagina: 1 -> Quadro: 44
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 30
+DEBUG: Tratando Page Fault. Pagina: 3 -> Quadro: 45
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 166
+DEBUG: Tratando Page Fault. Pagina: 16 -> Quadro: 46
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 20
+DEBUG: Tratando Page Fault. Pagina: 2 -> Quadro: 47
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 40
+DEBUG: Tratando Page Fault. Pagina: 4 -> Quadro: 48
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 10
+DEBUG: Tratando Page Fault. Pagina: 1 -> Quadro: 49
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 30
+DEBUG: Tratando Page Fault. Pagina: 3 -> Quadro: 50
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 50
+DEBUG: Tratando Page Fault. Pagina: 5 -> Quadro: 51
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 20
+DEBUG: Tratando Page Fault. Pagina: 2 -> Quadro: 52
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 40
+DEBUG: Tratando Page Fault. Pagina: 4 -> Quadro: 53
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 60
+DEBUG: Tratando Page Fault. Pagina: 6 -> Quadro: 54
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 30
+DEBUG: Tratando Page Fault. Pagina: 3 -> Quadro: 55
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 50
+DEBUG: Tratando Page Fault. Pagina: 5 -> Quadro: 56
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 237
+DEBUG: Tratando Page Fault. Pagina: 23 -> Quadro: 57
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 40
+DEBUG: Tratando Page Fault. Pagina: 4 -> Quadro: 58
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 60
+DEBUG: Tratando Page Fault. Pagina: 6 -> Quadro: 59
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 170
+DEBUG: Tratando Page Fault. Pagina: 17 -> Quadro: 60
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 50
+DEBUG: Tratando Page Fault. Pagina: 5 -> Quadro: 61
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 170
+DEBUG: Tratando Page Fault. Pagina: 17 -> Quadro: 62
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 187
+DEBUG: Tratando Page Fault. Pagina: 18 -> Quadro: 63
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 60
+DEBUG: Tratando Page Fault. Pagina: 6 -> Quadro: 64
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 239
+DEBUG: Tratando Page Fault. Pagina: 23 -> Quadro: 65
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 190
+DEBUG: Tratando Page Fault. Pagina: 19 -> Quadro: 66
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 237
+DEBUG: Tratando Page Fault. Pagina: 23 -> Quadro: 67
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 189
+DEBUG: Tratando Page Fault. Pagina: 18 -> Quadro: 68
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 200
+DEBUG: Tratando Page Fault. Pagina: 20 -> Quadro: 69
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 170
+DEBUG: Tratando Page Fault. Pagina: 17 -> Quadro: 70
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 190
+DEBUG: Tratando Page Fault. Pagina: 19 -> Quadro: 71
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 240
+DEBUG: Tratando Page Fault. Pagina: 24 -> Quadro: 72
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 187
+DEBUG: Tratando Page Fault. Pagina: 18 -> Quadro: 73
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 240
+DEBUG: Tratando Page Fault. Pagina: 24 -> Quadro: 74
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 210
+DEBUG: Tratando Page Fault. Pagina: 21 -> Quadro: 75
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 190
+DEBUG: Tratando Page Fault. Pagina: 19 -> Quadro: 76
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 201
+DEBUG: Tratando Page Fault. Pagina: 20 -> Quadro: 77
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 220
+DEBUG: Tratando Page Fault. Pagina: 22 -> Quadro: 78
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 200
+DEBUG: Tratando Page Fault. Pagina: 20 -> Quadro: 79
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 210
+DEBUG: Tratando Page Fault. Pagina: 21 -> Quadro: 80
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 100
+DEBUG: Tratando Page Fault. Pagina: 10 -> Quadro: 81
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 240
+DEBUG: Tratando Page Fault. Pagina: 24 -> Quadro: 82
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 220
+DEBUG: Tratando Page Fault. Pagina: 22 -> Quadro: 83
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 110
+DEBUG: Tratando Page Fault. Pagina: 11 -> Quadro: 84
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 210
+DEBUG: Tratando Page Fault. Pagina: 21 -> Quadro: 85
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 100
+DEBUG: Tratando Page Fault. Pagina: 10 -> Quadro: 86
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 120
+DEBUG: Tratando Page Fault. Pagina: 12 -> Quadro: 87
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 220
+DEBUG: Tratando Page Fault. Pagina: 22 -> Quadro: 88
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 110
+DEBUG: Tratando Page Fault. Pagina: 11 -> Quadro: 89
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=2, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 138
+DEBUG: Tratando Page Fault. Pagina: 13 -> Quadro: 90
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 100
+DEBUG: Tratando Page Fault. Pagina: 10 -> Quadro: 91
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 120
+DEBUG: Tratando Page Fault. Pagina: 12 -> Quadro: 92
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 110
+DEBUG: Tratando Page Fault. Pagina: 11 -> Quadro: 93
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 133
+DEBUG: Tratando Page Fault. Pagina: 13 -> Quadro: 94
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 120
+DEBUG: Tratando Page Fault. Pagina: 12 -> Quadro: 95
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=4, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 138
+DEBUG: Tratando Page Fault. Pagina: 13 -> Quadro: 96
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=2 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+QUERO MORRER PID=2
+SO: matando processo com PID = 2
+SO: realizando morte em cascata
+SO: removendo processo da fila de prontos
+SO: processo com PID = 2 morto com sucesso
+Recebi chamada MATA PROCESSO!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=1 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 40
+DEBUG: Tratando Page Fault. Pagina: 4 -> Quadro: 97
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Processo PID=1 quer esperar o 3
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESPERA PROCESSO!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: buscando processo esperando escrita
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+ESCALONANDO: PID=3 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=3, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 81
+DEBUG: Tratando Page Fault. Pagina: 8 -> Quadro: 98
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=3 
+SO: recebi IRQ 2 (Chamada de sistema)
+QUERO MORRER PID=3
+SO: matando processo com PID = 3
+SO: realizando morte em cascata
+SO: removendo processo da fila de prontos
+SO: processo com PID = 3 morto com sucesso
+Recebi chamada MATA PROCESSO!
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Processo PID=1 quer esperar o 4
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESPERA PROCESSO!
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+Recebi chamada ESCRITA!
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+SO: buscando processo esperando escrita
+ESCALONANDO: PID=4 
+SO: recebi IRQ 2 (Chamada de sistema)
+QUERO MORRER PID=4
+SO: matando processo com PID = 4
+SO: realizando morte em cascata
+SO: removendo processo da fila de prontos
+SO: processo com PID = 4 morto com sucesso
+Recebi chamada MATA PROCESSO!
+ESCALONANDO: PID=1 
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 50
+DEBUG: Tratando Page Fault. Pagina: 5 -> Quadro: 99
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 120
+DEBUG: Tratando Page Fault. Pagina: 12 -> Quadro: 100
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 3 (E/S: relógio)
+SO: recebi IRQ 2 (Chamada de sistema)
+Recebi chamada ESCRITA!
+SO: recebi IRQ 1 (Erro de execução)
+ERRO DE CPU: PID=1, Codigo de Erro=8 (Página ausente)
+DEBUG: Falta de Pagina! Endereco Virtual de Falha: 130
+DEBUG: Tratando Page Fault. Pagina: 13 -> Quadro: 101
+SO: bloqueando processo
+SO: verficando se todos estão bloqueados
+SO: Fila vazia
+SO: recebi IRQ 3 (E/S: relógio)
+ESCALONANDO: PID=1 
+SO: recebi IRQ 2 (Chamada de sistema)
+QUERO MORRER PID=1
+SO: matando processo com PID = 1
+SO: realizando morte em cascata
+SO: removendo processo da fila de prontos
+SO: processo com PID = 1 morto com sucesso
+Recebi chamada MATA PROCESSO!
+SO: Fila vazia
+Numero de processos criados: 4
+Tempo total de execucao (instrucoes): 25083
+Tempo ocioso total: 9778
+Numero de interrupcoes de relogio: 468
+Numero de interrupcoes de chamada de sistema: 461
+Numero de interrupcoes de erro de cpu: 91
+Numero de interrupcoes de reset: 1
+Numero de interrupcoes desconhecidas: 0
+Numero de preempcoes: 0
+
+
+////////////////////////////////////////////////////////////////////////////
+                             PROCESSO COM PID 1                          
+////////////////////////////////////////////////////////////////////////////
+
+
+Tempo de bloqueio do processo com PID 1: 23466
+Tempo de prontidao do processo com PID 1: 1
+Tempo de execucao do processo com PID 1: 243
+Tempo de retorno do processo com PID 1: 25082
+Tempo medio de resposta do processo com PID 1: 83
+Numero de preempcoes do processo com PID 1: 0
+Numero de bloqueios do processo com PID 1: 20
+Numero de prontidoes do processo com PID 1: 20
+Numero de execucoes do processo com PID 1: 21
+
+
+////////////////////////////////////////////////////////////////////////////
+                             PROCESSO COM PID 2                          
+////////////////////////////////////////////////////////////////////////////
+
+
+Tempo de bloqueio do processo com PID 2: 423
+Tempo de prontidao do processo com PID 2: 1
+Tempo de execucao do processo com PID 2: 483
+Tempo de retorno do processo com PID 2: 7689
+Tempo medio de resposta do processo com PID 2: 311
+Numero de preempcoes do processo com PID 2: 0
+Numero de bloqueios do processo com PID 2: 29
+Numero de prontidoes do processo com PID 2: 29
+Numero de execucoes do processo com PID 2: 30
+
+
+////////////////////////////////////////////////////////////////////////////
+                             PROCESSO COM PID 3                          
+////////////////////////////////////////////////////////////////////////////
+
+
+Tempo de bloqueio do processo com PID 3: 1659
+Tempo de prontidao do processo com PID 3: 1
+Tempo de execucao do processo com PID 3: 864
+Tempo de retorno do processo com PID 3: 11578
+Tempo medio de resposta do processo com PID 3: 321
+Numero de preempcoes do processo com PID 3: 0
+Numero de bloqueios do processo com PID 3: 47
+Numero de prontidoes do processo com PID 3: 47
+Numero de execucoes do processo com PID 3: 48
+
+
+////////////////////////////////////////////////////////////////////////////
+                             PROCESSO COM PID 4                          
+////////////////////////////////////////////////////////////////////////////
+
+
+Tempo de bloqueio do processo com PID 4: 9031
+Tempo de prontidao do processo com PID 4: 1
+Tempo de execucao do processo com PID 4: 2878
+Tempo de retorno do processo com PID 4: 23521
+Tempo medio de resposta do processo com PID 4: 202
+Numero de preempcoes do processo com PID 4: 0
+Numero de bloqueios do processo com PID 4: 152
+Numero de prontidoes do processo com PID 4: 152
+Numero de execucoes do processo com PID 4: 153
 Fim da execução.
