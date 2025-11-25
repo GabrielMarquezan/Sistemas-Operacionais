@@ -53,6 +53,8 @@ struct so_t {
   int num_bloqueios_por_processo[MAX_PROC+1];
   int num_prontos_por_processo[MAX_PROC+1];
   int num_execucoes_por_processo[MAX_PROC+1];
+  int tempo_proc_espera_disco[MAX_PROC+1];
+  int num_page_fault_por_processo[MAX_PROC+1];
   int total_frames;
   bool* frames_livres;
   int tempo_disco_livre;
@@ -167,6 +169,8 @@ bool mata_processo(so_t* self, int pid) {
       self->num_bloqueios_por_processo[pid_morto] = proc->contadorBloqueado;
       self->num_prontos_por_processo[pid_morto] = proc->contadorPronto;
       self->num_execucoes_por_processo[pid_morto] = proc->contadorExecutando;
+      self->tempo_proc_espera_disco[pid_morto] = proc->tempo_total_esperando_disco;
+      self->num_page_fault_por_processo[pid_morto] = proc->num_page_faults;
     }
     free(proc);
     console_printf("SO: processo com PID = %d morto com sucesso", pid_morto);
@@ -324,6 +328,8 @@ so_t *so_cria(cpu_t *cpu, mem_t *mem, mem_t *disco, mmu_t *mmu,
     self->tempo_processos_prontos[i] = 0;
     self->tempo_resposta_processos[i] = 0;
     self->tempo_retorno_processos[i] = 0;
+    self->tempo_proc_espera_disco[i] = 0;
+    self->num_page_fault_por_processo[i] = 0;
   }
 
   self->total_frames = (mem->tam + TAM_PAGINA - 1) / TAM_PAGINA;
@@ -541,6 +547,8 @@ static void so_escalona(so_t *self)
           console_printf("Numero de bloqueios do processo com PID %d: %d", i, self->num_bloqueios_por_processo[i]);
           console_printf("Numero de prontidoes do processo com PID %d: %d", i, self->num_prontos_por_processo[i]);
           console_printf("Numero de execucoes do processo com PID %d: %d", i, self->num_execucoes_por_processo[i]);
+          console_printf("Tempo total esperando disco de processo com PID %d: %d", i, self->tempo_proc_espera_disco[i]);
+          console_printf("Numero total de page faults do processo com PID %d: %d", i, self->num_page_fault_por_processo[i]);
         }
       }
     }
@@ -741,6 +749,7 @@ static void trata_page_fault(so_t *self) {
   self->processoCorrente->estado_cpu.regERRO = ERR_OK;
   self->processoCorrente->esperando_disco = true;
   self->processoCorrente->tempo_desbloqueio = self->cpu->relogio->agora + TEMPO_DISCO;
+  self->processoCorrente->tempo_total_esperando_disco += self->cpu->relogio->agora + TEMPO_DISCO;
   so_bloqueia_processo(self);
 }
 
@@ -1059,6 +1068,7 @@ static int so_carrega_programa(so_t *self, char *nome_do_executavel, int* enderF
     memoria_destino = self->disco;
     end_mem_carga = self->proximo_end_livre_disco;
     self->proximo_end_livre_disco += *tamanho; 
+    console_printf("Proximo endereço livre no disco: %d", self->proximo_end_livre_disco);
     strcpy(local_carga, "disco");
   }
   else {

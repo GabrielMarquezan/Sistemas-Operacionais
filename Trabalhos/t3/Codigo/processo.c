@@ -50,6 +50,7 @@ processo_t* cria_processo(processo_t* processoPai, int tempo_criacao,  int end_c
     proc->envelhecimento_paginas = calloc(proc->num_paginas, sizeof(int));
     proc->tempo_desbloqueio = 0;
     proc->esperando_disco = false;
+    proc->tempo_total_esperando_disco = 0;
 
     return proc;
 }

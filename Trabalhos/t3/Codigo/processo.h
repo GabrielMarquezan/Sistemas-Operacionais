@@ -61,6 +61,7 @@ typedef struct processo_t {
     int* envelhecimento_paginas;
     int tempo_desbloqueio;
     bool esperando_disco;
+    int tempo_total_esperando_disco;
 
 } processo_t;
 
